@@ -309,7 +309,7 @@ We evaluate the prototype with a persona-based cognitive walkthrough, adapting t
 
 The framework turns accessibility requirements into explanation behaviour, and checks every adapted explanation against fixed invariants before the user sees it.
 
-&#91;embedded content: proposed framework · Brief 1 chain plus capability dependencies and an invariants check\]
+![Proposed framework: Brief 1 chain plus capability dependencies and an invariants check](research-approach-framework.svg)
 
 Requirements flow down to a profile; each explanation need also creates a capability the system must have. Profile and prediction meet in the adaptation rules. Verification findings feed back into the requirements.
 
