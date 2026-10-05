@@ -6,6 +6,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useAlert } from '../../contexts/AlertContext';
 import { useUserPreferences } from '../../contexts/UserPreferencesContext';
 import { triggerHaptic } from '../../utils/haptic';
+import { palette } from '../../theme/colors';
 
 interface Caregiver {
   id: string;
@@ -17,9 +18,9 @@ interface Caregiver {
 }
 
 const mockCaregivers: Caregiver[] = [
-  { id: '1', name: 'Sarah Johnson', relationship: 'PRIMARY HELPER', phone: '555-0101', initials: 'SJ', color: '#2563eb' },
-  { id: '2', name: 'Michael Chen', relationship: 'FAMILY MEMBER', phone: '555-0102', initials: 'MC', color: '#16a34a' },
-  { id: '3', name: 'Emergency Services', relationship: 'EMERGENCY', phone: '911', initials: '!!', color: '#dc2626' },
+  { id: '1', name: 'Sarah Johnson', relationship: 'PRIMARY HELPER', phone: '555-0101', initials: 'SJ', color: palette.blue[600] },
+  { id: '2', name: 'Michael Chen', relationship: 'FAMILY MEMBER', phone: '555-0102', initials: 'MC', color: palette.green[600] },
+  { id: '3', name: 'Emergency Services', relationship: 'EMERGENCY', phone: '911', initials: '!!', color: palette.red[600] },
 ];
 
 export default function CaregiverScreen() {
@@ -92,7 +93,7 @@ export default function CaregiverScreen() {
           accessibilityLabel={currentAlert ? "Return to emergency alert" : "Go home"}
           accessibilityRole="button"
         >
-          <Ionicons name={currentAlert ? "arrow-back" : "home"} size={22} color="#ffffff" />
+          <Ionicons name={currentAlert ? "arrow-back" : "home"} size={22} color={palette.white} />
           {currentAlert && <Text style={styles.returnHeaderBtnText}>BACK</Text>}
         </TouchableOpacity>
         <View style={styles.headerTextWrapper}>
@@ -105,7 +106,7 @@ export default function CaregiverScreen() {
         {/* W19/W20, D10, D39 – G73/G109/G110: persistent hazard banner while alert is active */}
         {currentAlert && (
           <View style={styles.activeAlertBanner} role="status">
-            <Ionicons name="warning" size={26} color="#991b1b" />
+            <Ionicons name="warning" size={26} color={palette.red[800]} />
             <View style={styles.activeAlertTextWrapper}>
               <Text style={styles.activeAlertTitle}>{currentAlert.type.toUpperCase()} IS STILL ACTIVE</Text>
               <Text style={styles.activeAlertSub}>Tap the return button below to go back to what to do.</Text>
@@ -119,7 +120,7 @@ export default function CaregiverScreen() {
           style={styles.primaryCallBtn}
           accessibilityLabel={`Call ${primary.name}`}
         >
-          <Ionicons name="call" size={36} color="#ffffff" />
+          <Ionicons name="call" size={36} color={palette.white} />
           <View style={styles.primaryCallTextWrapper}>
             <Text style={styles.primaryCallTitle}>CALL {primary.name.split(' ')[0].toUpperCase()}</Text>
             <Text style={styles.primaryCallSub}>{primary.relationship}</Text>
@@ -155,7 +156,7 @@ export default function CaregiverScreen() {
             accessibilityLabel="Alert all helpers now"
             accessibilityRole="button"
           >
-            <Ionicons name="notifications" size={32} color="#ffffff" />
+            <Ionicons name="notifications" size={32} color={palette.white} />
             <Text style={styles.broadcastText}>ALERT ALL HELPERS</Text>
           </TouchableOpacity>
         )}
@@ -166,7 +167,7 @@ export default function CaregiverScreen() {
             <View style={styles.cardHeader}>
               <View style={[styles.avatar, { backgroundColor: caregiver.color }]} aria-label={`Avatar for ${caregiver.name}`}>
                 {caregiver.initials === '!!' ? (
-                  <Ionicons name="notifications" size={32} color="#ffffff" />
+                  <Ionicons name="notifications" size={32} color={palette.white} />
                 ) : (
                   <Text style={styles.avatarText}>{caregiver.initials}</Text>
                 )}
@@ -185,7 +186,7 @@ export default function CaregiverScreen() {
                 style={[styles.actionBtn, styles.callBtn]}
                 accessibilityLabel={`Call ${caregiver.name}`}
               >
-                <Ionicons name="call" size={24} color="#ffffff" />
+                <Ionicons name="call" size={24} color={palette.white} />
                 <Text style={styles.actionBtnText}>CALL</Text>
               </TouchableOpacity>
 
@@ -194,7 +195,7 @@ export default function CaregiverScreen() {
                 style={[styles.actionBtn, styles.msgBtn]}
                 accessibilityLabel={`Send message to ${caregiver.name}`}
               >
-                <Ionicons name="chatbubble" size={24} color="#ffffff" />
+                <Ionicons name="chatbubble" size={24} color={palette.white} />
                 <Text style={styles.actionBtnText}>MESSAGE</Text>
               </TouchableOpacity>
 
@@ -203,7 +204,7 @@ export default function CaregiverScreen() {
                 style={[styles.actionBtn, styles.locBtn]}
                 accessibilityLabel={`Share location with ${caregiver.name}`}
               >
-                <Ionicons name="pin" size={24} color="#ffffff" />
+                <Ionicons name="pin" size={24} color={palette.white} />
                 <Text style={styles.actionBtnText}>LOCATION</Text>
               </TouchableOpacity>
             </View>
@@ -217,14 +218,14 @@ export default function CaregiverScreen() {
           accessibilityLabel="Hear helper names read aloud"
           accessibilityRole="button"
         >
-          <Ionicons name="volume-high" size={24} color="#475569" />
+          <Ionicons name="volume-high" size={24} color={palette.slate[600]} />
           <Text style={styles.listenBtnText}>LISTEN</Text>
         </TouchableOpacity>
 
         {/* G93 – Social scripts: pre-written phrases for help-seeking */}
         <View style={styles.scriptsCard}>
           <View style={styles.scriptsHeader}>
-            <Ionicons name="chatbubble-ellipses" size={24} color="#1e3a8a" />
+            <Ionicons name="chatbubble-ellipses" size={24} color={palette.blue[900]} />
             <Text style={styles.scriptsTitle}>WHAT TO SAY</Text>
           </View>
           <Text style={styles.scriptsSubtitle}>Tap to say these phrases</Text>
@@ -260,7 +261,7 @@ export default function CaregiverScreen() {
                 <Text style={styles.scriptBtnLabel}>{script.label}</Text>
                 <Text style={styles.scriptBtnPhrase}>&ldquo;{script.phrase}&rdquo;</Text>
               </View>
-              <Ionicons name="volume-high" size={22} color="#1e3a8a" />
+              <Ionicons name="volume-high" size={22} color={palette.blue[900]} />
             </TouchableOpacity>
           ))}
         </View>
@@ -274,7 +275,7 @@ export default function CaregiverScreen() {
           accessibilityLabel={currentAlert ? "Return to emergency alert" : "Go home"}
           accessibilityRole="button"
         >
-          <Ionicons name={currentAlert ? "alert-circle" : "home"} size={26} color="#ffffff" />
+          <Ionicons name={currentAlert ? "alert-circle" : "home"} size={26} color={palette.white} />
           <Text style={styles.footerHomeText}>
             {currentAlert ? 'RETURN TO EMERGENCY ALERT' : 'HOME'}
           </Text>
@@ -287,10 +288,10 @@ export default function CaregiverScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f8fafc',
+    backgroundColor: palette.slate[50],
   },
   header: {
-    backgroundColor: '#0f172a',
+    backgroundColor: palette.slate[900],
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 20,
@@ -312,7 +313,7 @@ const styles = StyleSheet.create({
     gap: 6,
   },
   returnHeaderBtnText: {
-    color: '#ffffff',
+    color: palette.white,
     fontSize: 14,
     fontWeight: '900',
   },
@@ -320,12 +321,12 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   headerTitle: {
-    color: '#ffffff',
+    color: palette.white,
     fontSize: 26,
     fontWeight: '900',
   },
   headerSubtitle: {
-    color: '#cbd5e1',
+    color: palette.slate[300],
     fontSize: 16,
     fontWeight: '600',
   },
@@ -337,8 +338,8 @@ const styles = StyleSheet.create({
   activeAlertBanner: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#fef2f2',
-    borderColor: '#dc2626',
+    backgroundColor: palette.red[50],
+    borderColor: palette.red[600],
     borderWidth: 2,
     borderRadius: 16,
     padding: 14,
@@ -348,12 +349,12 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   activeAlertTitle: {
-    color: '#991b1b',
+    color: palette.red[800],
     fontSize: 15,
     fontWeight: '900',
   },
   activeAlertSub: {
-    color: '#b91c1c',
+    color: palette.red[700],
     fontSize: 13,
     fontWeight: '600',
     marginTop: 2,
@@ -362,8 +363,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#16a34a',
-    borderColor: '#15803d',
+    backgroundColor: palette.green[600],
+    borderColor: palette.green[700],
     borderWidth: 4,
     borderRadius: 24,
     paddingVertical: 20,
@@ -371,7 +372,7 @@ const styles = StyleSheet.create({
     minHeight: 88,
     gap: 16,
     elevation: 4,
-    shadowColor: '#000',
+    shadowColor: palette.black,
     shadowOffset: { width: 0, height: 3 },
     shadowOpacity: 0.15,
     shadowRadius: 6,
@@ -380,32 +381,32 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
   },
   primaryCallTitle: {
-    color: '#ffffff',
+    color: palette.white,
     fontSize: 24,
     fontWeight: '900',
     letterSpacing: 0.5,
   },
   primaryCallSub: {
-    color: '#dcfce7',
+    color: palette.green[100],
     fontSize: 16,
     fontWeight: '700',
   },
   scriptPromptCard: {
-    backgroundColor: '#f0fdf4',
-    borderColor: '#86efac',
+    backgroundColor: palette.green[50],
+    borderColor: palette.green[300],
     borderWidth: 2,
     borderRadius: 16,
     padding: 16,
     gap: 6,
   },
   scriptPromptTag: {
-    color: '#166534',
+    color: palette.green[800],
     fontSize: 13,
     fontWeight: '900',
     letterSpacing: 0.5,
   },
   scriptPromptText: {
-    color: '#14532d',
+    color: palette.green[900],
     fontSize: 15,
     fontWeight: '600',
     lineHeight: 22,
@@ -414,15 +415,15 @@ const styles = StyleSheet.create({
   otherHelpersBtn: {
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#ffffff',
-    borderColor: '#94a3b8',
+    backgroundColor: palette.white,
+    borderColor: palette.slate[400],
     borderWidth: 2,
     borderRadius: 16,
     paddingVertical: 14,
     minHeight: 56,
   },
   otherHelpersBtnText: {
-    color: '#334155',
+    color: palette.slate[700],
     fontSize: 16,
     fontWeight: '800',
   },
@@ -430,32 +431,32 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#dc2626',
+    backgroundColor: palette.red[600],
     borderRadius: 24,
     borderWidth: 4,
-    borderColor: '#b91c1c',
+    borderColor: palette.red[700],
     paddingVertical: 20,
     minHeight: 88,
     gap: 16,
     elevation: 4,
-    shadowColor: '#000',
+    shadowColor: palette.black,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
   },
   broadcastText: {
-    color: '#ffffff',
+    color: palette.white,
     fontSize: 24,
     fontWeight: '900',
   },
   card: {
-    backgroundColor: '#ffffff',
+    backgroundColor: palette.white,
     borderRadius: 28,
     borderWidth: 4,
-    borderColor: '#e2e8f0',
+    borderColor: palette.slate[200],
     overflow: 'hidden',
     elevation: 2,
-    shadowColor: '#000',
+    shadowColor: palette.black,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.05,
     shadowRadius: 4,
@@ -474,7 +475,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   avatarText: {
-    color: '#ffffff',
+    color: palette.white,
     fontSize: 24,
     fontWeight: '900',
   },
@@ -483,15 +484,15 @@ const styles = StyleSheet.create({
   },
   caregiverName: {
     fontWeight: '900',
-    color: '#0f172a',
+    color: palette.slate[900],
   },
   caregiverRel: {
     fontWeight: '700',
-    color: '#64748b',
+    color: palette.slate[500],
     marginTop: 2,
   },
   caregiverPhone: {
-    color: '#64748b',
+    color: palette.slate[500],
     fontWeight: '600',
     marginTop: 2,
   },
@@ -512,16 +513,16 @@ const styles = StyleSheet.create({
     gap: 6,
   },
   callBtn: {
-    backgroundColor: '#16a34a',
+    backgroundColor: palette.green[600],
   },
   msgBtn: {
-    backgroundColor: '#2563eb',
+    backgroundColor: palette.blue[600],
   },
   locBtn: {
-    backgroundColor: '#8b5cf6',
+    backgroundColor: palette.violet[500],
   },
   actionBtnText: {
-    color: '#ffffff',
+    color: palette.white,
     fontSize: 12,
     fontWeight: '900',
     letterSpacing: 0.5,
@@ -530,25 +531,25 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#f1f5f9',
+    backgroundColor: palette.slate[100],
     borderRadius: 20,
     borderWidth: 4,
-    borderColor: '#cbd5e1',
+    borderColor: palette.slate[300],
     paddingVertical: 18,
     minHeight: 72,
     gap: 10,
     marginTop: 8,
   },
   listenBtnText: {
-    color: '#475569',
+    color: palette.slate[600],
     fontSize: 20,
     fontWeight: '900',
   },
   scriptsCard: {
-    backgroundColor: '#eff6ff',
+    backgroundColor: palette.blue[50],
     borderRadius: 24,
     borderWidth: 3,
-    borderColor: '#bfdbfe',
+    borderColor: palette.blue[200],
     padding: 16,
     gap: 10,
   },
@@ -560,21 +561,21 @@ const styles = StyleSheet.create({
   scriptsTitle: {
     fontSize: 18,
     fontWeight: '900',
-    color: '#1e3a8a',
+    color: palette.blue[900],
   },
   scriptsSubtitle: {
     fontSize: 13,
     fontWeight: '600',
-    color: '#3b82f6',
+    color: palette.blue[500],
     marginTop: -4,
   },
   scriptBtn: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#ffffff',
+    backgroundColor: palette.white,
     borderRadius: 16,
     borderWidth: 2,
-    borderColor: '#bfdbfe',
+    borderColor: palette.blue[200],
     paddingHorizontal: 14,
     paddingVertical: 12,
     minHeight: 72,
@@ -587,35 +588,35 @@ const styles = StyleSheet.create({
   scriptBtnLabel: {
     fontSize: 15,
     fontWeight: '800',
-    color: '#1e3a8a',
+    color: palette.blue[900],
   },
   scriptBtnPhrase: {
     fontSize: 13,
     fontWeight: '500',
-    color: '#475569',
+    color: palette.slate[600],
     lineHeight: 18,
   },
   footer: {
-    backgroundColor: '#ffffff',
+    backgroundColor: palette.white,
     borderTopWidth: 4,
-    borderColor: '#e2e8f0',
+    borderColor: palette.slate[200],
     padding: 16,
   },
   footerHomeButton: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#0f172a',
+    backgroundColor: palette.slate[900],
     borderRadius: 20,
     paddingVertical: 18,
     minHeight: 72,
     gap: 10,
   },
   footerReturnButton: {
-    backgroundColor: '#dc2626',
+    backgroundColor: palette.red[600],
   },
   footerHomeText: {
-    color: '#ffffff',
+    color: palette.white,
     fontSize: 22,
     fontWeight: '900',
   },

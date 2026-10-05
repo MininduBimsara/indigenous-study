@@ -8,31 +8,32 @@ import { Ionicons } from '@expo/vector-icons';
 import { useAlert } from '../../contexts/AlertContext';
 import { useUserPreferences } from '../../contexts/UserPreferencesContext';
 import { triggerHaptic } from '../../utils/haptic';
+import { palette } from '../../theme/colors';
 
 const SLIDES = [
   {
     icon: 'shield-checkmark' as const,
     title: 'You Are Protected',
     body: 'DEWS sends you simple, clear alerts when there is danger near you.',
-    bg: '#1e3a8a', text: '#ffffff', sub: '#bfdbfe',
+    bg: palette.blue[900], text: palette.white, sub: palette.blue[200],
   },
   {
     icon: 'volume-high' as const,
     title: 'Sound + Vibration',
     body: 'When danger is close, your phone will make noise AND vibrate so you notice.',
-    bg: '#14532d', text: '#ffffff', sub: '#bbf7d0',
+    bg: palette.green[900], text: palette.white, sub: palette.green[200],
   },
   {
     icon: 'people' as const,
     title: 'Your Helpers Are Connected',
     body: 'Your helpers will see your status. You can call them with one tap.',
-    bg: '#581c87', text: '#ffffff', sub: '#e9d5ff',
+    bg: palette.purple[900], text: palette.white, sub: palette.purple[200],
   },
   {
     icon: 'hand-left' as const,
     title: 'Simple Buttons',
     body: 'Every button is big and clear. You always have a way to go back home.',
-    bg: '#7c2d12', text: '#ffffff', sub: '#fed7aa',
+    bg: palette.orange[900], text: palette.white, sub: palette.orange[200],
   },
 ];
 
@@ -89,7 +90,7 @@ export default function WelcomeScreen() {
         style={[styles.listenBtn, { borderColor: 'rgba(255,255,255,0.4)' }]}
         accessibilityLabel="Hear this read aloud"
       >
-        <Ionicons name="volume-high" size={22} color="#fff" />
+        <Ionicons name="volume-high" size={22} color={palette.white} />
         <Text style={styles.listenText}>LISTEN</Text>
       </TouchableOpacity>
 
@@ -97,7 +98,7 @@ export default function WelcomeScreen() {
       <View style={styles.navRow}>
         {step > 0 ? (
           <TouchableOpacity onPress={handleBack} style={styles.backBtn} accessibilityLabel="Go back">
-            <Ionicons name="arrow-back" size={28} color="#fff" />
+            <Ionicons name="arrow-back" size={28} color={palette.white} />
           </TouchableOpacity>
         ) : <View style={{ width: 56 }} />}
 
@@ -119,16 +120,16 @@ const styles = StyleSheet.create({
   root: { flex: 1, alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: 28, paddingVertical: 24 },
   dots: { flexDirection: 'row', gap: 8, paddingTop: 8 },
   dot: { width: 10, height: 10, borderRadius: 5, backgroundColor: 'rgba(255,255,255,0.3)' },
-  dotActive: { backgroundColor: '#fff', width: 28 },
+  dotActive: { backgroundColor: palette.white, width: 28 },
   iconWrap: { alignItems: 'center', marginTop: 24 },
-  iconCircle: { backgroundColor: 'rgba(255,255,255,0.95)', width: 140, height: 140, borderRadius: 70, alignItems: 'center', justifyContent: 'center', shadowColor: '#000', shadowOffset: { width: 0, height: 8 }, shadowOpacity: 0.25, shadowRadius: 16, elevation: 10 },
+  iconCircle: { backgroundColor: 'rgba(255,255,255,0.95)', width: 140, height: 140, borderRadius: 70, alignItems: 'center', justifyContent: 'center', shadowColor: palette.black, shadowOffset: { width: 0, height: 8 }, shadowOpacity: 0.25, shadowRadius: 16, elevation: 10 },
   textBlock: { flex: 1, justifyContent: 'center', alignItems: 'center', paddingHorizontal: 8, gap: 20 },
   title: { fontSize: 34, fontWeight: '900', textAlign: 'center', lineHeight: 40 },
   body: { fontSize: 20, textAlign: 'center', lineHeight: 30 },
   listenBtn: { flexDirection: 'row', alignItems: 'center', gap: 8, borderWidth: 2, borderRadius: 999, paddingHorizontal: 24, paddingVertical: 14, marginBottom: 12 },
-  listenText: { color: '#fff', fontWeight: '800', fontSize: 16 },
+  listenText: { color: palette.white, fontWeight: '800', fontSize: 16 },
   navRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '100%', paddingBottom: 8 },
   backBtn: { width: 56, height: 56, borderRadius: 28, backgroundColor: 'rgba(255,255,255,0.2)', alignItems: 'center', justifyContent: 'center' },
-  nextBtn: { flex: 1, marginLeft: 16, backgroundColor: '#fff', borderRadius: 24, paddingVertical: 20, paddingHorizontal: 28, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 10, minHeight: 72 },
-  nextText: { fontSize: 22, fontWeight: '900', color: '#1e3a8a' },
+  nextBtn: { flex: 1, marginLeft: 16, backgroundColor: palette.white, borderRadius: 24, paddingVertical: 20, paddingHorizontal: 28, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 10, minHeight: 72 },
+  nextText: { fontSize: 22, fontWeight: '900', color: palette.blue[900] },
 });

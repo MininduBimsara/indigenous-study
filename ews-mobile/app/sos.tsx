@@ -5,6 +5,7 @@ import { router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { useAlert } from '../contexts/AlertContext';
 import { triggerHaptic } from '../utils/haptic';
+import { palette } from '../theme/colors';
 
 interface SOSOption {
   id: string;
@@ -23,28 +24,28 @@ const SOS_OPTIONS: SOSOption[] = [
 
 const COLOR_STYLES: Record<string, { active: any; inactive: any; iconActive: string; iconInactive: string }> = {
   red: {
-    active: { backgroundColor: '#dc2626', borderColor: '#991b1b' },
-    inactive: { backgroundColor: '#fef2f2', borderColor: '#f87171' },
-    iconActive: '#ffffff',
-    iconInactive: '#991b1b',
+    active: { backgroundColor: palette.red[600], borderColor: palette.red[800] },
+    inactive: { backgroundColor: palette.red[50], borderColor: palette.red[400] },
+    iconActive: palette.white,
+    iconInactive: palette.red[800],
   },
   orange: {
-    active: { backgroundColor: '#ea580c', borderColor: '#9a3412' },
-    inactive: { backgroundColor: '#fff7ed', borderColor: '#fb923c' },
-    iconActive: '#ffffff',
-    iconInactive: '#9a3412',
+    active: { backgroundColor: palette.orange[600], borderColor: palette.orange[800] },
+    inactive: { backgroundColor: palette.orange[50], borderColor: palette.orange[400] },
+    iconActive: palette.white,
+    iconInactive: palette.orange[800],
   },
   purple: {
-    active: { backgroundColor: '#9333ea', borderColor: '#6b21a8' },
-    inactive: { backgroundColor: '#faf5ff', borderColor: '#c084fc' },
-    iconActive: '#ffffff',
-    iconInactive: '#6b21a8',
+    active: { backgroundColor: palette.purple[600], borderColor: palette.purple[800] },
+    inactive: { backgroundColor: palette.purple[50], borderColor: palette.purple[400] },
+    iconActive: palette.white,
+    iconInactive: palette.purple[800],
   },
   blue: {
-    active: { backgroundColor: '#2563eb', borderColor: '#1e40af' },
-    inactive: { backgroundColor: '#eff6ff', borderColor: '#60a5fa' },
-    iconActive: '#ffffff',
-    iconInactive: '#1e40af',
+    active: { backgroundColor: palette.blue[600], borderColor: palette.blue[800] },
+    inactive: { backgroundColor: palette.blue[50], borderColor: palette.blue[400] },
+    iconActive: palette.white,
+    iconInactive: palette.blue[800],
   },
 };
 
@@ -70,11 +71,11 @@ export default function SOSDetailScreen() {
     const opt = SOS_OPTIONS.find(o => o.id === selected);
     return (
       <SafeAreaView style={styles.helperScreenContainer} edges={['top', 'left', 'right', 'bottom']}>
-        <Ionicons name="warning" size={96} color="#ffffff" style={styles.helperWarnIcon} />
+        <Ionicons name="warning" size={96} color={palette.white} style={styles.helperWarnIcon} />
         <Text style={styles.helperTitle}>PLEASE HELP ME</Text>
         {opt && (
           <View style={styles.helperCard}>
-            <Ionicons name={opt.iconName} size={84} color="#dc2626" />
+            <Ionicons name={opt.iconName} size={84} color={palette.red[600]} />
             <Text style={styles.helperCardText}>{opt.label}</Text>
           </View>
         )}
@@ -106,7 +107,7 @@ export default function SOSDetailScreen() {
           accessibilityLabel="Hear choices read aloud"
           accessibilityRole="button"
         >
-          <Ionicons name="volume-high" size={24} color="#475569" />
+          <Ionicons name="volume-high" size={24} color={palette.slate[600]} />
           <Text style={styles.listenBtnText}>LISTEN</Text>
         </TouchableOpacity>
       </View>
@@ -136,7 +137,7 @@ export default function SOSDetailScreen() {
                 />
                 <Text style={[
                   styles.gridItemText,
-                  { color: isSelected ? '#ffffff' : stylesConfig.iconInactive }
+                  { color: isSelected ? palette.white : stylesConfig.iconInactive }
                 ]}>
                   {opt.label}
                 </Text>
@@ -155,7 +156,7 @@ export default function SOSDetailScreen() {
             style={styles.showHelperBtn}
             accessibilityLabel="Show this screen to get help"
           >
-            <Ionicons name="phone-portrait" size={24} color="#ffffff" />
+            <Ionicons name="phone-portrait" size={24} color={palette.white} />
             <Text style={styles.showHelperBtnText}>SHOW TO HELPER</Text>
           </TouchableOpacity>
         )}
@@ -165,7 +166,7 @@ export default function SOSDetailScreen() {
           style={styles.callHelperBtn}
           accessibilityLabel="Call my caregiver now"
         >
-          <Ionicons name="call" size={24} color="#ffffff" />
+          <Ionicons name="call" size={24} color={palette.white} />
           <Text style={styles.callHelperBtnText}>CALL MY HELPER</Text>
         </TouchableOpacity>
 
@@ -175,7 +176,7 @@ export default function SOSDetailScreen() {
           style={styles.cancelBtn}
           accessibilityLabel="Cancel and go home"
         >
-          <Ionicons name="home" size={20} color="#475569" />
+          <Ionicons name="home" size={20} color={palette.slate[600]} />
           <Text style={styles.cancelBtnText}>CANCEL</Text>
         </TouchableOpacity>
       </View>
@@ -186,22 +187,22 @@ export default function SOSDetailScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ffffff',
+    backgroundColor: palette.white,
   },
   header: {
-    backgroundColor: '#dc2626',
+    backgroundColor: palette.red[600],
     paddingVertical: 24,
     paddingHorizontal: 20,
     alignItems: 'center',
   },
   headerTitle: {
-    color: '#ffffff',
+    color: palette.white,
     fontSize: 32,
     fontWeight: '900',
     textAlign: 'center',
   },
   headerSubtitle: {
-    color: '#fee2e2',
+    color: palette.red[100],
     fontSize: 18,
     fontWeight: '700',
     marginTop: 4,
@@ -215,16 +216,16 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#f1f5f9',
+    backgroundColor: palette.slate[100],
     borderWidth: 2,
-    borderColor: '#cbd5e1',
+    borderColor: palette.slate[300],
     borderRadius: 16,
     paddingVertical: 12,
     minHeight: 48,
     gap: 8,
   },
   listenBtnText: {
-    color: '#475569',
+    color: palette.slate[600],
     fontSize: 18,
     fontWeight: '800',
   },
@@ -248,7 +249,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     gap: 12,
     elevation: 2,
-    shadowColor: '#000',
+    shadowColor: palette.black,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.05,
     shadowRadius: 4,
@@ -269,14 +270,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#dc2626',
+    backgroundColor: palette.red[600],
     borderRadius: 20,
     paddingVertical: 18,
     minHeight: 72,
     gap: 10,
   },
   showHelperBtnText: {
-    color: '#ffffff',
+    color: palette.white,
     fontSize: 20,
     fontWeight: '900',
   },
@@ -284,14 +285,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#0f172a',
+    backgroundColor: palette.slate[900],
     borderRadius: 20,
     paddingVertical: 18,
     minHeight: 72,
     gap: 10,
   },
   callHelperBtnText: {
-    color: '#ffffff',
+    color: palette.white,
     fontSize: 20,
     fontWeight: '900',
   },
@@ -299,20 +300,20 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#f1f5f9',
+    backgroundColor: palette.slate[100],
     borderRadius: 20,
     paddingVertical: 14,
     minHeight: 56,
     gap: 8,
   },
   cancelBtnText: {
-    color: '#475569',
+    color: palette.slate[600],
     fontSize: 18,
     fontWeight: '800',
   },
   helperScreenContainer: {
     flex: 1,
-    backgroundColor: '#dc2626',
+    backgroundColor: palette.red[600],
     alignItems: 'center',
     justifyContent: 'center',
     padding: 32,
@@ -323,11 +324,11 @@ const styles = StyleSheet.create({
   helperTitle: {
     fontSize: 48,
     fontWeight: '900',
-    color: '#ffffff',
+    color: palette.white,
     textAlign: 'center',
   },
   helperCard: {
-    backgroundColor: '#ffffff',
+    backgroundColor: palette.white,
     borderRadius: 32,
     padding: 32,
     width: '100%',
@@ -339,18 +340,18 @@ const styles = StyleSheet.create({
   helperCardText: {
     fontSize: 32,
     fontWeight: '900',
-    color: '#dc2626',
+    color: palette.red[600],
     textAlign: 'center',
   },
   helperInstructions: {
     fontSize: 22,
-    color: '#fee2e2',
+    color: palette.red[100],
     textAlign: 'center',
     marginTop: 20,
     fontWeight: '700',
   },
   helperBackBtn: {
-    backgroundColor: '#ffffff',
+    backgroundColor: palette.white,
     borderRadius: 20,
     paddingVertical: 18,
     width: '100%',
@@ -360,7 +361,7 @@ const styles = StyleSheet.create({
     minHeight: 72,
   },
   helperBackBtnText: {
-    color: '#dc2626',
+    color: palette.red[600],
     fontSize: 20,
     fontWeight: '900',
   },

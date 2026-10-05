@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { triggerHaptic } from '../utils/haptic';
+import { palette } from '../theme/colors';
 
 // G121 – Easy Read toggle
 interface EasyReadToggleProps {
@@ -18,8 +19,8 @@ export function EasyReadToggle({ isActive, onToggle }: EasyReadToggleProps) {
       accessibilityRole="switch"
       accessibilityState={{ checked: isActive }}
     >
-      <Ionicons name="book-outline" size={18} color={isActive ? '#fff' : 'rgba(255,255,255,0.85)'} />
-      <Text style={[styles.label, { color: isActive ? '#fff' : 'rgba(255,255,255,0.9)' }]}>Easy Read</Text>
+      <Ionicons name="book-outline" size={18} color={isActive ? palette.white : 'rgba(255,255,255,0.85)'} />
+      <Text style={[styles.label, { color: isActive ? palette.white : 'rgba(255,255,255,0.9)' }]}>Easy Read</Text>
     </TouchableOpacity>
   );
 }
@@ -57,7 +58,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 14, paddingVertical: 10, borderRadius: 999,
     minHeight: 44, borderWidth: 2,
   },
-  active: { backgroundColor: '#1e40af', borderColor: '#1e40af' },
+  active: { backgroundColor: palette.blue[800], borderColor: palette.blue[800] },
   inactive: { backgroundColor: 'rgba(255,255,255,0.15)', borderColor: 'rgba(255,255,255,0.4)' },
   label: { fontWeight: '700', fontSize: 14 },
 });

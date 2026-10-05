@@ -10,6 +10,7 @@ import { getCAPMetadata, CAP_SEVERITY_COLORS } from '../../utils/capSeverity';
 import { triggerHaptic } from '../../utils/haptic';
 import { StressEscalationTimer } from '../../components/StressEscalationTimer';
 import { EasyReadToggle, toEasyRead, getHazardSymbol } from '../../components/EasyReadToggle';
+import { palette } from '../../theme/colors';
 
 export default function AlertScreen() {
   const { currentAlert, acknowledgeAlert, speakMessage } = useAlert();
@@ -56,7 +57,7 @@ export default function AlertScreen() {
   if (!currentAlert) {
     return (
       <SafeAreaView style={styles.emptyContainer}>
-        <Ionicons name="checkmark-circle-outline" size={80} color="#059669" />
+        <Ionicons name="checkmark-circle-outline" size={80} color={palette.emerald[600]} />
         <Text style={styles.emptyText}>No Active Alerts</Text>
         <Text style={styles.emptySub}>You are safe right now.</Text>
         <TouchableOpacity
@@ -100,7 +101,7 @@ export default function AlertScreen() {
   const capColors = CAP_SEVERITY_COLORS[capMeta.severity];
 
   // Darken bg slightly on flash for danger
-  const bgHex = (isDanger && flashState) ? '#dc2626' : colors.bg;
+  const bgHex = (isDanger && flashState) ? palette.red[600] : colors.bg;
   const textHex = colors.text;
 
   // G124 – Extreme severity: strip to hazard + single action + call only (W24 / W01)
@@ -326,24 +327,24 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#f8fafc',
+    backgroundColor: palette.slate[50],
     padding: 24,
   },
   emptyText: {
     fontSize: 28,
     fontWeight: '900',
-    color: '#0f172a',
+    color: palette.slate[900],
     marginTop: 20,
   },
   emptySub: {
     fontSize: 18,
     fontWeight: '700',
-    color: '#64748b',
+    color: palette.slate[500],
     marginTop: 8,
     textAlign: 'center',
   },
   backButton: {
-    backgroundColor: '#3b82f6',
+    backgroundColor: palette.blue[500],
     borderRadius: 20,
     paddingHorizontal: 28,
     paddingVertical: 16,
@@ -352,7 +353,7 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
   backButtonText: {
-    color: '#ffffff',
+    color: palette.white,
     fontSize: 18,
     fontWeight: '800',
   },

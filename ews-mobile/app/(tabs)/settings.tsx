@@ -7,6 +7,7 @@ import { useAlert, FeedbackModality } from '../../contexts/AlertContext';
 import { useUserPreferences } from '../../contexts/UserPreferencesContext';
 import { triggerHaptic } from '../../utils/haptic';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { palette } from '../../theme/colors';
 
 export default function SettingsScreen() {
   const { settings, updateSettings, speakMessage } = useAlert();
@@ -96,7 +97,7 @@ export default function SettingsScreen() {
           accessibilityLabel="Go home"
           accessibilityRole="button"
         >
-          <Ionicons name="home" size={24} color="#ffffff" />
+          <Ionicons name="home" size={24} color={palette.white} />
         </TouchableOpacity>
         <View style={styles.headerTextWrapper}>
           <Text style={styles.headerTitle}>SETTINGS</Text>
@@ -109,8 +110,8 @@ export default function SettingsScreen() {
         {/* Adaptive Mode Selector */}
         <View style={styles.section}>
           <View style={styles.sectionHeader}>
-            <View style={[styles.sectionIconBg, { backgroundColor: '#a855f7' }]}>
-              <Ionicons name="options" size={24} color="#ffffff" />
+            <View style={[styles.sectionIconBg, { backgroundColor: palette.purple[500] }]}>
+              <Ionicons name="options" size={24} color={palette.white} />
             </View>
             <View>
               <Text style={styles.sectionTitle}>ADAPTIVE MODE</Text>
@@ -128,15 +129,15 @@ export default function SettingsScreen() {
               </Text>
               <Text style={styles.selectableSubtext}>Tap to change</Text>
             </View>
-            <Ionicons name="chevron-forward" size={24} color="#94a3b8" />
+            <Ionicons name="chevron-forward" size={24} color={palette.slate[400]} />
           </TouchableOpacity>
         </View>
 
         {/* How to alert me selection */}
         <View style={styles.section}>
           <View style={styles.sectionHeader}>
-            <View style={[styles.sectionIconBg, { backgroundColor: '#3b82f6' }]}>
-              <Ionicons name="notifications" size={24} color="#ffffff" />
+            <View style={[styles.sectionIconBg, { backgroundColor: palette.blue[500] }]}>
+              <Ionicons name="notifications" size={24} color={palette.white} />
             </View>
             <View>
               <Text style={styles.sectionTitle}>HOW TO ALERT ME</Text>
@@ -155,8 +156,8 @@ export default function SettingsScreen() {
               accessibilityRole="radio"
               accessibilityState={{ checked: settings.feedbackModality === 'both' }}
             >
-              <Ionicons name="volume-high" size={24} color={settings.feedbackModality === 'both' ? '#ffffff' : '#475569'} />
-              <Ionicons name="eye" size={24} color={settings.feedbackModality === 'both' ? '#ffffff' : '#475569'} style={{ marginLeft: -6 }} />
+              <Ionicons name="volume-high" size={24} color={settings.feedbackModality === 'both' ? palette.white : palette.slate[600]} />
+              <Ionicons name="eye" size={24} color={settings.feedbackModality === 'both' ? palette.white : palette.slate[600]} style={{ marginLeft: -6 }} />
               <View style={styles.optionDetails}>
                 <Text style={[styles.optionTitle, settings.feedbackModality === 'both' ? styles.textWhite : styles.textDark]}>
                   SOUND + PICTURES
@@ -165,7 +166,7 @@ export default function SettingsScreen() {
                   All alert types
                 </Text>
               </View>
-              {settings.feedbackModality === 'both' && <Ionicons name="checkmark-circle" size={28} color="#ffffff" />}
+              {settings.feedbackModality === 'both' && <Ionicons name="checkmark-circle" size={28} color={palette.white} />}
             </TouchableOpacity>
 
             {/* Sound Only */}
@@ -178,7 +179,7 @@ export default function SettingsScreen() {
               accessibilityRole="radio"
               accessibilityState={{ checked: settings.feedbackModality === 'audio' }}
             >
-              <Ionicons name="volume-high" size={26} color={settings.feedbackModality === 'audio' ? '#ffffff' : '#475569'} />
+              <Ionicons name="volume-high" size={26} color={settings.feedbackModality === 'audio' ? palette.white : palette.slate[600]} />
               <View style={styles.optionDetails}>
                 <Text style={[styles.optionTitle, settings.feedbackModality === 'audio' ? styles.textWhite : styles.textDark]}>
                   SOUND ONLY
@@ -187,7 +188,7 @@ export default function SettingsScreen() {
                   Voice and vibration
                 </Text>
               </View>
-              {settings.feedbackModality === 'audio' && <Ionicons name="checkmark-circle" size={28} color="#ffffff" />}
+              {settings.feedbackModality === 'audio' && <Ionicons name="checkmark-circle" size={28} color={palette.white} />}
             </TouchableOpacity>
 
             {/* Visual Only */}
@@ -200,7 +201,7 @@ export default function SettingsScreen() {
               accessibilityRole="radio"
               accessibilityState={{ checked: settings.feedbackModality === 'visual' }}
             >
-              <Ionicons name="eye" size={26} color={settings.feedbackModality === 'visual' ? '#ffffff' : '#475569'} />
+              <Ionicons name="eye" size={26} color={settings.feedbackModality === 'visual' ? palette.white : palette.slate[600]} />
               <View style={styles.optionDetails}>
                 <Text style={[styles.optionTitle, settings.feedbackModality === 'visual' ? styles.textWhite : styles.textDark]}>
                   PICTURES ONLY
@@ -209,7 +210,7 @@ export default function SettingsScreen() {
                   Screen and vibration
                 </Text>
               </View>
-              {settings.feedbackModality === 'visual' && <Ionicons name="checkmark-circle" size={28} color="#ffffff" />}
+              {settings.feedbackModality === 'visual' && <Ionicons name="checkmark-circle" size={28} color={palette.white} />}
             </TouchableOpacity>
           </View>
         </View>
@@ -218,8 +219,8 @@ export default function SettingsScreen() {
         {settings.feedbackModality !== 'visual' && (
           <View style={styles.section}>
             <View style={styles.sectionHeader}>
-              <View style={[styles.sectionIconBg, { backgroundColor: '#3b82f6' }]}>
-                <Ionicons name="volume-high" size={24} color="#ffffff" />
+              <View style={[styles.sectionIconBg, { backgroundColor: palette.blue[500] }]}>
+                <Ionicons name="volume-high" size={24} color={palette.white} />
               </View>
               <View>
                 <Text style={styles.sectionTitle}>VOLUME</Text>
@@ -255,8 +256,8 @@ export default function SettingsScreen() {
         {/* Vibration controls */}
         <View style={styles.section}>
           <View style={styles.sectionHeader}>
-            <View style={[styles.sectionIconBg, { backgroundColor: '#8b5cf6' }]}>
-              <Ionicons name="phone-portrait" size={24} color="#ffffff" />
+            <View style={[styles.sectionIconBg, { backgroundColor: palette.violet[500] }]}>
+              <Ionicons name="phone-portrait" size={24} color={palette.white} />
             </View>
             <View>
               <Text style={styles.sectionTitle}>VIBRATION</Text>
@@ -302,7 +303,7 @@ export default function SettingsScreen() {
           <Ionicons
             name={settings.criticalAlertsOnly ? 'notifications-sharp' : 'notifications-off-sharp'}
             size={32}
-            color={settings.criticalAlertsOnly ? '#ffffff' : '#0f172a'}
+            color={settings.criticalAlertsOnly ? palette.white : palette.slate[900]}
           />
           <View style={styles.toggleCardDetails}>
             <Text style={[styles.toggleCardTitle, settings.criticalAlertsOnly ? styles.textWhite : styles.textDark]}>
@@ -318,8 +319,8 @@ export default function SettingsScreen() {
         {settings.feedbackModality !== 'visual' && (
           <View style={styles.section}>
             <View style={styles.sectionHeader}>
-              <View style={[styles.sectionIconBg, { backgroundColor: '#f97316' }]}>
-                <Ionicons name="globe" size={24} color="#ffffff" />
+              <View style={[styles.sectionIconBg, { backgroundColor: palette.orange[500] }]}>
+                <Ionicons name="globe" size={24} color={palette.white} />
               </View>
               <View>
                 <Text style={styles.sectionTitle}>LANGUAGE</Text>
@@ -345,7 +346,7 @@ export default function SettingsScreen() {
                   <Text style={[styles.optionTitleSmall, settings.voiceLanguage === lang.code ? styles.textWhite : styles.textDark]}>
                     {lang.name}
                   </Text>
-                  {settings.voiceLanguage === lang.code && <Ionicons name="checkmark-circle" size={22} color="#ffffff" />}
+                  {settings.voiceLanguage === lang.code && <Ionicons name="checkmark-circle" size={22} color={palette.white} />}
                 </TouchableOpacity>
               ))}
             </View>
@@ -355,8 +356,8 @@ export default function SettingsScreen() {
         {/* Do Not Disturb configuration */}
         <View style={styles.section}>
           <View style={styles.sectionHeader}>
-            <View style={[styles.sectionIconBg, { backgroundColor: '#4f46e5' }]}>
-              <Ionicons name="moon" size={24} color="#ffffff" />
+            <View style={[styles.sectionIconBg, { backgroundColor: palette.indigo[600] }]}>
+              <Ionicons name="moon" size={24} color={palette.white} />
             </View>
             <View style={styles.headerToggleWrapper}>
               <View>
@@ -366,8 +367,8 @@ export default function SettingsScreen() {
               <Switch
                 value={dndEnabled}
                 onValueChange={toggleDnd}
-                trackColor={{ false: '#cbd5e1', true: '#3b82f6' }}
-                thumbColor={dndEnabled ? '#ffffff' : '#f4f3f4'}
+                trackColor={{ false: palette.slate[300], true: palette.blue[500] }}
+                thumbColor={dndEnabled ? palette.white : palette.switchOff}
               />
             </View>
           </View>
@@ -411,17 +412,17 @@ export default function SettingsScreen() {
           style={styles.caregiverSetupBtn}
           accessibilityLabel="Go to caregiver setup"
         >
-          <Ionicons name="people" size={32} color="#475569" />
+          <Ionicons name="people" size={32} color={palette.slate[600]} />
           <View style={styles.caregiverSetupDetails}>
             <Text style={styles.caregiverSetupTitle}>CAREGIVER SETUP</Text>
             <Text style={styles.caregiverSetupSubtitle}>Let a helper configure this app for you</Text>
           </View>
-          <Ionicons name="chevron-forward" size={24} color="#94a3b8" />
+          <Ionicons name="chevron-forward" size={24} color={palette.slate[400]} />
         </TouchableOpacity>
 
         {/* Always on High Contrast indicator */}
         <View style={styles.infoBox}>
-          <Ionicons name="eye" size={28} color="#475569" />
+          <Ionicons name="eye" size={28} color={palette.slate[600]} />
           <View style={styles.infoBoxTextWrapper}>
             <Text style={styles.infoBoxTitle}>HIGH CONTRAST: ALWAYS ON</Text>
             <Text style={styles.infoBoxDesc}>Best visibility for all users.</Text>
@@ -438,12 +439,12 @@ export default function SettingsScreen() {
           accessibilityLabel="View all 128 design guidelines"
           accessibilityRole="button"
         >
-          <Ionicons name="library" size={32} color="#475569" />
+          <Ionicons name="library" size={32} color={palette.slate[600]} />
           <View style={styles.caregiverSetupDetails}>
             <Text style={styles.caregiverSetupTitle}>ALL 128 DESIGN GUIDELINES</Text>
             <Text style={styles.caregiverSetupSubtitle}>Searchable reference — COGA, WCAG, Dementia, ASD, MCI, ADHD</Text>
           </View>
-          <Ionicons name="chevron-forward" size={24} color="#94a3b8" />
+          <Ionicons name="chevron-forward" size={24} color={palette.slate[400]} />
         </TouchableOpacity>
       </ScrollView>
 
@@ -455,7 +456,7 @@ export default function SettingsScreen() {
           accessibilityLabel="Go home"
           accessibilityRole="button"
         >
-          <Ionicons name="home" size={24} color="#ffffff" />
+          <Ionicons name="home" size={24} color={palette.white} />
           <Text style={styles.footerHomeText}>HOME</Text>
         </TouchableOpacity>
       </View>
@@ -466,10 +467,10 @@ export default function SettingsScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f8fafc',
+    backgroundColor: palette.slate[50],
   },
   header: {
-    backgroundColor: '#0f172a',
+    backgroundColor: palette.slate[900],
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 20,
@@ -488,12 +489,12 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   headerTitle: {
-    color: '#ffffff',
+    color: palette.white,
     fontSize: 26,
     fontWeight: '900',
   },
   headerSubtitle: {
-    color: '#cbd5e1',
+    color: palette.slate[300],
     fontSize: 16,
     fontWeight: '600',
   },
@@ -503,10 +504,10 @@ const styles = StyleSheet.create({
     paddingBottom: 32,
   },
   section: {
-    backgroundColor: '#ffffff',
+    backgroundColor: palette.white,
     borderRadius: 24,
     borderWidth: 4,
-    borderColor: '#e2e8f0',
+    borderColor: palette.slate[200],
     padding: 16,
     gap: 12,
   },
@@ -525,21 +526,21 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 18,
     fontWeight: '900',
-    color: '#0f172a',
+    color: palette.slate[900],
   },
   sectionSubtitle: {
     fontSize: 14,
     fontWeight: '600',
-    color: '#64748b',
+    color: palette.slate[500],
     marginTop: 2,
   },
   selectableButton: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: '#f8fafc',
+    backgroundColor: palette.slate[50],
     borderWidth: 3,
-    borderColor: '#cbd5e1',
+    borderColor: palette.slate[300],
     borderRadius: 18,
     paddingHorizontal: 16,
     paddingVertical: 14,
@@ -548,12 +549,12 @@ const styles = StyleSheet.create({
   selectableText: {
     fontSize: 18,
     fontWeight: '900',
-    color: '#0f172a',
+    color: palette.slate[900],
   },
   selectableSubtext: {
     fontSize: 13,
     fontWeight: '600',
-    color: '#64748b',
+    color: palette.slate[500],
     marginTop: 2,
   },
   optionsList: {
@@ -580,12 +581,12 @@ const styles = StyleSheet.create({
     minHeight: 56,
   },
   optionSelected: {
-    backgroundColor: '#0f172a',
-    borderColor: '#0f172a',
+    backgroundColor: palette.slate[900],
+    borderColor: palette.slate[900],
   },
   optionUnselected: {
-    backgroundColor: '#f8fafc',
-    borderColor: '#cbd5e1',
+    backgroundColor: palette.slate[50],
+    borderColor: palette.slate[300],
   },
   optionDetails: {
     flex: 1,
@@ -604,16 +605,16 @@ const styles = StyleSheet.create({
     marginTop: 2,
   },
   textWhite: {
-    color: '#ffffff',
+    color: palette.white,
   },
   textDark: {
-    color: '#0f172a',
+    color: palette.slate[900],
   },
   textMutedWhite: {
-    color: '#94a3b8',
+    color: palette.slate[400],
   },
   textMuted: {
-    color: '#64748b',
+    color: palette.slate[500],
   },
   horizontalOptions: {
     flexDirection: 'row',
@@ -629,12 +630,12 @@ const styles = StyleSheet.create({
     minHeight: 56,
   },
   horizontalBtnSelected: {
-    backgroundColor: '#0f172a',
-    borderColor: '#0f172a',
+    backgroundColor: palette.slate[900],
+    borderColor: palette.slate[900],
   },
   horizontalBtnUnselected: {
-    backgroundColor: '#f8fafc',
-    borderColor: '#cbd5e1',
+    backgroundColor: palette.slate[50],
+    borderColor: palette.slate[300],
   },
   horizontalBtnText: {
     fontSize: 14,
@@ -671,14 +672,14 @@ const styles = StyleSheet.create({
   dndTimes: {
     marginTop: 12,
     borderTopWidth: 2,
-    borderColor: '#e2e8f0',
+    borderColor: palette.slate[200],
     paddingTop: 12,
     gap: 10,
   },
   dndLabel: {
     fontSize: 14,
     fontWeight: '800',
-    color: '#475569',
+    color: palette.slate[600],
   },
   dndInputsRow: {
     flexDirection: 'row',
@@ -691,31 +692,31 @@ const styles = StyleSheet.create({
   timeLabel: {
     fontSize: 12,
     fontWeight: '800',
-    color: '#64748b',
+    color: palette.slate[500],
   },
   timeInput: {
     borderWidth: 2,
-    borderColor: '#cbd5e1',
-    backgroundColor: '#ffffff',
+    borderColor: palette.slate[300],
+    backgroundColor: palette.white,
     borderRadius: 12,
     paddingHorizontal: 12,
     paddingVertical: 10,
     fontSize: 16,
     fontWeight: '700',
-    color: '#0f172a',
+    color: palette.slate[900],
   },
   dndHint: {
     fontSize: 12,
     fontWeight: '700',
-    color: '#ef4444',
+    color: palette.red[500],
   },
   caregiverSetupBtn: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#ffffff',
+    backgroundColor: palette.white,
     borderRadius: 24,
     borderWidth: 4,
-    borderColor: '#e2e8f0',
+    borderColor: palette.slate[200],
     paddingHorizontal: 20,
     paddingVertical: 18,
     minHeight: 88,
@@ -727,18 +728,18 @@ const styles = StyleSheet.create({
   caregiverSetupTitle: {
     fontSize: 18,
     fontWeight: '900',
-    color: '#0f172a',
+    color: palette.slate[900],
   },
   caregiverSetupSubtitle: {
     fontSize: 13,
     fontWeight: '600',
-    color: '#64748b',
+    color: palette.slate[500],
     marginTop: 2,
   },
   infoBox: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#cbd5e1',
+    backgroundColor: palette.slate[300],
     borderRadius: 20,
     padding: 16,
     gap: 12,
@@ -749,32 +750,32 @@ const styles = StyleSheet.create({
   infoBoxTitle: {
     fontSize: 16,
     fontWeight: '900',
-    color: '#1e293b',
+    color: palette.slate[800],
   },
   infoBoxDesc: {
     fontSize: 13,
     fontWeight: '700',
-    color: '#475569',
+    color: palette.slate[600],
     marginTop: 2,
   },
   footer: {
-    backgroundColor: '#ffffff',
+    backgroundColor: palette.white,
     borderTopWidth: 4,
-    borderColor: '#e2e8f0',
+    borderColor: palette.slate[200],
     padding: 16,
   },
   footerHomeButton: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#0f172a',
+    backgroundColor: palette.slate[900],
     borderRadius: 20,
     paddingVertical: 18,
     minHeight: 72,
     gap: 10,
   },
   footerHomeText: {
-    color: '#ffffff',
+    color: palette.white,
     fontSize: 22,
     fontWeight: '900',
   },

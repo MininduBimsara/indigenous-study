@@ -11,6 +11,7 @@ import {
   type Guideline, type GuidelineSection, type SubTheme,
 } from '../data/guidelines';
 import { triggerHaptic } from '../utils/haptic';
+import { palette } from '../theme/colors';
 
 // G13: search with autocomplete + forgiving matching
 // G85: consistent, predictable screen structure
@@ -66,7 +67,7 @@ function GuidelineCard({ item }: { item: Guideline }) {
           <Ionicons
             name={expanded ? 'chevron-up' : 'chevron-down'}
             size={20}
-            color="#64748b"
+            color={palette.slate[500]}
           />
         </View>
 
@@ -93,7 +94,7 @@ function GuidelineCard({ item }: { item: Guideline }) {
               <Text style={styles.exampleText}>{item.ewsApplication}</Text>
             </View>
             <View style={styles.citationRow}>
-              <Ionicons name="library-outline" size={14} color="#94a3b8" />
+              <Ionicons name="library-outline" size={14} color={palette.slate[400]} />
               <Text style={styles.citationText}>{item.citation}</Text>
             </View>
           </View>
@@ -151,7 +152,7 @@ export default function GuidelinesScreen() {
           accessibilityLabel="Go back"
           accessibilityRole="button"
         >
-          <Ionicons name="arrow-back" size={24} color="#ffffff" />
+          <Ionicons name="arrow-back" size={24} color={palette.white} />
         </TouchableOpacity>
         <View style={styles.headerText}>
           <Text style={styles.headerTitle}>Design Guidelines</Text>
@@ -164,12 +165,12 @@ export default function GuidelinesScreen() {
       {/* G13: Search bar */}
       <View style={styles.searchRow}>
         <View style={styles.searchBox}>
-          <Ionicons name="search" size={20} color="#64748b" style={styles.searchIcon} />
+          <Ionicons name="search" size={20} color={palette.slate[500]} style={styles.searchIcon} />
           <TextInput
             value={query}
             onChangeText={setQuery}
             placeholder="Search guidelines..."
-            placeholderTextColor="#94a3b8"
+            placeholderTextColor={palette.slate[400]}
             style={styles.searchInput}
             clearButtonMode="while-editing"
             accessibilityLabel="Search guidelines"
@@ -177,7 +178,7 @@ export default function GuidelinesScreen() {
           />
           {query.length > 0 && (
             <TouchableOpacity onPress={() => setQuery('')} accessibilityLabel="Clear search">
-              <Ionicons name="close-circle" size={20} color="#94a3b8" />
+              <Ionicons name="close-circle" size={20} color={palette.slate[400]} />
             </TouchableOpacity>
           )}
         </View>
@@ -299,10 +300,10 @@ export default function GuidelinesScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f8fafc',
+    backgroundColor: palette.slate[50],
   },
   header: {
-    backgroundColor: '#0f172a',
+    backgroundColor: palette.slate[900],
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 16,
@@ -321,12 +322,12 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   headerTitle: {
-    color: '#ffffff',
+    color: palette.white,
     fontSize: 20,
     fontWeight: '900',
   },
   headerSubtitle: {
-    color: '#94a3b8',
+    color: palette.slate[400],
     fontSize: 13,
     fontWeight: '600',
     marginTop: 2,
@@ -337,18 +338,18 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 10,
     gap: 8,
-    backgroundColor: '#ffffff',
+    backgroundColor: palette.white,
     borderBottomWidth: 1,
-    borderBottomColor: '#e2e8f0',
+    borderBottomColor: palette.slate[200],
   },
   searchBox: {
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#f1f5f9',
+    backgroundColor: palette.slate[100],
     borderRadius: 12,
     borderWidth: 2,
-    borderColor: '#e2e8f0',
+    borderColor: palette.slate[200],
     paddingHorizontal: 12,
     minHeight: 44,
     gap: 8,
@@ -360,20 +361,20 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 15,
     fontWeight: '600',
-    color: '#0f172a',
+    color: palette.slate[900],
     paddingVertical: 0,
   },
   clearBtn: {
     paddingHorizontal: 12,
     paddingVertical: 10,
-    backgroundColor: '#fee2e2',
+    backgroundColor: palette.red[100],
     borderRadius: 10,
     minHeight: 44,
     alignItems: 'center',
     justifyContent: 'center',
   },
   clearBtnText: {
-    color: '#dc2626',
+    color: palette.red[600],
     fontSize: 13,
     fontWeight: '800',
   },
@@ -382,37 +383,37 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 10,
     gap: 8,
-    backgroundColor: '#ffffff',
+    backgroundColor: palette.white,
   },
   pill: {
     paddingHorizontal: 14,
     paddingVertical: 8,
     borderRadius: 999,
     borderWidth: 2,
-    borderColor: '#cbd5e1',
-    backgroundColor: '#f8fafc',
+    borderColor: palette.slate[300],
+    backgroundColor: palette.slate[50],
     minHeight: 36,
     alignItems: 'center',
     justifyContent: 'center',
   },
   pillTheme: {
-    borderColor: '#e2e8f0',
-    backgroundColor: '#f8fafc',
+    borderColor: palette.slate[200],
+    backgroundColor: palette.slate[50],
   },
   pillThemeActive: {
-    backgroundColor: '#0f172a',
-    borderColor: '#0f172a',
+    backgroundColor: palette.slate[900],
+    borderColor: palette.slate[900],
   },
   pillText: {
     fontSize: 12,
     fontWeight: '800',
-    color: '#475569',
+    color: palette.slate[600],
   },
   pillTextTheme: {
-    color: '#64748b',
+    color: palette.slate[500],
   },
   pillTextActive: {
-    color: '#ffffff',
+    color: palette.white,
   },
   list: {
     padding: 12,
@@ -420,15 +421,15 @@ const styles = StyleSheet.create({
     paddingBottom: 40,
   },
   card: {
-    backgroundColor: '#ffffff',
+    backgroundColor: palette.white,
     borderRadius: 16,
     borderWidth: 2,
-    borderColor: '#e2e8f0',
+    borderColor: palette.slate[200],
     flexDirection: 'row',
     overflow: 'hidden',
     marginBottom: 10,
     elevation: 1,
-    shadowColor: '#000',
+    shadowColor: palette.black,
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.05,
     shadowRadius: 3,
@@ -459,7 +460,7 @@ const styles = StyleSheet.create({
     flexShrink: 0,
   },
   idBadgeText: {
-    color: '#ffffff',
+    color: palette.white,
     fontSize: 12,
     fontWeight: '900',
     letterSpacing: 0.5,
@@ -470,7 +471,7 @@ const styles = StyleSheet.create({
   cardTitle: {
     fontSize: 15,
     fontWeight: '800',
-    color: '#0f172a',
+    color: palette.slate[900],
     lineHeight: 21,
   },
   chipRow: {
@@ -479,54 +480,54 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
   },
   chip: {
-    backgroundColor: '#f1f5f9',
+    backgroundColor: palette.slate[100],
     borderRadius: 999,
     paddingHorizontal: 10,
     paddingVertical: 4,
   },
   chipPaywall: {
-    backgroundColor: '#fef9c3',
+    backgroundColor: palette.yellow[100],
   },
   chipText: {
     fontSize: 11,
     fontWeight: '700',
-    color: '#475569',
+    color: palette.slate[600],
   },
   chipTextPaywall: {
-    color: '#854d0e',
+    color: palette.yellow[800],
   },
   cardDesc: {
     fontSize: 13,
     fontWeight: '500',
-    color: '#475569',
+    color: palette.slate[600],
     lineHeight: 19,
   },
   expandedSection: {
     gap: 10,
     marginTop: 4,
     borderTopWidth: 1,
-    borderTopColor: '#f1f5f9',
+    borderTopColor: palette.slate[100],
     paddingTop: 10,
   },
   exampleBox: {
-    backgroundColor: '#f8fafc',
+    backgroundColor: palette.slate[50],
     borderRadius: 10,
     borderLeftWidth: 4,
-    borderLeftColor: '#3b82f6',
+    borderLeftColor: palette.blue[500],
     padding: 12,
     gap: 4,
   },
   exampleLabel: {
     fontSize: 11,
     fontWeight: '800',
-    color: '#3b82f6',
+    color: palette.blue[500],
     letterSpacing: 0.5,
     textTransform: 'uppercase',
   },
   exampleText: {
     fontSize: 13,
     fontWeight: '500',
-    color: '#334155',
+    color: palette.slate[700],
     lineHeight: 19,
     fontStyle: 'italic',
   },
@@ -538,7 +539,7 @@ const styles = StyleSheet.create({
   citationText: {
     fontSize: 11,
     fontWeight: '600',
-    color: '#94a3b8',
+    color: palette.slate[400],
   },
   emptyState: {
     flex: 1,
@@ -554,18 +555,18 @@ const styles = StyleSheet.create({
   emptyTitle: {
     fontSize: 22,
     fontWeight: '900',
-    color: '#0f172a',
+    color: palette.slate[900],
     textAlign: 'center',
   },
   emptyDesc: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#64748b',
+    color: palette.slate[500],
     textAlign: 'center',
     lineHeight: 24,
   },
   emptyBtn: {
-    backgroundColor: '#0f172a',
+    backgroundColor: palette.slate[900],
     borderRadius: 12,
     paddingHorizontal: 24,
     paddingVertical: 14,
@@ -574,7 +575,7 @@ const styles = StyleSheet.create({
     marginTop: 8,
   },
   emptyBtnText: {
-    color: '#ffffff',
+    color: palette.white,
     fontSize: 16,
     fontWeight: '800',
   },
@@ -586,12 +587,12 @@ const styles = StyleSheet.create({
   footerText: {
     fontSize: 13,
     fontWeight: '700',
-    color: '#64748b',
+    color: palette.slate[500],
   },
   footerSub: {
     fontSize: 11,
     fontWeight: '500',
-    color: '#94a3b8',
+    color: palette.slate[400],
     textAlign: 'center',
   },
 });

@@ -1,6 +1,8 @@
 /**
  * G119 – CAP-compliant message structure
  */
+import { capSeverity } from '../theme/colors';
+
 export type CAPSeverity = 'Extreme' | 'Severe' | 'Moderate' | 'Minor' | 'Unknown';
 
 export interface CAPMetadata {
@@ -21,10 +23,4 @@ export function getCAPMetadata(level: 'safe' | 'warning' | 'danger'): CAPMetadat
   }
 }
 
-export const CAP_SEVERITY_COLORS: Record<CAPSeverity, { bg: string; text: string }> = {
-  Extreme: { bg: '#7f1d1d', text: '#fef2f2' },
-  Severe:  { bg: '#92400e', text: '#fffbeb' },
-  Moderate:{ bg: '#1e3a5f', text: '#eff6ff' },
-  Minor:   { bg: '#14532d', text: '#f0fdf4' },
-  Unknown: { bg: '#374151', text: '#f9fafb' },
-};
+export const CAP_SEVERITY_COLORS: Record<CAPSeverity, { bg: string; text: string }> = capSeverity;

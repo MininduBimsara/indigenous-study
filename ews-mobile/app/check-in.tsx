@@ -5,6 +5,7 @@ import { router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { useAlert } from '../contexts/AlertContext';
 import { triggerHaptic } from '../utils/haptic';
+import { palette } from '../theme/colors';
 
 type Status = 'safe' | 'moving' | 'help';
 
@@ -48,7 +49,7 @@ export default function CheckInScreen() {
   if (confirmed) {
     return (
       <SafeAreaView style={styles.confirmedContainer} edges={['top', 'left', 'right', 'bottom']}>
-        <Ionicons name="checkmark-circle" size={140} color="#ffffff" style={styles.confirmedIcon} />
+        <Ionicons name="checkmark-circle" size={140} color={palette.white} style={styles.confirmedIcon} />
         <Text style={styles.confirmedTitle}>SENT!</Text>
         <Text style={styles.confirmedSub}>
           Your helpers know you are {selected === 'safe' ? 'SAFE' : 'MOVING'}.
@@ -60,7 +61,7 @@ export default function CheckInScreen() {
           accessibilityLabel="Go home"
           accessibilityRole="button"
         >
-          <Ionicons name="home" size={28} color="#166534" />
+          <Ionicons name="home" size={28} color={palette.green[800]} />
           <Text style={styles.confirmedHomeBtnText}>HOME</Text>
         </TouchableOpacity>
       </SafeAreaView>
@@ -83,7 +84,7 @@ export default function CheckInScreen() {
           accessibilityLabel="Hear this question read aloud"
           accessibilityRole="button"
         >
-          <Ionicons name="volume-high" size={24} color="#475569" />
+          <Ionicons name="volume-high" size={24} color={palette.slate[600]} />
           <Text style={styles.listenBtnText}>LISTEN</Text>
         </TouchableOpacity>
       </View>
@@ -104,7 +105,7 @@ export default function CheckInScreen() {
           <Ionicons
             name="checkmark-circle"
             size={48}
-            color={selected === 'safe' ? '#ffffff' : '#166534'}
+            color={selected === 'safe' ? palette.white : palette.green[800]}
           />
           <Text style={[styles.optionText, selected === 'safe' ? styles.textWhite : styles.textSafe]}>
             I AM SAFE
@@ -125,7 +126,7 @@ export default function CheckInScreen() {
           <Ionicons
             name="arrow-forward-circle"
             size={48}
-            color={selected === 'moving' ? '#ffffff' : '#b45309'}
+            color={selected === 'moving' ? palette.white : palette.amber[700]}
           />
           <Text style={[styles.optionText, selected === 'moving' ? styles.textWhite : styles.textMoving]}>
             I AM MOVING
@@ -146,7 +147,7 @@ export default function CheckInScreen() {
           <Ionicons
             name="warning"
             size={48}
-            color={selected === 'help' ? '#ffffff' : '#991b1b'}
+            color={selected === 'help' ? palette.white : palette.red[800]}
           />
           <Text style={[styles.optionText, selected === 'help' ? styles.textWhite : styles.textHelp]}>
             I NEED HELP
@@ -185,21 +186,21 @@ export default function CheckInScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ffffff',
+    backgroundColor: palette.white,
   },
   header: {
-    backgroundColor: '#0f172a',
+    backgroundColor: palette.slate[900],
     paddingVertical: 24,
     paddingHorizontal: 20,
     alignItems: 'center',
   },
   headerTitle: {
-    color: '#ffffff',
+    color: palette.white,
     fontSize: 32,
     fontWeight: '900',
   },
   headerSubtitle: {
-    color: '#cbd5e1',
+    color: palette.slate[300],
     fontSize: 18,
     fontWeight: '700',
     marginTop: 4,
@@ -212,16 +213,16 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#f1f5f9',
+    backgroundColor: palette.slate[100],
     borderWidth: 2,
-    borderColor: '#cbd5e1',
+    borderColor: palette.slate[300],
     borderRadius: 16,
     paddingVertical: 12,
     minHeight: 48,
     gap: 8,
   },
   listenBtnText: {
-    color: '#475569',
+    color: palette.slate[600],
     fontSize: 18,
     fontWeight: '800',
   },
@@ -241,32 +242,32 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     gap: 12,
     elevation: 2,
-    shadowColor: '#000',
+    shadowColor: palette.black,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.05,
     shadowRadius: 4,
   },
-  safeBtnBorder: { borderColor: '#16a34a' },
-  movingBtnBorder: { borderColor: '#f59e0b' },
-  helpBtnBorder: { borderColor: '#dc2626' },
+  safeBtnBorder: { borderColor: palette.green[600] },
+  movingBtnBorder: { borderColor: palette.amber[500] },
+  helpBtnBorder: { borderColor: palette.red[600] },
   
-  safeSelected: { backgroundColor: '#16a34a' },
-  safeUnselected: { backgroundColor: '#f0fdf4' },
+  safeSelected: { backgroundColor: palette.green[600] },
+  safeUnselected: { backgroundColor: palette.green[50] },
   
-  movingSelected: { backgroundColor: '#f59e0b' },
-  movingUnselected: { backgroundColor: '#fffbeb' },
+  movingSelected: { backgroundColor: palette.amber[500] },
+  movingUnselected: { backgroundColor: palette.amber[50] },
   
-  helpSelected: { backgroundColor: '#dc2626' },
-  helpUnselected: { backgroundColor: '#fef2f2' },
+  helpSelected: { backgroundColor: palette.red[600] },
+  helpUnselected: { backgroundColor: palette.red[50] },
 
   optionText: {
     fontSize: 26,
     fontWeight: '900',
   },
-  textWhite: { color: '#ffffff' },
-  textSafe: { color: '#14532d' },
-  textMoving: { color: '#78350f' },
-  textHelp: { color: '#7f1d1d' },
+  textWhite: { color: palette.white },
+  textSafe: { color: palette.green[900] },
+  textMoving: { color: palette.amber[900] },
+  textHelp: { color: palette.red[900] },
 
   footer: {
     padding: 20,
@@ -280,34 +281,34 @@ const styles = StyleSheet.create({
     minHeight: 72,
   },
   sendBtnActive: {
-    backgroundColor: '#0f172a',
+    backgroundColor: palette.slate[900],
   },
   sendBtnDisabled: {
-    backgroundColor: '#e2e8f0',
+    backgroundColor: palette.slate[200],
   },
   sendBtnText: {
     fontSize: 22,
     fontWeight: '900',
   },
   textDisabled: {
-    color: '#94a3b8',
+    color: palette.slate[400],
   },
   cancelBtn: {
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#f1f5f9',
+    backgroundColor: palette.slate[100],
     borderRadius: 20,
     paddingVertical: 14,
     minHeight: 56,
   },
   cancelBtnText: {
-    color: '#475569',
+    color: palette.slate[600],
     fontSize: 18,
     fontWeight: '800',
   },
   confirmedContainer: {
     flex: 1,
-    backgroundColor: '#16a34a',
+    backgroundColor: palette.green[600],
     alignItems: 'center',
     justifyContent: 'center',
     padding: 32,
@@ -318,20 +319,20 @@ const styles = StyleSheet.create({
   confirmedTitle: {
     fontSize: 54,
     fontWeight: '900',
-    color: '#ffffff',
+    color: palette.white,
     textAlign: 'center',
   },
   confirmedSub: {
     fontSize: 26,
     fontWeight: '800',
-    color: '#ffffff',
+    color: palette.white,
     textAlign: 'center',
     marginTop: 12,
     lineHeight: 34,
   },
   confirmedTimerHint: {
     fontSize: 18,
-    color: '#d1fae5',
+    color: palette.emerald[100],
     textAlign: 'center',
     marginTop: 16,
   },
@@ -339,7 +340,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#ffffff',
+    backgroundColor: palette.white,
     borderRadius: 20,
     paddingVertical: 18,
     width: '100%',
@@ -348,7 +349,7 @@ const styles = StyleSheet.create({
     marginTop: 40,
   },
   confirmedHomeBtnText: {
-    color: '#166534',
+    color: palette.green[800],
     fontSize: 22,
     fontWeight: '900',
   },

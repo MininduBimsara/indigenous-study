@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { View, ActivityIndicator, StyleSheet } from 'react-native';
 import { router } from 'expo-router';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { palette } from '../theme/colors';
 
 export default function IndexRedirect() {
   const [loading, setLoading] = useState(true);
@@ -28,7 +29,7 @@ export default function IndexRedirect() {
 
   return (
     <View style={styles.container}>
-      <ActivityIndicator size="large" color="#ffffff" />
+      <ActivityIndicator size="large" color={palette.white} />
     </View>
   );
 }
@@ -38,6 +39,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#1e3a8a',
+    backgroundColor: palette.blue[900],
   },
 });

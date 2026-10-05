@@ -5,6 +5,7 @@ import { router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { useAlert } from '../contexts/AlertContext';
 import { triggerHaptic } from '../utils/haptic';
+import { palette } from '../theme/colors';
 
 interface OfflineAction {
   id: string;
@@ -22,7 +23,7 @@ export default function OfflineModeScreen() {
     {
       id: 'call911',
       iconName: 'call',
-      iconColor: '#dc2626',
+      iconColor: palette.red[600],
       title: 'CALL 911',
       detail: 'Works without internet',
       action: () => {
@@ -33,7 +34,7 @@ export default function OfflineModeScreen() {
     {
       id: 'sms',
       iconName: 'chatbubble',
-      iconColor: '#2563eb',
+      iconColor: palette.blue[600],
       title: 'SEND TEXT',
       detail: 'SMS works offline',
       action: () => {
@@ -44,7 +45,7 @@ export default function OfflineModeScreen() {
     {
       id: 'bluetooth',
       iconName: 'radio',
-      iconColor: '#9333ea',
+      iconColor: palette.purple[600],
       title: 'NEARBY ALERTS',
       detail: 'Bluetooth works nearby',
       action: () => {
@@ -55,7 +56,7 @@ export default function OfflineModeScreen() {
     {
       id: 'map',
       iconName: 'pin',
-      iconColor: '#16a34a',
+      iconColor: palette.green[600],
       title: 'SAVED MAP',
       detail: 'Works without internet',
       action: () => {
@@ -69,7 +70,7 @@ export default function OfflineModeScreen() {
     return (
       <SafeAreaView style={styles.onlineContainer} edges={['top', 'left', 'right', 'bottom']}>
         <View style={styles.onlineCircle}>
-          <Ionicons name="wifi" size={48} color="#16a34a" />
+          <Ionicons name="wifi" size={48} color={palette.green[600]} />
         </View>
         <Text style={styles.onlineTitle}>YOU ARE ONLINE</Text>
         <Text style={styles.onlineSub}>Your internet connection is active and working.</Text>
@@ -79,7 +80,7 @@ export default function OfflineModeScreen() {
           accessibilityLabel="Go home"
           accessibilityRole="button"
         >
-          <Ionicons name="home" size={24} color="#ffffff" />
+          <Ionicons name="home" size={24} color={palette.white} />
           <Text style={styles.onlineHomeText}>HOME</Text>
         </TouchableOpacity>
       </SafeAreaView>
@@ -91,7 +92,7 @@ export default function OfflineModeScreen() {
       {/* Alert header */}
       <View style={styles.header}>
         <View style={styles.headerRow}>
-          <Ionicons name="wifi-outline" size={36} color="#ffffff" style={styles.headerWifiIcon} />
+          <Ionicons name="wifi-outline" size={36} color={palette.white} style={styles.headerWifiIcon} />
           <Text style={styles.headerTitle}>NO INTERNET</Text>
         </View>
         <Text style={styles.headerSubtitle}>You can still get help</Text>
@@ -105,7 +106,7 @@ export default function OfflineModeScreen() {
           accessibilityLabel="Hear choices read aloud"
           accessibilityRole="button"
         >
-          <Ionicons name="volume-high" size={24} color="#475569" />
+          <Ionicons name="volume-high" size={24} color={palette.slate[600]} />
           <Text style={styles.listenBtnText}>LISTEN</Text>
         </TouchableOpacity>
       </View>
@@ -138,7 +139,7 @@ export default function OfflineModeScreen() {
           accessibilityLabel="Go home"
           accessibilityRole="button"
         >
-          <Ionicons name="home" size={22} color="#475569" />
+          <Ionicons name="home" size={22} color={palette.slate[600]} />
           <Text style={styles.homeBtnText}>HOME</Text>
         </TouchableOpacity>
       </View>
@@ -149,10 +150,10 @@ export default function OfflineModeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ffffff',
+    backgroundColor: palette.white,
   },
   header: {
-    backgroundColor: '#ea580c',
+    backgroundColor: palette.orange[600],
     paddingVertical: 24,
     paddingHorizontal: 20,
     alignItems: 'center',
@@ -166,12 +167,12 @@ const styles = StyleSheet.create({
     opacity: 0.9,
   },
   headerTitle: {
-    color: '#ffffff',
+    color: palette.white,
     fontSize: 32,
     fontWeight: '900',
   },
   headerSubtitle: {
-    color: '#ffedd5',
+    color: palette.orange[100],
     fontSize: 18,
     fontWeight: '700',
     marginTop: 4,
@@ -184,16 +185,16 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#f1f5f9',
+    backgroundColor: palette.slate[100],
     borderWidth: 2,
-    borderColor: '#cbd5e1',
+    borderColor: palette.slate[300],
     borderRadius: 16,
     paddingVertical: 12,
     minHeight: 48,
     gap: 8,
   },
   listenBtnText: {
-    color: '#475569',
+    color: palette.slate[600],
     fontSize: 18,
     fontWeight: '800',
   },
@@ -205,8 +206,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     borderRadius: 24,
     borderWidth: 4,
-    borderColor: '#cbd5e1',
-    backgroundColor: '#ffffff',
+    borderColor: palette.slate[300],
+    backgroundColor: palette.white,
     padding: 16,
     gap: 16,
     alignItems: 'center',
@@ -216,7 +217,7 @@ const styles = StyleSheet.create({
     width: 64,
     height: 64,
     borderRadius: 16,
-    backgroundColor: '#f1f5f9',
+    backgroundColor: palette.slate[100],
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -226,11 +227,11 @@ const styles = StyleSheet.create({
   cardTitle: {
     fontSize: 22,
     fontWeight: '900',
-    color: '#0f172a',
+    color: palette.slate[900],
   },
   cardDetail: {
     fontSize: 16,
-    color: '#64748b',
+    color: palette.slate[500],
     fontWeight: '600',
     marginTop: 2,
   },
@@ -241,20 +242,20 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#f1f5f9',
+    backgroundColor: palette.slate[100],
     borderRadius: 20,
     paddingVertical: 14,
     minHeight: 56,
     gap: 8,
   },
   homeBtnText: {
-    color: '#475569',
+    color: palette.slate[600],
     fontSize: 18,
     fontWeight: '800',
   },
   onlineContainer: {
     flex: 1,
-    backgroundColor: '#ffffff',
+    backgroundColor: palette.white,
     alignItems: 'center',
     justifyContent: 'center',
     padding: 32,
@@ -263,7 +264,7 @@ const styles = StyleSheet.create({
     width: 96,
     height: 96,
     borderRadius: 48,
-    backgroundColor: '#d1fae5',
+    backgroundColor: palette.emerald[100],
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 20,
@@ -271,13 +272,13 @@ const styles = StyleSheet.create({
   onlineTitle: {
     fontSize: 32,
     fontWeight: '900',
-    color: '#0f172a',
+    color: palette.slate[900],
     textAlign: 'center',
   },
   onlineSub: {
     fontSize: 18,
     fontWeight: '700',
-    color: '#64748b',
+    color: palette.slate[500],
     textAlign: 'center',
     marginTop: 8,
     paddingHorizontal: 16,
@@ -286,7 +287,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#0f172a',
+    backgroundColor: palette.slate[900],
     borderRadius: 20,
     paddingVertical: 18,
     width: '100%',
@@ -295,7 +296,7 @@ const styles = StyleSheet.create({
     marginTop: 40,
   },
   onlineHomeText: {
-    color: '#ffffff',
+    color: palette.white,
     fontSize: 20,
     fontWeight: '900',
   },
