@@ -91,6 +91,8 @@ The full list is in a separate document, the [XAI guideline evidence catalogue](
 
 Classes follow Brief 1: **A** = general UI, **B** = XAI-related (changes what is explained or how it is understood), **C** = both. None of the 49 source papers discusses AI explanations, so every B and C implication is *inferred by us*. The paper must say this.
 
+**Why check the evidence again.** The 128 guidelines are already sourced, but their sources answer a different question: does this help people with cognitive impairments use an interface or follow a warning? We apply them to a new object, the explanation of an ML prediction, and that transfer is our inference. The evidence catalogue tests the transfer: does any study show the property changes how people understand an AI explanation, a probability or a warning? Direct evidence supports the transfer, indirect evidence supports it only partly, and "none found" marks it as inference.
+
 ### What the catalog does not cover
 
 The catalog explains *how* to present information, never *what* to explain. A targeted literature search is needed for:
@@ -197,15 +199,27 @@ Every question follows one pattern, so one well-made question becomes the model 
 
 ### All questions from the template
 
-| Domain (screening-test source) | Explanation decision | Question (draft) | Grounding |
-| --- | --- | --- | --- |
-| Numeracy (SNS) | Likelihood form | When we tell you how likely a flood is, what helps you most? | G26, G119 |
-| Attention (Mini-Cog, MoCA attention items) | Detail on first view | Do you want only the main message first, or everything at once? | G41, G21 |
-| Executive function / planning (Mini-Cog clock drawing) | Action detail | Do you want us to tell you exactly what to do, step by step? | G4, G50 |
-| Memory (Mini-Cog recall; AD8 "repeats questions") | Reminders and change alerts | Should we remind you of the warning and tell you if it changes? | G109, G89 |
-| Orientation to time and place (MMSE orientation) | Time and place wording | How should we say when? "Thursday morning" or "in 2 days"? | G47, G73 |
-| Language | Modality and reading level | Do you like to read, listen, or see pictures? | G128, G67 |
-| Reasoning / curiosity | Explanation goal | Do you want to know why the app thinks a flood may come? | Brief 1; Tielman et al. 2024 |
+Each question now traces to the guidelines it serves and to the published evidence behind them, from the evidence catalogue. **D** = direct evidence, **I** = indirect evidence; *new* = added in the second manual review.
+
+| Domain (screening-test source) | Explanation decision | Question (draft) | Guidelines (evidence) | Literature backing |
+| --- | --- | --- | --- | --- |
+| Numeracy (SNS) | Likelihood form | When we tell you how likely a flood is, what helps you most? | G26 (D), G119 (D), G81 (D, *new*) | Icon arrays help low-numeracy and older adults (Galesic et al., 2009); probability words are read inconsistently (Budescu et al., 2009); "30% chance" is read in contradictory ways (Gigerenzer et al., 2005) |
+| Attention (Mini-Cog, MoCA attention items) | Detail on first view | Do you want only the main message first, or everything at once? | G41 (D), G21 (D), G11 (D), G18 (D, *new*) | Less, focused information improves comprehension, most for low numeracy (Peters et al., 2007); complex explanations are harder to interpret (Lage et al., 2019) |
+| Executive function / planning (Mini-Cog clock drawing) | Action detail | Do you want us to tell you exactly what to do, step by step? | G4 (D), G50 (D), G22 (D, *new*) | Explanations explored step by step were understood better (Mindlin et al., 2024); protective action guidance improves understanding (Sutton et al., 2021); list instructions are recalled better (Morrow et al., 1998) |
+| Memory (Mini-Cog recall; AD8 "repeats questions") | Reminders and change alerts | Should we remind you of the warning and tell you if it changes? | G109 (I), G89 (D), G54 (D), G27 (I, *new*) | Earlier forecasts anchor judgments of new ones (Herdener et al., 2018); repetition helps people with dementia learn (Creighton et al., 2013); too many alerts get ignored (Ha et al., 2026) |
+| Orientation to time and place (MMSE orientation) | Time and place wording | How should we say when? "Thursday morning" or "in 2 days"? | G47 (D), G73 (D), G114 (D) | Orientation and calculation are among the most impaired items in MCI and dementia (Liu et al., 2019); location in a warning changes risk judgments (Klockow-McClain et al., 2020); time indications improve understanding (Dallo et al., 2022) |
+| Language | Modality and reading level | Do you like to read, listen, or see pictures? | G128 (D), G67 (D), G14 (D, *new*), G15 (I, *new*), G17 (I, *new*) | Text + visual explanations help lay users most (Szymanski et al., 2021); matching the preferred format improves understanding (Tait et al., 2012); jargon impairs processing (Bullock et al., 2019) |
+| Reasoning / curiosity | Explanation goal | Do you want to know why the app thinks a flood may come? | Brief 1; G25 (D) | Adaptive XAI is the key to inclusive XAI (Tielman et al., 2024); lay users cannot be expected to read a causal chain (Miller, 2019); impact information improves warning understanding (Weyrich et al., 2018) |
+
+### Guidelines without published backing (3)
+
+Three of the 50 XAI-relevant guidelines were marked as possibly relevant, but the evidence search found no source linking them to understanding an explanation, forecast or warning. They stay in the requirements as **our inference**, and the paper must label them that way.
+
+| ID | Guideline | Why it was marked | Where this document relies on it | How we treat it |
+| --- | --- | --- | --- | --- |
+| G20 | Include symbols and letters necessary to decipher | Sinhala and Tamil explanations must render correctly, including numerals, % and dates | Supports G121 (local-language Easy Read) | An engineering requirement: test that every explanation string renders in all three languages. Closest source is context only: CAP alerts lost integrity on small handsets in Sri Lankan trials (Waidyanatha et al., 2007), with no comprehension measure. |
+| G42 | Info to prepare for a task | State the expected timing and when the next forecast update arrives | Time-window invariant (with G73); "Next update: tonight at 6 pm" in the "How sure, and what changed?" profile | The invariant stays grounded through G73, which has direct evidence. Next step: a targeted search on lead-time and update-time communication. |
+| G65 | Focus Not Obscured (WCAG 2.4.11) | "Why?" and "How sure?" must never be hidden under a banner | Layout rule only | Treat as general UI (class A) in the paper; keep it in the prototype as a WCAG check. |
 
 ### Three profiles, and why these three
 
