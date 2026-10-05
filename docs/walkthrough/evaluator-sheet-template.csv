@@ -1,0 +1,2 @@
+Evaluator,Persona,Task,Step,Step description,Q1 Will the user try to achieve the right effect?,Q2 Will the user notice the correct action is available?,Q3 Will the user associate the action with the effect?,Q4 Will the user see progress after the action?,Q5 Can the user detect and recover from an error?,What went wrong (plain words),Severity (0-4),Screenshot (required for 3-4),T3 invariants stated (hazard/place/time/likelihood/action)
+,,T1,1,,,,,,,,,,

@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guideline Triage Differences</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,650&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: single reading column; four bands, each a table of guidelines, newest decisions first */
+:root{
+  --bg:#f6f7f8; --surface:#ffffff; --fg:#1d2328; --muted:#5a646d; --line:#dde1e5;
+  --accent:#1f5f7a;
+  --xai:#b4302b; --xai-bg:#fbe7e5;
+  --both:#8a6a00; --both-bg:#fff4c2;
+  --ok:#2d6a4f; --ok-bg:#e3f1e9;
+  --gray-bg:#eceff2;
+  --f-display:"Source Serif 4",Georgia,serif;
+  --f-body:"IBM Plex Sans",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#13181c; --surface:#1b2227; --fg:#e5e9ec; --muted:#9aa5ae; --line:#2d363d;
+  --accent:#7cc0dc; --xai:#f08c84; --xai-bg:#3a1f1d; --both:#e8c95a; --both-bg:#3a3215;
+  --ok:#7fcfa5; --ok-bg:#1c3328; --gray-bg:#252d33; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#13181c; --surface:#1b2227; --fg:#e5e9ec; --muted:#9aa5ae; --line:#2d363d;
+  --accent:#7cc0dc; --xai:#f08c84; --xai-bg:#3a1f1d; --both:#e8c95a; --both-bg:#3a3215;
+  --ok:#7fcfa5; --ok-bg:#1c3328; --gray-bg:#252d33; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font:15px/1.55 var(--f-body)}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:16px;padding-block:32px 64px;display:flex;flex-direction:column;gap:36px}
+h1{font:650 clamp(26px,4vw,34px)/1.15 var(--f-display);margin:0;text-wrap:balance}
+h2{font:650 22px/1.25 var(--f-display);margin:0;text-wrap:balance}
+p{margin:0;max-width:68ch}
+.lead{display:flex;flex-direction:column;gap:12px}
+.eyebrow{font:600 12px var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+.counts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:8px}
+.count{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:14px 16px;display:flex;flex-direction:column;gap:4px}
+.count b{font:650 28px/1 var(--f-display);font-variant-numeric:tabular-nums}
+.count span{font-size:13px;color:var(--muted)}
+section{display:flex;flex-direction:column;gap:12px}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:6px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:760px;font-size:14px}
+th,td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--line)}
+th{font:600 12px var(--f-body);letter-spacing:.05em;text-transform:uppercase;color:var(--muted);background:var(--gray-bg)}
+tr:last-child td{border-bottom:0}
+td.id{font:500 13px var(--f-mono);white-space:nowrap}
+.chip{display:inline-block;font:600 12px var(--f-body);padding:2px 8px;border-radius:999px;white-space:nowrap}
+.c-xai{background:var(--xai-bg);color:var(--xai)}
+.c-both{background:var(--both-bg);color:var(--both)}
+.c-none{background:var(--gray-bg);color:var(--muted)}
+.c-strong{background:var(--ok-bg);color:var(--ok)}
+.name{font-weight:600}
+.note{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:14px 16px;display:flex;flex-direction:column;gap:8px}
+.note ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+code{font:500 13px var(--f-mono)}
+.ev{min-width:300px}
+.ev p{margin:6px 0 0;font-size:13px;line-height:1.45;max-width:none}
+.src{font:500 11px var(--f-mono);color:var(--muted);background:var(--gray-bg);padding:1px 5px;border-radius:3px;white-space:nowrap}
+table.wide{min-width:1100px}
+h3{font:600 15px var(--f-body);margin:0}
+a{color:var(--accent)}
+
+</style>
+
+<div class="wrap">
+  <header class="lead">
+    <div class="eyebrow">Task 1 · Guideline triage check</div>
+    <h1>Your Excel marking vs the Research Approach (v2)</h1>
+    <p>Your colour marks in the ID column of <code>EWS_Design_Guidelines_128_Categorised</code> compared with the 31 B/C guidelines in the Research Approach. <span class="chip c-xai">Red</span> = XAI-related (B). <span class="chip c-both">Yellow</span> = UI and XAI both (C). Unmarked = general UI (A).</p>
+    <p class="muted">Nothing below was removed from the Research Approach. Version 3 keeps all 31 guidelines it already had. The new guidelines in section 1 are for you to decide on.</p>
+    <div class="counts">
+      <div class="count"><b>19</b><span>New: marked by you, not in the Research Approach (+1 unclear mark). Each now has sourced evidence.</span></div>
+      <div class="count"><b>9</b><span>In both, but the class differs (doc says C, you marked red)</span></div>
+      <div class="count"><b>5</b><span>In both, same class (B)</span></div>
+      <div class="count"><b>17</b><span>In the Research Approach, left unmarked in your Excel</span></div>
+    </div>
+  </header>
+
+  <section>
+    <h2>1. New guidelines you uncovered</h2>
+    <p>These are marked in your Excel but missing from the Research Approach. The implication and EWS columns are drafts you can paste into the B or C table. The evidence column replaces my earlier "Strong / Medium / Weak" ratings, which were my own judgement and had no source behind them.</p>
+
+    <div class="note">
+      <h3>How the evidence is graded</h3>
+      <ul>
+        <li><span class="chip c-strong">Direct</span> A source shows the property changes how people understand an AI explanation, a probability or forecast, or a warning message.</li>
+        <li><span class="chip c-both">Indirect</span> A source shows the property affects comprehension in general text or interfaces, or in people with dementia, MCI or autism. Applying it to explanations is our inference.</li>
+        <li><span class="chip c-none">None found</span> No source links it to understanding. Treat it as general UI (A) or as our inference.</li>
+      </ul>
+      <p class="muted">No source tests any of these guidelines on AI explanations for people with dementia, MCI, autism or ADHD. Even a "Direct" grade means the link to our population is our inference. Each source is labelled with how it was checked: <b>full text</b>, or <b>abstract</b> (publisher pages were blocked, so the abstract record was read). Nothing comes from a search snippet alone. "Counter" marks evidence against the guideline.</p>
+    </div>
+
+    <div class="note">
+      <h3>Grounding for the whole set: raw XAI output does not suit lay users</h3>
+      <ul>
+        <li><a href="https://doi.org/10.1016/j.artint.2018.07.007">Miller (2019), Artificial Intelligence 267</a>. It is "not reasonable to expect a lay-user to be able to interpret a causal chain"; explanations are social and fitted to what the listener knows. <span class="src">full text</span></li>
+        <li><a href="https://doi.org/10.1145/3313831.3376590">Liao, Gruen &amp; Miller (2020), CHI</a>. Lay users ask for explanations; practitioners found LIME feature-importance lists "unsatisfying"; users ask "what do you mean by…" questions that current algorithms don't answer. <span class="src">full text</span></li>
+        <li><a href="https://doi.org/10.1145/3531146.3533127">Schuff et al. (2022), FAccT</a>. Lay users "often mis-interpret" feature-attribution explanations, including Shapley-based ones. <span class="src">full text</span></li>
+        <li><a href="https://doi.org/10.1016/j.techsoc.2024.102685">Tielman et al. (2024), Technology in Society 79</a>. "Adaptive XAI is the key to inclusive XAI"; it asks for personalisation, "more than just simplicity in text". <span class="src">full text</span></li>
+      </ul>
+    </div>
+
+    <div class="tbl"><table class="wide">
+      <thead><tr><th>ID</th><th>Guideline</th><th>Your mark</th><th>Implication for the explanation (draft)</th><th>How to adapt it in the EWS (draft)</th><th>Evidence</th></tr></thead>
+      <tbody>
+        <tr><td class="id">G14</td><td class="name">Use clear words</td><td><span class="chip c-xai">Red · B</span></td><td>Raw XAI output uses feature names (<code>soil_moisture_72h</code>, "probability"). Each reason must become everyday words ("the ground is already wet").</td><td>A lookup table in the data model maps each model input to plain words in Sinhala, Tamil and English. The "Why?" screen reads only from it.</td><td class="ev"><span class="chip c-strong">Direct</span>
+          <p><a href="https://doi.org/10.1177/0963662519865687">Bullock et al. (2019), Public Underst. Sci.</a> Jargon "impairs people's ability to process scientific information" (N=650). <span class="src">abstract</span></p>
+          <p><a href="https://doi.org/10.1111/risa.70109">Walpole et al. (2025), Risk Analysis</a>. "Evacuation warning" was poorly understood in emergency alerts; omit jargon where possible. <span class="src">abstract</span></p>
+          <p><a href="https://arxiv.org/abs/2202.11748">Zytek et al. (2022)</a>. "ML models are only as interpretable as their features"; features must be readable by users. <span class="src">full text</span></p>
+          <p><a href="https://doi.org/10.1111/j.1539-6924.2005.00608.x">Gigerenzer et al. (2005), Risk Analysis</a>. "30% chance of rain" is read in contradictory ways unless the reference class is stated. <span class="src">abstract</span></p></td></tr>
+        <tr><td class="id">G16</td><td class="name">Avoid double negatives or nested clauses</td><td><span class="chip c-xai">Red · B</span></td><td>Uncertainty wording invites negatives ("it is not unlikely"). One clause per sentence; no negated likelihood words.</td><td>A banned-phrase list in the template rules; Layer 4 AI wording that contains one is rejected.</td><td class="ev"><span class="chip c-strong">Direct</span>
+          <p><a href="https://consensus.app/papers/details/aff3ca4038275b038528ce552186ec73/">Teigen &amp; Brun (1995), Acta Psychologica</a>. "Unlikely" and "doubtful" "function more like negations". <span class="src">abstract</span></p>
+          <p><a href="https://consensus.app/papers/details/41d59ba7c7f6565a8b151631b5586477/">Teigen &amp; Brun (1999), OBHDP</a>. Phrases of equal probability lead to different decisions depending on direction. <span class="src">abstract</span></p>
+          <p><a href="https://doi.org/10.1111/j.1467-9280.2009.02284.x">Budescu et al. (2009), Psychological Science</a>. Readers' numeric readings of IPCC probability words "deviated significantly" from the guidelines. <span class="src">abstract</span></p>
+          <p><a href="https://doi.org/10.1037/xlm0000851">Xiang et al. (2020)</a>: negative sentences cost more processing. <a href="https://doi.org/10.1371/journal.pone.0266552">Nasiri et al. (2022)</a>: mild Alzheimer's impairs relative-clause sentences. <span class="src">abstract</span></p>
+          <p class="muted">"Not unlikely"-style wording itself is untested; that step is our inference.</p></td></tr>
+        <tr><td class="id">G18</td><td class="name">Keep text succinct</td><td><span class="chip c-xai">Red · B</span></td><td>Each explanation step is one sentence of 15 words or fewer; the five invariants fit in three sentences.</td><td>A word budget per text slot in each screen spec, so the forecast card never scrolls.</td><td class="ev"><span class="chip c-strong">Direct · mixed</span>
+          <p><a href="https://arxiv.org/abs/1802.00682">Narayanan et al. (2018), preprint</a>. Longer, more complex ML explanations raised response time and lowered satisfaction; accuracy stayed stable. <span class="src">summary</span></p>
+          <p><a href="https://consensus.app/papers/details/0ae1c8a675b456fa9870f18c7cb427b0/">van Boxtel et al. (2021)</a>. Comprehension of long sentences declines with ageing and more with Alzheimer's. <span class="src">abstract</span></p>
+          <p>Counter: <a href="https://consensus.app/papers/details/b495e9ae16dc58269c601f61da178977/">Carlson et al. (2024)</a>. 360-character alerts did not beat 90-character ones on compliance; shortness must not drop key content. <span class="src">abstract</span></p></td></tr>
+        <tr><td class="id">G22</td><td class="name">Separate each instruction</td><td><span class="chip c-xai">Red · B</span></td><td>The action part of the explanation ("get your go-bag ready") is a numbered list, one step per line.</td><td>Action list with a checkbox per step under the forecast card, fed by the CAP instruction field.</td><td class="ev"><span class="chip c-strong">Direct · mixed</span>
+          <p><a href="https://consensus.app/papers/details/7c3f0540dc8b5992a089cc6b2217733f/">Desaulniers (1987), HFS Proc.</a> Outline-format warnings were read and followed more than paragraph warnings. <span class="src">abstract</span></p>
+          <p><a href="https://doi.org/10.1080/036107398244238">Morrow et al. (1998), Exp. Aging Res.</a> List instructions were understood and recalled better and reduced age and working-memory differences. <span class="src">abstract</span></p>
+          <p>Counter: Frantz (1993), J. Safety Research. Prose vs numbered list did not change label effectiveness. <span class="src">abstract</span></p></td></tr>
+        <tr><td class="id">G19</td><td class="name">Use clear formatting and punctuation</td><td><span class="chip c-xai">Red · B</span></td><td>No all-caps or "!!!" in explanations (v2 says "Danger! Flood coming!"). Numbers written one consistent way ("3 in 10", "30%").</td><td>Style rules for the forecast card and the likelihood component.</td><td class="ev"><span class="chip c-strong">Direct · mixed</span>
+          <p><a href="https://consensus.app/papers/details/b63e742554af508b811bf92319e31fcc/">Waugh et al. (2025), Weather, Climate &amp; Society</a>. Emphasising key text in a warning (bold or caps) aids attention and memory. Supports selective emphasis, not all-caps blocks. <span class="src">abstract</span></p>
+          <p><a href="https://consensus.app/papers/details/0db94ab6287d599b9f368864a4ccd657/">Klinke et al. (2024)</a>. All-uppercase text slows reading and hurts readability of long headlines. <span class="src">abstract</span></p>
+          <p>Counter: <a href="https://consensus.app/papers/details/765a541dd40a56d0bdd5ac67f10a4f5e/">Arditi &amp; Cho (2007), Vision Research</a>. Uppercase was as legible or more at small sizes. <span class="src">abstract</span></p></td></tr>
+        <tr><td class="id">G120</td><td class="name">Universal hazard symbols</td><td><span class="chip c-xai">Red · B</span></td><td>The hazard invariant always carries the standard flood pictogram, so the hazard is clear without reading.</td><td>One fixed flood symbol on every forecast, explanation and notification screen.</td><td class="ev"><span class="chip c-strong">Direct</span>
+          <p><a href="https://consensus.app/papers/details/6aaea31a642f5350b01bc5be02dd86d5/">Shinar et al. (2013), Transp. Res. F</a>. Adding text to a symbol improves comprehension and speed, especially for unfamiliar signs. <span class="src">abstract</span></p>
+          <p><a href="https://doi.org/10.1177/154193120905302012">Shorr et al. (2009), HFES</a>. Older adults understood ANSI warning symbols less accurately and more slowly. <span class="src">abstract</span></p>
+          <p><a href="https://doi.org/10.1093/geronb/gbad041">Boedeker et al. (2023), J Gerontol B</a>. Symbols with text cut errors for people with Alzheimer's dementia. <span class="src">abstract</span></p></td></tr>
+        <tr><td class="id">G118</td><td class="name">Multi-modal alert (audio + visual + haptic)</td><td><span class="chip c-xai">Red · B</span></td><td>A forecast change or upgrade is announced through more than one channel. Overlaps G128.</td><td>Forecast-change notification uses text, a voice line and a short vibration.</td><td class="ev"><span class="chip c-strong">Direct</span>
+          <p>Stephens et al. (2013), Hum. Commun. Res. Three redundant messages, one through a synchronous channel, gave the fastest grasp of urgency (N=1,318). <span class="src">abstract</span></p>
+          <p>Tannenbaum-Baruchi et al. (2026), Disability &amp; Health J. Sound + vibration + light app alerts; authors call for multimodal systems. Maguire et al. (2025), IJDRS: warnings in "multiple formats and channels". <span class="src">abstract</span></p>
+          <p class="muted">Both disability studies are with Deaf and hard-of-hearing adults; none with cognitive impairment.</p></td></tr>
+        <tr><td class="id">G59</td><td class="name">Info and Relationships (SC 1.3.1)</td><td><span class="chip c-xai">Red · B</span></td><td>The explanation's structure (bottom line, reason, how sure) is exposed to screen readers. The icon array needs a text equivalent.</td><td><code>accessibilityRole="header"</code> on each step; icon array labelled "3 of 10 houses filled".</td><td class="ev"><span class="chip c-strong">Direct</span>
+          <p><a href="https://consensus.app/papers/details/5136b126402456fc8fa2edb46d45d3e0/">Sharif et al. (2021), ASSETS</a>. Screen-reader users were 61% less accurate and took 211% longer with online charts; they asked for text and table versions. <span class="src">abstract</span></p>
+          <p><a href="https://consensus.app/papers/details/324eb0815f13533cbb5e79ccc9335b9b/">Zong et al. (2022), Comput. Graph. Forum</a>. Structured, described charts helped blind readers understand data. <span class="src">abstract</span></p>
+          <p class="muted">Evidence is for visual impairment, not cognitive impairment. WCAG 1.3.1 text not re-checked.</p></td></tr>
+        <tr><td class="id">G15</td><td class="name">Use simple tense and voice</td><td><span class="chip c-xai">Red · B</span></td><td>"Flooding is possible here", not "A flood event has been forecast with moderate certainty".</td><td>All explanation templates use active voice and present or simple future tense; checked in the screen spec.</td><td class="ev"><span class="chip c-both">Indirect · mixed</span>
+          <p><a href="https://doi.org/10.1016/s0010-0285(03)00005-7">Ferreira (2003), Cognitive Psychology</a>. Passives "are frequently and systematically misinterpreted". <span class="src">abstract</span></p>
+          <p><a href="https://doi.org/10.1044/2020_JSLHR-19-00335">Sung et al. (2020), JSLHR</a>. People with MCI had more difficulty with passive than active sentences. <span class="src">abstract</span></p>
+          <p>Counter: <a href="https://doi.org/10.1006/brln.1997.1898">Grossman &amp; White-Devine (1998)</a>. Voice did not affect comprehension in Alzheimer's. No source found for tense. <span class="src">abstract</span></p></td></tr>
+        <tr><td class="id">G17</td><td class="name">Use literal language</td><td><span class="chip c-xai">Red · B</span></td><td>No metaphors for risk or confidence ("keep an eye on the river", "a perfect storm").</td><td>Fixed literal templates in Layer 2; the invariants check also rejects AI rewording with idioms.</td><td class="ev"><span class="chip c-both">Indirect</span>
+          <p><a href="https://doi.org/10.1177/1362361316668652">Kalandadze et al. (2018), Autism</a>. Meta-analysis: poorer figurative-language comprehension in autism (g = −0.57); not significant when matched on language ability. <span class="src">abstract</span></p>
+          <p><a href="https://consensus.app/papers/details/e60336f63cb355f190c4bcde826c8cf6/">Morsanyi et al. (2021)</a>. Medium accuracy disadvantage for idioms in autism. <span class="src">abstract</span></p>
+          <p class="muted">No source on metaphor in AI explanations or warnings.</p></td></tr>
+        <tr><td class="id">G65</td><td class="name">Focus Not Obscured (SC 2.4.11)</td><td><span class="chip c-xai">Red · B</span></td><td>"Why?" and "How sure?" are never hidden under a banner.</td><td>Layout test: explanation buttons stay visible when an alert banner appears.</td><td class="ev"><span class="chip c-none">None found</span><p class="muted">No source links it to understanding. Suggest A.</p></td></tr>
+        <tr><td class="id">G20</td><td class="name">Include symbols and letters necessary to decipher</td><td><span class="chip c-xai">Red · B</span></td><td>Sinhala and Tamil explanations render correctly, including numerals, % and dates. Supports G121.</td><td>Unicode and font test for every explanation string in all three languages.</td><td class="ev"><span class="chip c-none">None found</span>
+          <p>Context only: <a href="https://consensus.app/papers/details/0e97e5e796d45e6292736da3f832d3c1/">Waidyanatha et al. (2007)</a>. In Sri Lankan Sinhala/Tamil/English CAP alert trials, message integrity was compromised on small handsets. No comprehension measure. <span class="src">abstract</span></p></td></tr>
+        <tr><td class="id">G81</td><td class="name">Use familiar, real-world metaphors only</td><td><span class="chip c-both">Yellow · C</span></td><td>Likelihood as houses (icon array), not fan charts, error bars or probability curves.</td><td>Only icon arrays and the landmark picture are used to show uncertainty and level.</td><td class="ev"><span class="chip c-strong">Direct</span>
+          <p><a href="https://doi.org/10.1037/a0014474">Galesic et al. (2009), Health Psychology</a>. Icon arrays "increased accuracy of both low- and high-numeracy people", incl. adults aged 62–77. <span class="src">abstract</span></p>
+          <p><a href="https://doi.org/10.1126/science.1191181">Spiegelhalter et al. (2011), Science</a>. Probabilities are "notoriously difficult to communicate" to lay audiences; graphic effectiveness depends on numeracy. <span class="src">abstract</span></p>
+          <p><a href="https://consensus.app/papers/details/f1f2374538075beab2a1b2da5c2fe50d/">Ruginski et al. (2015), CogSci</a>. Non-experts misread hurricane-cone uncertainty displays. <span class="src">abstract</span></p></td></tr>
+        <tr><td class="id">G77</td><td class="name">Avoid metaphorical icons</td><td><span class="chip c-both">Yellow · C</span></td><td>"How sure?" uses no dice or gauge icon; reasons use literal rain and river icons.</td><td>Icon set for explanation screens limited to literal pictograms with a word label.</td><td class="ev"><span class="chip c-strong">Direct</span>
+          <p><a href="https://consensus.app/papers/details/233a687a8fb052a99b922eb3778e4285/">Davies et al. (1998), Applied Ergonomics</a>. Safety pictograms were poorly understood, "particularly those which were abstract". <span class="src">abstract</span></p>
+          <p><a href="https://doi.org/10.1093/geronb/gbad041">Boedeker et al. (2023)</a>: concrete symbols with text helped people with Alzheimer's. Wu et al. (2022), IJERPH: older adults with MCI did best with realistic icons plus text. <span class="src">abstract</span></p></td></tr>
+        <tr><td class="id">G76</td><td class="name">Realistic, non-childish imagery</td><td><span class="chip c-both">Yellow · C</span></td><td>The landmark comparison uses a real photo of the local bridge marker, not a cartoon.</td><td>Per-gauge landmark photos stored with the local reference levels (already a capability in Task 5).</td><td class="ev"><span class="chip c-strong">Direct</span>
+          <p><a href="https://consensus.app/papers/details/afbc98ca9899551ba48a9d84989bdad8/">Wilhelmi et al. (2024), IJDRR</a>. Realistic images of flooded buildings helped residents understand storm-surge forecasts. <span class="src">abstract</span></p>
+          <p><a href="https://doi.org/10.1016/j.neuropsychologia.2006.12.011">Zannino et al. (2007)</a>, <a href="https://doi.org/10.1016/j.neuropsychologia.2010.05.003">(2010)</a>. Photos beat line drawings for naming in Alzheimer's. <span class="src">abstract</span></p>
+          <p class="muted">The "non-childish" part is untested.</p></td></tr>
+        <tr><td class="id">G79</td><td class="name">Co-design with people with dementia</td><td><span class="chip c-both">Yellow · C</span></td><td>Explanation profiles should later be co-designed with users and carers.</td><td>Not buildable in this paper (no user study). Fits the limitations and future-work section.</td><td class="ev"><span class="chip c-strong">Direct</span>
+          <p><a href="https://doi.org/10.1016/j.techsoc.2024.102685">Tielman et al. (2024)</a>. People with cognitive disabilities "should be involved throughout the development process of XAI". <span class="src">full text</span></p>
+          <p><a href="https://doi.org/10.1080/17483107.2025.2507684">Atf &amp; Lewis (2025)</a>. Recommends user-centred XAI "through participatory design". <span class="src">abstract</span></p>
+          <p class="muted">Strong evidence, but it is a method, not a UI rule.</p></td></tr>
+        <tr><td class="id">G27</td><td class="name">Controls/content do not move unexpectedly</td><td><span class="chip c-both">Yellow · C</span></td><td>A revised forecast must not reflow the card under the user's finger; the change is announced first (G89).</td><td>Forecast card keeps fixed slots; new values arrive behind a "The forecast has changed" banner.</td><td class="ev"><span class="chip c-both">Indirect</span>
+          <p><a href="https://consensus.app/papers/details/aa476ade0899564d97b9701a89128fbe/">Bergmann et al. (2016)</a>. Older adults detected fewer changes, even in easy tasks. <a href="https://consensus.app/papers/details/b84847949e1058218bce996cd10c4c32/">Veiel et al. (2006)</a>: older adults slower to find changes. <span class="src">abstract</span></p>
+          <p><a href="https://consensus.app/papers/details/6e5efce621b35b6285341ddda10e3c4d/">Simons et al. (2000), Perception</a>. Large gradual changes go unnoticed; supports announcing a revision. <span class="src">abstract</span></p></td></tr>
+        <tr><td class="id">G24</td><td class="name">Foreground not obscured by background</td><td><span class="chip c-both">Yellow · C</span></td><td>No explanation text over the river photo or the icon array.</td><td>Text sits beside or under images, never on top.</td><td class="ev"><span class="chip c-both">Indirect</span>
+          <p><a href="https://consensus.app/papers/details/5bc236527f1b54b6afa4487c3f795803/">Mitzner et al. (2006), Human Factors</a>. Low contrast slowed older readers, but comprehension was not significantly affected. <span class="src">abstract</span></p>
+          <p><a href="https://consensus.app/papers/details/da7028cd46865695ab7f1076684cede3/">Labarta et al. (2025), preprint</a>. Legibility of XAI heatmaps changed how understandable they were (N=455). <span class="src">abstract</span></p></td></tr>
+        <tr><td class="id">G23</td><td class="name">Use white spacing</td><td><span class="chip c-both">Yellow · C</span></td><td>Space between explanation steps so each reads as its own unit.</td><td>1.5 line height and fixed gaps between steps on explanation screens.</td><td class="ev"><span class="chip c-both">Indirect</span>
+          <p><a href="https://consensus.app/papers/details/2fce5238e9ae57bfb96b0891f7a3dfd9/">Rello et al. (2015), UAIS</a>. Larger text and character spacing sped reading for people with and without dyslexia. Reading speed, not comprehension. <span class="src">abstract</span></p></td></tr>
+        <tr><td class="id">G66</td><td class="name">Target Size Minimum (SC 2.5.8)</td><td><span class="chip c-none">Unclear</span></td><td>"Why?" and "How sure?" buttons are large enough to tap.</td><td>Buttons at least 48 dp.</td><td class="ev"><span class="chip c-none">None found</span><p class="muted">Jin et al. (2007) tested button size for older adults' tapping, not comprehension. Suggest A.</p></td></tr>
+      </tbody>
+    </table></div>
+    <p class="muted">G66's ID cell has a very light yellow fill (<code>#FFFBC3</code>), close to the section's pale yellow (<code>#FFF9E0</code>). Please confirm whether you meant to mark it.</p>
+  </section>
+
+  <section>
+    <h2>2. Same guideline, different class</h2>
+    <p>Both lists include these, but the Research Approach puts them in C (both) and you marked them red (XAI only). Version 3 still shows them under C. Tell me which class you want and I will move them.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>ID</th><th>Guideline</th><th>Research Approach</th><th>Your Excel</th><th>Where the doc relies on it</th></tr></thead>
+      <tbody>
+        <tr><td class="id">G11</td><td class="name">Most important stands out</td><td><span class="chip c-both">C</span></td><td><span class="chip c-xai">B</span></td><td>Fidelity invariants (hazard, action)</td></tr>
+        <tr><td class="id">G41</td><td class="name">Avoid too much content</td><td><span class="chip c-both">C</span></td><td><span class="chip c-xai">B</span></td><td>Profile question: detail on first view</td></tr>
+        <tr><td class="id">G49</td><td class="name">Alternative content for complex info</td><td><span class="chip c-both">C</span></td><td><span class="chip c-xai">B</span></td><td>Easy Read fidelity</td></tr>
+        <tr><td class="id">G67</td><td class="name">Reading level</td><td><span class="chip c-both">C</span></td><td><span class="chip c-xai">B</span></td><td>Profile question: modality and reading level</td></tr>
+        <tr><td class="id">G84</td><td class="name">Stigma-free language</td><td><span class="chip c-both">C</span></td><td><span class="chip c-xai">B</span></td><td>Task 3: profiles named by need</td></tr>
+        <tr><td class="id">G107</td><td class="name">Caregiver-mediated configuration</td><td><span class="chip c-both">C</span></td><td><span class="chip c-xai">B</span></td><td>Task 3 informant idea; carer setup</td></tr>
+        <tr><td class="id">G117</td><td class="name">Definition tooltips</td><td><span class="chip c-both">C</span></td><td><span class="chip c-xai">B</span></td><td>C table only</td></tr>
+        <tr><td class="id">G121</td><td class="name">Local-language Easy Read track</td><td><span class="chip c-both">C</span></td><td><span class="chip c-xai">B</span></td><td>Research directions (language)</td></tr>
+        <tr><td class="id">G124</td><td class="name">One decision at a time under stress</td><td><span class="chip c-both">C</span></td><td><span class="chip c-xai">B</span></td><td>Layer 3 alert mode; "Just tell me what to do"</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section>
+    <h2>3. Full agreement</h2>
+    <p>Same guideline, same class (B) in both: <code>G25</code> Explain implied content, <code>G26</code> Alternatives for numerical concepts, <code>G38</code> Familiar metrics and units, <code>G50</code> State results of actions, <code>G119</code> CAP message structure.</p>
+  </section>
+
+  <section>
+    <h2>4. In the Research Approach, unmarked in your Excel</h2>
+    <p>These stay in version 3 as you asked. Most of them carry other parts of the doc, so if you drop one, those parts lose their grounding. The easier fix is to colour them in the Excel too.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>ID</th><th>Guideline</th><th>Doc class</th><th>Other parts of the doc that cite it</th></tr></thead>
+      <tbody>
+        <tr><td class="id">G21</td><td class="name">Provide summary of long documents</td><td><span class="chip c-xai">B</span></td><td>Task 2b comparison; profile question (detail)</td></tr>
+        <tr><td class="id">G42</td><td class="name">Info to prepare for a task</td><td><span class="chip c-xai">B</span></td><td>Time-window invariant</td></tr>
+        <tr><td class="id">G47</td><td class="name">Don't rely on user calculation</td><td><span class="chip c-xai">B</span></td><td>Profile question (time and place)</td></tr>
+        <tr><td class="id">G73</td><td class="name">Persistent visual context</td><td><span class="chip c-xai">B</span></td><td>Place and time invariants; Task 2b; profile question</td></tr>
+        <tr><td class="id">G89</td><td class="name">Warning before any change</td><td><span class="chip c-xai">B</span></td><td>Task 2b ("what changed"); profile question (memory)</td></tr>
+        <tr><td class="id">G4</td><td class="name">One step per screen</td><td><span class="chip c-both">C</span></td><td>Profile question (action detail)</td></tr>
+        <tr><td class="id">G48</td><td class="name">Provide human help</td><td><span class="chip c-both">C</span></td><td>C table only</td></tr>
+        <tr><td class="id">G54</td><td class="name">Provide reminders</td><td><span class="chip c-both">C</span></td><td>C table only</td></tr>
+        <tr><td class="id">G57</td><td class="name">Support simplification</td><td><span class="chip c-both">C</span></td><td>C table only</td></tr>
+        <tr><td class="id">G58</td><td class="name">Personalised, persistent interface</td><td><span class="chip c-both">C</span></td><td>C table only</td></tr>
+        <tr><td class="id">G80</td><td class="name">Caregiver companion view</td><td><span class="chip c-both">C</span></td><td>Research directions (caregivers)</td></tr>
+        <tr><td class="id">G88</td><td class="name">Literal language with visual support</td><td><span class="chip c-both">C</span></td><td>C table only</td></tr>
+        <tr><td class="id">G109</td><td class="name">Repeat important information</td><td><span class="chip c-both">C</span></td><td>Profile question (memory)</td></tr>
+        <tr><td class="id">G111</td><td class="name">Calm colours for non-urgent states</td><td><span class="chip c-both">C</span></td><td>C table only</td></tr>
+        <tr><td class="id">G114</td><td class="name">Time-boxed tasks with countdowns</td><td><span class="chip c-both">C</span></td><td>C table only</td></tr>
+        <tr><td class="id">G125</td><td class="name">Pre-rehearsed action plan</td><td><span class="chip c-both">C</span></td><td>Research directions (stress)</td></tr>
+        <tr><td class="id">G128</td><td class="name">Multiple means of representation</td><td><span class="chip c-both">C</span></td><td>Profile question (modality)</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section class="note">
+    <h2>Notes on reading the Excel and the evidence</h2>
+    <ul>
+      <li>You used two reds: theme red <code>#C0504D</code> (G11–G67 range) and dark red <code>#C00000</code> (G84 onward). I counted both as red (XAI).</li>
+      <li>Only the "Full Catalogue" sheet has marks. The "Cognitive-Specific" and "General" sheets are unmarked.</li>
+      <li>Evidence across the 20: 12 Direct, 5 Indirect, 3 None found. G65, G66 and G20 have no source linking them to understanding.</li>
+      <li>Your Excel cites Joddrell &amp; Astell for G77 and G81. Their abstracts do not report an icon-recognition finding. Boedeker et al. (2023) and Wu et al. (2022) are checked alternatives.</li>
+      <li>Not yet checked: WCAG 1.3.1, 2.4.11 and 2.5.8 texts, Mileti &amp; Sorensen (1990), Sutton &amp; Kuligowski (2019) and the 2016 journal version of Ruginski et al. Check before citing.</li>
+      <li>Liao et al. (2020)'s third author is Sarah Miller, not Tim Miller.</li>
+    </ul>
+  </section>
+</div>
+
+</html>

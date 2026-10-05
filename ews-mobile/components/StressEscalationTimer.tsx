@@ -4,6 +4,7 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { triggerHaptic } from '../utils/haptic';
+import { palette } from '../theme/colors';
 
 interface StressEscalationTimerProps {
   seconds?: number;
@@ -37,7 +38,7 @@ export function StressEscalationTimer({ seconds = 60, onEscalate, onDismiss }: S
 
   const pct = remaining / seconds;
   const isUrgent = remaining <= 15;
-  const barColor = isUrgent ? '#ef4444' : '#f59e0b';
+  const barColor = isUrgent ? palette.red[500] : palette.amber[500];
 
   return (
     <View style={[styles.container, { borderColor: barColor }]}>
@@ -49,11 +50,11 @@ export function StressEscalationTimer({ seconds = 60, onEscalate, onDismiss }: S
       <View style={styles.row}>
         <Ionicons name="call" size={28} color={barColor} />
         <View style={styles.textBlock}>
-          <Text style={[styles.title, { color: isUrgent ? '#991b1b' : '#92400e' }]}>
+          <Text style={[styles.title, { color: isUrgent ? palette.red[800] : palette.amber[800] }]}>
             Auto-calling your helper in{' '}
             <Text style={styles.countdown}>{remaining}</Text>s
           </Text>
-          <Text style={[styles.sub, { color: isUrgent ? '#b91c1c' : '#a16207' }]}>
+          <Text style={[styles.sub, { color: isUrgent ? palette.red[700] : palette.yellow[700] }]}>
             Tap below to handle it yourself.
           </Text>
         </View>
@@ -74,9 +75,9 @@ export function StressEscalationTimer({ seconds = 60, onEscalate, onDismiss }: S
 const styles = StyleSheet.create({
   container: {
     marginHorizontal: 16, marginBottom: 12, borderRadius: 16,
-    borderWidth: 2, overflow: 'hidden', backgroundColor: '#fffbeb',
+    borderWidth: 2, overflow: 'hidden', backgroundColor: palette.amber[50],
   },
-  barBg: { height: 6, backgroundColor: '#e5e7eb' },
+  barBg: { height: 6, backgroundColor: palette.gray[200] },
   bar: { height: 6 },
   row: { flexDirection: 'row', alignItems: 'center', padding: 14, gap: 10 },
   textBlock: { flex: 1 },
@@ -84,5 +85,5 @@ const styles = StyleSheet.create({
   countdown: { fontSize: 18, fontVariant: ['tabular-nums'] },
   sub: { fontSize: 12, marginTop: 2 },
   cancelBtn: { paddingHorizontal: 14, paddingVertical: 10, borderRadius: 12, minWidth: 70, alignItems: 'center' },
-  cancelText: { color: '#fff', fontWeight: '800', fontSize: 13 },
+  cancelText: { color: palette.white, fontWeight: '800', fontSize: 13 },
 });

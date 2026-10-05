@@ -7,6 +7,7 @@ import { useAlert } from '../../contexts/AlertContext';
 import { useUserPreferences } from '../../contexts/UserPreferencesContext';
 import { FocusModeOverlay } from '../../components/FocusModeOverlay';
 import { triggerHaptic } from '../../utils/haptic';
+import { palette } from '../../theme/colors';
 
 interface ChecklistItem {
   id: number;
@@ -84,7 +85,7 @@ export default function EvacuationChecklist() {
   if (done) {
     return (
       <SafeAreaView style={styles.doneContainer} edges={['top', 'left', 'right', 'bottom']}>
-        <Ionicons name="checkmark-circle" size={140} color="#ffffff" style={styles.doneIcon} />
+        <Ionicons name="checkmark-circle" size={140} color={palette.white} style={styles.doneIcon} />
         <Text style={styles.doneTitle}>ALL DONE!</Text>
         <Text style={styles.doneSub}>You are ready to go.</Text>
         <View style={styles.doneActions}>
@@ -94,14 +95,14 @@ export default function EvacuationChecklist() {
             accessibilityLabel="Find shelter now"
           >
             <Text style={styles.doneBtnPrimaryText}>FIND SHELTER NOW</Text>
-            <Ionicons name="chevron-forward" size={28} color="#166534" />
+            <Ionicons name="chevron-forward" size={28} color={palette.green[800]} />
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => router.push('/')}
             style={styles.doneBtnSecondary}
             accessibilityLabel="Go home"
           >
-            <Ionicons name="home" size={24} color="#ffffff" />
+            <Ionicons name="home" size={24} color={palette.white} />
             <Text style={styles.doneBtnSecondaryText}>HOME</Text>
           </TouchableOpacity>
         </View>
@@ -113,7 +114,7 @@ export default function EvacuationChecklist() {
   if (showCelebration) {
     return (
       <SafeAreaView style={styles.celebrationContainer} edges={['top', 'left', 'right', 'bottom']}>
-        <Ionicons name="star" size={96} color="#ffffff" style={styles.starIcon} />
+        <Ionicons name="star" size={96} color={palette.white} style={styles.starIcon} />
         <Text style={styles.celebrationTitle}>WELL DONE! ✓</Text>
         <Text style={styles.celebrationSub}>Step {currentStep + 1} complete</Text>
       </SafeAreaView>
@@ -134,7 +135,7 @@ export default function EvacuationChecklist() {
 
           {countdown !== null && countdown > 0 && (
             <View style={styles.focusTimer}>
-              <Ionicons name="timer" size={24} color="#fbbf24" />
+              <Ionicons name="timer" size={24} color={palette.amber[400]} />
               <Text style={styles.focusTimerText}>
                 {Math.floor(countdown / 60)}:{String(countdown % 60).padStart(2, '0')}
               </Text>
@@ -146,7 +147,7 @@ export default function EvacuationChecklist() {
             style={styles.focusDoneBtn}
             accessibilityLabel="Mark step as complete"
           >
-            <Ionicons name="checkmark-circle" size={32} color="#ffffff" />
+            <Ionicons name="checkmark-circle" size={32} color={palette.white} />
             <Text style={styles.focusDoneBtnText}>
               {currentStep < CHECKLIST_ITEMS.length - 1 ? 'DONE' : 'FINISH'}
             </Text>
@@ -196,7 +197,7 @@ export default function EvacuationChecklist() {
         {/* G114: Time estimate + countdown */}
         {countdown !== null && (
           <View style={styles.timerCard}>
-            <Ionicons name="timer" size={24} color="#b45309" />
+            <Ionicons name="timer" size={24} color={palette.amber[700]} />
             <Text style={styles.timerText}>
               About {item.estimatedMinutes} min
               {countdown > 0 && (
@@ -211,7 +212,7 @@ export default function EvacuationChecklist() {
         {/* Big visual reinforcement checkmark container */}
         <View style={styles.checkmarkWrapper}>
           <View style={styles.checkmarkCircle}>
-            <Ionicons name="checkmark-circle" size={80} color="#16a34a" />
+            <Ionicons name="checkmark-circle" size={80} color={palette.green[600]} />
           </View>
         </View>
 
@@ -222,7 +223,7 @@ export default function EvacuationChecklist() {
             style={styles.repeatButton}
             accessibilityLabel="Repeat this step aloud"
           >
-            <Ionicons name="volume-high" size={24} color="#475569" />
+            <Ionicons name="volume-high" size={24} color={palette.slate[600]} />
             <Text style={styles.repeatButtonText}>REPEAT</Text>
           </TouchableOpacity>
 
@@ -231,7 +232,7 @@ export default function EvacuationChecklist() {
             style={styles.doneButton}
             accessibilityLabel={currentStep < CHECKLIST_ITEMS.length - 1 ? 'Mark done and go to next step' : 'Finish checklist'}
           >
-            <Ionicons name="checkmark-circle" size={28} color="#ffffff" />
+            <Ionicons name="checkmark-circle" size={28} color={palette.white} />
             <Text style={styles.doneButtonText}>
               {currentStep < CHECKLIST_ITEMS.length - 1 ? 'DONE — NEXT STEP' : 'ALL DONE!'}
             </Text>
@@ -243,7 +244,7 @@ export default function EvacuationChecklist() {
             style={styles.exitButton}
             accessibilityLabel="Exit checklist and go home"
           >
-            <Ionicons name="home" size={20} color="#475569" />
+            <Ionicons name="home" size={20} color={palette.slate[600]} />
             <Text style={styles.exitButtonText}>EXIT</Text>
           </TouchableOpacity>
         </View>
@@ -255,7 +256,7 @@ export default function EvacuationChecklist() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ffffff',
+    backgroundColor: palette.white,
   },
   scrollContent: {
     paddingHorizontal: 24,
@@ -263,7 +264,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   progressHeader: {
-    backgroundColor: '#0f172a',
+    backgroundColor: palette.slate[900],
     paddingHorizontal: 24,
     paddingVertical: 18,
   },
@@ -274,7 +275,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   progressStepText: {
-    color: '#ffffff',
+    color: palette.white,
     fontSize: 18,
     fontWeight: '900',
     letterSpacing: 0.5,
@@ -285,31 +286,31 @@ const styles = StyleSheet.create({
     gap: 12,
   },
   progressPctText: {
-    color: '#94a3b8',
+    color: palette.slate[400],
     fontSize: 18,
     fontWeight: '700',
   },
   focusModeBtn: {
-    backgroundColor: '#2563eb',
+    backgroundColor: palette.blue[600],
     borderRadius: 14,
     paddingHorizontal: 12,
     paddingVertical: 6,
     minHeight: 32,
   },
   focusModeBtnText: {
-    color: '#ffffff',
+    color: palette.white,
     fontSize: 12,
     fontWeight: '800',
   },
   progressBarBg: {
     height: 8,
-    backgroundColor: '#334155',
+    backgroundColor: palette.slate[700],
     borderRadius: 4,
     overflow: 'hidden',
   },
   progressBarFill: {
     height: '100%',
-    backgroundColor: '#4ade80',
+    backgroundColor: palette.green[400],
     borderRadius: 4,
   },
   mainIcon: {
@@ -324,13 +325,13 @@ const styles = StyleSheet.create({
   instructionTitle: {
     fontSize: 34,
     fontWeight: '900',
-    color: '#0f172a',
+    color: palette.slate[900],
     textAlign: 'center',
   },
   instructionDetail: {
     fontSize: 22,
     fontWeight: '600',
-    color: '#475569',
+    color: palette.slate[600],
     textAlign: 'center',
     marginTop: 8,
     lineHeight: 28,
@@ -339,9 +340,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#fffbeb',
+    backgroundColor: palette.amber[50],
     borderWidth: 2,
-    borderColor: '#fde68a',
+    borderColor: palette.amber[200],
     borderRadius: 18,
     paddingHorizontal: 16,
     paddingVertical: 10,
@@ -351,10 +352,10 @@ const styles = StyleSheet.create({
   timerText: {
     fontSize: 16,
     fontWeight: '800',
-    color: '#92400e',
+    color: palette.amber[800],
   },
   countdownText: {
-    color: '#b45309',
+    color: palette.amber[700],
   },
   checkmarkWrapper: {
     alignItems: 'center',
@@ -365,8 +366,8 @@ const styles = StyleSheet.create({
     height: 108,
     borderRadius: 54,
     borderWidth: 4,
-    borderColor: '#16a34a',
-    backgroundColor: '#f0fdf4',
+    borderColor: palette.green[600],
+    backgroundColor: palette.green[50],
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -378,16 +379,16 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#f1f5f9',
+    backgroundColor: palette.slate[100],
     borderWidth: 2,
-    borderColor: '#cbd5e1',
+    borderColor: palette.slate[300],
     borderRadius: 16,
     paddingVertical: 12,
     minHeight: 48,
     gap: 8,
   },
   repeatButtonText: {
-    color: '#475569',
+    color: palette.slate[600],
     fontSize: 18,
     fontWeight: '800',
   },
@@ -395,14 +396,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#16a34a',
+    backgroundColor: palette.green[600],
     borderRadius: 24,
     paddingVertical: 20,
     minHeight: 76,
     gap: 10,
   },
   doneButtonText: {
-    color: '#ffffff',
+    color: palette.white,
     fontSize: 22,
     fontWeight: '900',
   },
@@ -410,20 +411,20 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#f1f5f9',
+    backgroundColor: palette.slate[100],
     borderRadius: 20,
     paddingVertical: 14,
     minHeight: 56,
     gap: 8,
   },
   exitButtonText: {
-    color: '#475569',
+    color: palette.slate[600],
     fontSize: 18,
     fontWeight: '800',
   },
   doneContainer: {
     flex: 1,
-    backgroundColor: '#16a34a',
+    backgroundColor: palette.green[600],
     alignItems: 'center',
     justifyContent: 'center',
     padding: 32,
@@ -434,13 +435,13 @@ const styles = StyleSheet.create({
   doneTitle: {
     fontSize: 48,
     fontWeight: '900',
-    color: '#ffffff',
+    color: palette.white,
     textAlign: 'center',
   },
   doneSub: {
     fontSize: 24,
     fontWeight: '800',
-    color: '#ffffff',
+    color: palette.white,
     textAlign: 'center',
     marginTop: 8,
   },
@@ -453,14 +454,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#ffffff',
+    backgroundColor: palette.white,
     borderRadius: 24,
     paddingVertical: 20,
     minHeight: 76,
     gap: 10,
   },
   doneBtnPrimaryText: {
-    color: '#156534',
+    color: palette.green[800],
     fontSize: 20,
     fontWeight: '900',
   },
@@ -468,20 +469,20 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#15803d',
+    backgroundColor: palette.green[700],
     borderRadius: 20,
     paddingVertical: 16,
     minHeight: 64,
     gap: 8,
   },
   doneBtnSecondaryText: {
-    color: '#ffffff',
+    color: palette.white,
     fontSize: 18,
     fontWeight: '800',
   },
   celebrationContainer: {
     flex: 1,
-    backgroundColor: '#16a34a',
+    backgroundColor: palette.green[600],
     alignItems: 'center',
     justifyContent: 'center',
     padding: 24,
@@ -492,7 +493,7 @@ const styles = StyleSheet.create({
   celebrationTitle: {
     fontSize: 44,
     fontWeight: '900',
-    color: '#ffffff',
+    color: palette.white,
     textAlign: 'center',
   },
   celebrationSub: {
@@ -514,7 +515,7 @@ const styles = StyleSheet.create({
   focusTitle: {
     fontSize: 40,
     fontWeight: '900',
-    color: '#ffffff',
+    color: palette.white,
     textAlign: 'center',
   },
   focusDetail: {
@@ -534,7 +535,7 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   focusTimerText: {
-    color: '#ffffff',
+    color: palette.white,
     fontSize: 18,
     fontWeight: '800',
   },
@@ -542,7 +543,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#22c55e',
+    backgroundColor: palette.green[500],
     borderRadius: 24,
     paddingVertical: 20,
     width: '100%',
@@ -551,7 +552,7 @@ const styles = StyleSheet.create({
     marginTop: 16,
   },
   focusDoneBtnText: {
-    color: '#ffffff',
+    color: palette.white,
     fontSize: 24,
     fontWeight: '900',
   },

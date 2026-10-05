@@ -1,6 +1,7 @@
 import React from 'react';
 import { TouchableOpacity, Text, StyleSheet, ViewStyle } from 'react-native';
 import { triggerHaptic } from '../utils/haptic';
+import { palette } from '../theme/colors';
 
 interface AdaptiveButtonProps {
   onPress: () => void;
@@ -13,11 +14,11 @@ interface AdaptiveButtonProps {
 }
 
 const VARIANT_STYLES: Record<string, { bg: string; border: string; text: string }> = {
-  primary:   { bg: '#1e3a5f', border: '#1e40af', text: '#ffffff' },
-  success:   { bg: '#15803d', border: '#166534', text: '#ffffff' },
-  danger:    { bg: '#dc2626', border: '#991b1b', text: '#ffffff' },
-  secondary: { bg: '#334155', border: '#475569', text: '#ffffff' },
-  warning:   { bg: '#d97706', border: '#b45309', text: '#ffffff' },
+  primary:   { bg: palette.navy, border: palette.blue[800], text: palette.white },
+  success:   { bg: palette.green[700], border: palette.green[800], text: palette.white },
+  danger:    { bg: palette.red[600], border: palette.red[800], text: palette.white },
+  secondary: { bg: palette.slate[700], border: palette.slate[600], text: palette.white },
+  warning:   { bg: palette.amber[600], border: palette.amber[700], text: palette.white },
 };
 
 // G4/G53: Minimum 48dp touch targets enforced via minHeight

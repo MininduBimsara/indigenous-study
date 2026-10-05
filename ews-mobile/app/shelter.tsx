@@ -6,6 +6,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useAlert } from '../contexts/AlertContext';
 import { useUserPreferences } from '../contexts/UserPreferencesContext';
 import { triggerHaptic } from '../utils/haptic';
+import { palette } from '../theme/colors';
 
 interface Shelter {
   id: string;
@@ -31,8 +32,8 @@ const SHELTERS: Shelter[] = [
     capacity: 'Has space',
     bus: 'Bus 12 stops here',
     icon: '🏫',
-    tagBg: '#dbeafe',
-    tagText: '#1e3a8a',
+    tagBg: palette.blue[100],
+    tagText: palette.blue[900],
     desc: 'Calm and quiet. Good for families.',
   },
   {
@@ -44,8 +45,8 @@ const SHELTERS: Shelter[] = [
     capacity: 'Has space',
     bus: 'Bus 5 stops here',
     icon: '🏛️',
-    tagBg: '#d1fae5',
-    tagText: '#065f46',
+    tagBg: palette.emerald[100],
+    tagText: palette.emerald[800],
     desc: 'Hot food and water available.',
   },
   {
@@ -57,8 +58,8 @@ const SHELTERS: Shelter[] = [
     capacity: 'Has space',
     bus: 'Shuttle every 15 min',
     icon: '🏟️',
-    tagBg: '#ffedd5',
-    tagText: '#7c2d12',
+    tagBg: palette.orange[100],
+    tagText: palette.orange[900],
     desc: 'Most room. Medical staff on site.',
   },
 ];
@@ -96,7 +97,7 @@ export default function ShelterScreen() {
           accessibilityLabel="Hear shelter choices read aloud"
           accessibilityRole="button"
         >
-          <Ionicons name="volume-high" size={24} color="#475569" />
+          <Ionicons name="volume-high" size={24} color={palette.slate[600]} />
           <Text style={styles.listenBtnText}>LISTEN</Text>
         </TouchableOpacity>
       </View>
@@ -135,7 +136,7 @@ export default function ShelterScreen() {
                 {/* Distance and travel stats */}
                 <View style={styles.statsRow}>
                   <View style={styles.statItem}>
-                    <Ionicons name="pin" size={16} color="#475569" />
+                    <Ionicons name="pin" size={16} color={palette.slate[600]} />
                     <Text style={styles.statText}>{shelter.distance}</Text>
                   </View>
                   <Text style={styles.bulletDot}>·</Text>
@@ -146,11 +147,11 @@ export default function ShelterScreen() {
                 {!hideDetails && (
                   <View style={styles.extraStatsRow}>
                     <View style={styles.extraStatItem}>
-                      <Ionicons name="people" size={14} color="#64748b" />
+                      <Ionicons name="people" size={14} color={palette.slate[500]} />
                       <Text style={styles.extraStatText}>{shelter.capacity}</Text>
                     </View>
                     <View style={styles.extraStatItem}>
-                      <Ionicons name="bus" size={14} color="#64748b" />
+                      <Ionicons name="bus" size={14} color={palette.slate[500]} />
                       <Text style={styles.extraStatText}>{shelter.bus}</Text>
                     </View>
                   </View>
@@ -158,7 +159,7 @@ export default function ShelterScreen() {
               </View>
 
               {/* Navigation indicator */}
-              <Ionicons name="chevron-forward" size={28} color="#94a3b8" style={styles.chevron} />
+              <Ionicons name="chevron-forward" size={28} color={palette.slate[400]} style={styles.chevron} />
             </TouchableOpacity>
           </View>
         ))}
@@ -183,7 +184,7 @@ export default function ShelterScreen() {
           accessibilityLabel="Go home"
           accessibilityRole="button"
         >
-          <Ionicons name="home" size={22} color="#475569" />
+          <Ionicons name="home" size={22} color={palette.slate[600]} />
           <Text style={styles.homeBtnText}>HOME</Text>
         </TouchableOpacity>
       </View>
@@ -194,22 +195,22 @@ export default function ShelterScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ffffff',
+    backgroundColor: palette.white,
   },
   header: {
-    backgroundColor: '#0f172a',
+    backgroundColor: palette.slate[900],
     paddingVertical: 24,
     paddingHorizontal: 20,
     alignItems: 'center',
   },
   headerTitle: {
-    color: '#ffffff',
+    color: palette.white,
     fontSize: 32,
     fontWeight: '900',
     textAlign: 'center',
   },
   headerSubtitle: {
-    color: '#cbd5e1',
+    color: palette.slate[300],
     fontSize: 18,
     fontWeight: '700',
     marginTop: 4,
@@ -223,16 +224,16 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#f1f5f9',
+    backgroundColor: palette.slate[100],
     borderWidth: 2,
-    borderColor: '#cbd5e1',
+    borderColor: palette.slate[300],
     borderRadius: 16,
     paddingVertical: 12,
     minHeight: 48,
     gap: 8,
   },
   listenBtnText: {
-    color: '#475569',
+    color: palette.slate[600],
     fontSize: 18,
     fontWeight: '800',
   },
@@ -246,7 +247,7 @@ const styles = StyleSheet.create({
   sectionHeader: {
     fontSize: 16,
     fontWeight: '900',
-    color: '#334155',
+    color: palette.slate[700],
     letterSpacing: 1,
     marginTop: 4,
     textTransform: 'uppercase',
@@ -255,28 +256,28 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     borderRadius: 24,
     borderWidth: 3,
-    borderColor: '#cbd5e1',
-    backgroundColor: '#ffffff',
+    borderColor: palette.slate[300],
+    backgroundColor: palette.white,
     padding: 16,
     gap: 12,
     alignItems: 'flex-start',
     minHeight: 120,
   },
   nearestCard: {
-    borderColor: '#0f172a',
+    borderColor: palette.slate[900],
     borderWidth: 4,
-    backgroundColor: '#ffffff',
+    backgroundColor: palette.white,
     elevation: 4,
-    shadowColor: '#000',
+    shadowColor: palette.black,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 6,
   },
   otherPlacesBtn: {
-    backgroundColor: '#f8fafc',
+    backgroundColor: palette.slate[50],
     borderRadius: 20,
     borderWidth: 3,
-    borderColor: '#cbd5e1',
+    borderColor: palette.slate[300],
     paddingVertical: 18,
     alignItems: 'center',
     justifyContent: 'center',
@@ -284,7 +285,7 @@ const styles = StyleSheet.create({
     marginTop: 8,
   },
   otherPlacesBtnText: {
-    color: '#1e293b',
+    color: palette.slate[800],
     fontSize: 18,
     fontWeight: '900',
   },
@@ -305,7 +306,7 @@ const styles = StyleSheet.create({
   shelterName: {
     fontSize: 20,
     fontWeight: '900',
-    color: '#0f172a',
+    color: palette.slate[900],
   },
   tag: {
     paddingHorizontal: 8,
@@ -318,7 +319,7 @@ const styles = StyleSheet.create({
   },
   shelterDesc: {
     fontSize: 15,
-    color: '#475569',
+    color: palette.slate[600],
     fontWeight: '600',
     lineHeight: 20,
     marginBottom: 6,
@@ -336,12 +337,12 @@ const styles = StyleSheet.create({
   statText: {
     fontSize: 15,
     fontWeight: '800',
-    color: '#334155',
+    color: palette.slate[700],
   },
   bulletDot: {
     fontSize: 16,
     fontWeight: '800',
-    color: '#334155',
+    color: palette.slate[700],
   },
   extraStatsRow: {
     flexDirection: 'row',
@@ -356,7 +357,7 @@ const styles = StyleSheet.create({
   },
   extraStatText: {
     fontSize: 13,
-    color: '#64748b',
+    color: palette.slate[500],
     fontWeight: '700',
   },
   chevron: {
@@ -369,14 +370,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#f1f5f9',
+    backgroundColor: palette.slate[100],
     borderRadius: 20,
     paddingVertical: 14,
     minHeight: 56,
     gap: 8,
   },
   homeBtnText: {
-    color: '#475569',
+    color: palette.slate[600],
     fontSize: 18,
     fontWeight: '800',
   },

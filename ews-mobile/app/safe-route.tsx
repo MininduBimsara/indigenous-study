@@ -6,6 +6,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useAlert } from '../contexts/AlertContext';
 import { useUserPreferences } from '../contexts/UserPreferencesContext';
 import { triggerHaptic } from '../utils/haptic';
+import { palette } from '../theme/colors';
 
 interface NavStep {
   landmark: string;
@@ -25,7 +26,7 @@ const STEPS: NavStep[] = [
     literalText: 'Turn left. Walk to the big tree on your left. It is 50 feet away.',
     distance: '50 ft',
     emoji: '🌳',
-    photoBg: '#e2f0d9',
+    photoBg: palette.photo.green,
   },
   {
     landmark: 'the red building',
@@ -34,7 +35,7 @@ const STEPS: NavStep[] = [
     literalText: 'Go straight. Walk past the red building in front of you. It is 200 feet away.',
     distance: '200 ft',
     emoji: '🏢',
-    photoBg: '#fce4d6',
+    photoBg: palette.photo.peach,
   },
   {
     landmark: 'the school gates',
@@ -43,7 +44,7 @@ const STEPS: NavStep[] = [
     literalText: 'Turn right. Walk to the school gates on your right. They are 100 feet away.',
     distance: '100 ft',
     emoji: '🏫',
-    photoBg: '#fff2cc',
+    photoBg: palette.photo.yellow,
   },
   {
     landmark: 'the community centre',
@@ -52,7 +53,7 @@ const STEPS: NavStep[] = [
     literalText: 'Go straight. Walk inside the community centre. This is the safe place.',
     distance: '50 ft',
     emoji: '🏛️',
-    photoBg: '#ddebf7',
+    photoBg: palette.photo.blue,
   },
 ];
 
@@ -80,7 +81,7 @@ function DementiaNav({ step, stepNum, total, isLast, onNext, onRepeat }: {
           style={styles.dementiaListenBtn}
           accessibilityLabel="Hear instruction again"
         >
-          <Ionicons name="volume-high" size={22} color="#475569" />
+          <Ionicons name="volume-high" size={22} color={palette.slate[600]} />
           <Text style={styles.dementiaListenText}>LISTEN</Text>
         </TouchableOpacity>
       </View>
@@ -137,7 +138,7 @@ function ASDNav({ steps, currentStep, isLast, onNext }: {
                 i < currentStep ? styles.asdCircleCompleted : i === currentStep ? styles.asdCircleActive : styles.asdCirclePending
               ]}>
                 {i < currentStep ? (
-                  <Ionicons name="checkmark" size={16} color="#ffffff" />
+                  <Ionicons name="checkmark" size={16} color={palette.white} />
                 ) : (
                   <Text style={[styles.asdCircleText, i === currentStep ? styles.textWhite : styles.textGrey]}>{i + 1}</Text>
                 )}
@@ -207,7 +208,7 @@ function MCINav({ step, stepNum, total, isLast, progress, showConfirmation, conf
           style={styles.mciListenBtn}
           accessibilityLabel="Hear directions aloud"
         >
-          <Ionicons name="volume-high" size={26} color="#ffffff" />
+          <Ionicons name="volume-high" size={26} color={palette.white} />
           <Text style={styles.mciListenBtnText}>LISTEN NOW</Text>
         </TouchableOpacity>
       </View>
@@ -264,7 +265,7 @@ function ADHDNav({ step, stepNum, total, isLast, progress, onNext, onRepeat }: {
       {/* Banner */}
       <View style={styles.adhdBanner}>
         <View style={styles.adhdBannerRow}>
-          <Ionicons name="notifications" size={18} color="#f97316" />
+          <Ionicons name="notifications" size={18} color={palette.orange[500]} />
           <Text style={styles.adhdBannerTitle}>CURRENT STEP — ALWAYS VISIBLE</Text>
         </View>
         <View style={styles.adhdBannerMainRow}>
@@ -279,7 +280,7 @@ function ADHDNav({ step, stepNum, total, isLast, progress, onNext, onRepeat }: {
       {/* Direction Guide */}
       <View style={styles.adhdContent}>
         <View style={styles.adhdArrowBg}>
-          <Ionicons name={config.name} size={110} color="#ffffff" />
+          <Ionicons name={config.name} size={110} color={palette.white} />
         </View>
         <Text style={styles.adhdDirectionLabel}>{config.label}</Text>
         <Text style={styles.adhdDistance}>{step.distance}</Text>
@@ -294,7 +295,7 @@ function ADHDNav({ step, stepNum, total, isLast, progress, onNext, onRepeat }: {
           style={styles.adhdBtnSecondary}
           accessibilityLabel="Repeat directions"
         >
-          <Ionicons name="volume-high" size={24} color="#1e293b" />
+          <Ionicons name="volume-high" size={24} color={palette.slate[800]} />
           <Text style={styles.adhdBtnSecondaryText}>REPEAT</Text>
         </TouchableOpacity>
         <TouchableOpacity
@@ -335,8 +336,8 @@ function SchizophreniaNav({ step, stepNum, total, isLast, onNext, onShare }: {
           style={[styles.schShareBtn, shared && styles.schShareBtnShared]}
           accessibilityLabel="Share location with caregiver"
         >
-          <Ionicons name="share-social" size={20} color={shared ? '#0f766e' : '#475569'} />
-          <Text style={[styles.schShareText, { color: shared ? '#0f766e' : '#475569' }]}>
+          <Ionicons name="share-social" size={20} color={shared ? palette.teal[700] : palette.slate[600]} />
+          <Text style={[styles.schShareText, { color: shared ? palette.teal[700] : palette.slate[600] }]}>
             {shared ? 'Shared ✓' : 'Share location'}
           </Text>
         </TouchableOpacity>
@@ -396,7 +397,7 @@ function DefaultNav({ step, stepNum, total, isLast, progress, onNext, onRepeat }
       {/* Centered actions */}
       <View style={styles.defContent}>
         <View style={styles.defIconCircle}>
-          <Ionicons name={iconName} size={84} color="#ffffff" />
+          <Ionicons name={iconName} size={84} color={palette.white} />
         </View>
         <View style={styles.defCard}>
           <Text style={styles.defDirText}>{step.egoDir}</Text>
@@ -420,7 +421,7 @@ function DefaultNav({ step, stepNum, total, isLast, progress, onNext, onRepeat }
           style={styles.defBtnSecondary}
           accessibilityLabel="Repeat aloud"
         >
-          <Ionicons name="volume-high" size={24} color="#ffffff" />
+          <Ionicons name="volume-high" size={24} color={palette.white} />
           <Text style={styles.defBtnSecondaryText}>Repeat</Text>
         </TouchableOpacity>
       </View>
@@ -432,7 +433,7 @@ function DefaultNav({ step, stepNum, total, isLast, progress, onNext, onRepeat }
 function HazardBanner({ alertType }: { alertType?: string }) {
   return (
     <View style={styles.hazardBanner}>
-      <Ionicons name="warning" size={20} color="#b91c1c" />
+      <Ionicons name="warning" size={20} color={palette.red[700]} />
       <Text style={styles.hazardBannerText}>
         {alertType ? `${alertType.toUpperCase()} — EVACUATION IN PROGRESS` : 'EMERGENCY EVACUATION IN PROGRESS'}
       </Text>
@@ -456,7 +457,7 @@ function RouteBar({ onBack, onHelp, isFirst, disabled }: {
         style={[styles.routeBarBtn, disabled && styles.routeBarBtnDisabled]}
         accessibilityLabel={isFirst ? 'Back to the list of safe places' : 'Go back one step'}
       >
-        <Ionicons name="arrow-back" size={22} color="#0f172a" />
+        <Ionicons name="arrow-back" size={22} color={palette.slate[900]} />
         <Text style={styles.routeBarBtnText}>{isFirst ? 'OTHER PLACE' : 'BACK'}</Text>
       </TouchableOpacity>
       <TouchableOpacity
@@ -464,7 +465,7 @@ function RouteBar({ onBack, onHelp, isFirst, disabled }: {
         style={styles.routeBarBtn}
         accessibilityLabel="Call my helper"
       >
-        <Ionicons name="call" size={22} color="#0f172a" />
+        <Ionicons name="call" size={22} color={palette.slate[900]} />
         <Text style={styles.routeBarBtnText}>CALL HELPER</Text>
       </TouchableOpacity>
     </View>
@@ -599,13 +600,13 @@ export default function SafeRouteScreen() {
 }
 
 const styles = StyleSheet.create({
-  textWhite: { color: '#ffffff' },
-  textGrey: { color: '#64748b' },
+  textWhite: { color: palette.white },
+  textGrey: { color: palette.slate[500] },
   fontWeightNormal: { fontWeight: 'normal' },
 
   screenWrapper: {
     flex: 1,
-    backgroundColor: '#ffffff',
+    backgroundColor: palette.white,
   },
   navContainer: {
     flex: 1,
@@ -614,15 +615,15 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#fee2e2',
+    backgroundColor: palette.red[100],
     borderBottomWidth: 2,
-    borderColor: '#fca5a5',
+    borderColor: palette.red[300],
     paddingVertical: 10,
     paddingHorizontal: 16,
     gap: 8,
   },
   hazardBannerText: {
-    color: '#991b1b',
+    color: palette.red[800],
     fontSize: 13,
     fontWeight: '900',
     letterSpacing: 0.5,
@@ -633,18 +634,18 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingTop: 10,
     paddingBottom: 16,
-    backgroundColor: '#ffffff',
+    backgroundColor: palette.white,
     borderTopWidth: 2,
-    borderColor: '#e2e8f0',
+    borderColor: palette.slate[200],
   },
   routeBarBtn: {
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#f1f5f9',
+    backgroundColor: palette.slate[100],
     borderWidth: 2,
-    borderColor: '#cbd5e1',
+    borderColor: palette.slate[300],
     borderRadius: 18,
     paddingVertical: 12,
     minHeight: 56,
@@ -656,12 +657,12 @@ const styles = StyleSheet.create({
   routeBarBtnText: {
     fontSize: 16,
     fontWeight: '900',
-    color: '#0f172a',
+    color: palette.slate[900],
   },
   adhdLandmark: {
     fontSize: 24,
     fontWeight: '900',
-    color: '#0f172a',
+    color: palette.slate[900],
     textAlign: 'center',
     marginTop: 6,
   },
@@ -669,7 +670,7 @@ const styles = StyleSheet.create({
   // Dementia layout styles
   dementiaRoot: {
     flex: 1,
-    backgroundColor: '#ffffff',
+    backgroundColor: palette.white,
   },
   dementiaHeader: {
     flexDirection: 'row',
@@ -682,12 +683,12 @@ const styles = StyleSheet.create({
   dementiaHeaderText: {
     fontSize: 22,
     fontWeight: '900',
-    color: '#94a3b8',
+    color: palette.slate[400],
   },
   dementiaListenBtn: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#f1f5f9',
+    backgroundColor: palette.slate[100],
     borderRadius: 999,
     paddingHorizontal: 16,
     paddingVertical: 10,
@@ -697,7 +698,7 @@ const styles = StyleSheet.create({
   dementiaListenText: {
     fontSize: 15,
     fontWeight: '800',
-    color: '#475569',
+    color: palette.slate[600],
   },
   dementiaPhotoCard: {
     marginHorizontal: 20,
@@ -714,7 +715,7 @@ const styles = StyleSheet.create({
   dementiaLandmarkName: {
     fontSize: 24,
     fontWeight: '900',
-    color: '#334155',
+    color: palette.slate[700],
     letterSpacing: 1,
     textAlign: 'center',
     paddingHorizontal: 16,
@@ -728,7 +729,7 @@ const styles = StyleSheet.create({
   dementiaInstructionText: {
     fontSize: 34,
     fontWeight: '900',
-    color: '#0f172a',
+    color: palette.slate[900],
     textAlign: 'center',
     lineHeight: 44,
   },
@@ -737,7 +738,7 @@ const styles = StyleSheet.create({
     paddingBottom: 32,
   },
   dementiaBtn: {
-    backgroundColor: '#16a34a',
+    backgroundColor: palette.green[600],
     borderRadius: 28,
     alignItems: 'center',
     justifyContent: 'center',
@@ -745,7 +746,7 @@ const styles = StyleSheet.create({
     minHeight: 88,
   },
   dementiaBtnText: {
-    color: '#ffffff',
+    color: palette.white,
     fontSize: 30,
     fontWeight: '900',
   },
@@ -753,10 +754,10 @@ const styles = StyleSheet.create({
   // Autism layout styles
   asdRoot: {
     flex: 1,
-    backgroundColor: '#f8fafc',
+    backgroundColor: palette.slate[50],
   },
   asdHeader: {
-    backgroundColor: '#e2e8f0',
+    backgroundColor: palette.slate[200],
     paddingHorizontal: 20,
     paddingTop: 16,
     paddingBottom: 16,
@@ -764,7 +765,7 @@ const styles = StyleSheet.create({
   asdHeaderTitle: {
     fontSize: 12,
     fontWeight: '900',
-    color: '#64748b',
+    color: palette.slate[500],
     letterSpacing: 1.5,
     marginBottom: 10,
   },
@@ -780,12 +781,12 @@ const styles = StyleSheet.create({
     gap: 12,
   },
   asdRowActive: {
-    backgroundColor: '#ffffff',
+    backgroundColor: palette.white,
     borderWidth: 2,
-    borderColor: '#0f172a',
+    borderColor: palette.slate[900],
   },
   asdRowCompleted: {
-    backgroundColor: '#f1f5f9',
+    backgroundColor: palette.slate[100],
     opacity: 0.6,
   },
   asdRowPending: {
@@ -799,13 +800,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   asdCircleCompleted: {
-    backgroundColor: '#16a34a',
+    backgroundColor: palette.green[600],
   },
   asdCircleActive: {
-    backgroundColor: '#0f172a',
+    backgroundColor: palette.slate[900],
   },
   asdCirclePending: {
-    backgroundColor: '#cbd5e1',
+    backgroundColor: palette.slate[300],
   },
   asdCircleText: {
     fontSize: 12,
@@ -818,11 +819,11 @@ const styles = StyleSheet.create({
   },
   asdTextActive: {
     fontWeight: '900',
-    color: '#0f172a',
+    color: palette.slate[900],
   },
   asdTextInactive: {
     fontWeight: '600',
-    color: '#64748b',
+    color: palette.slate[500],
   },
   asdStepEmoji: {
     fontSize: 18,
@@ -833,29 +834,29 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   asdStepCard: {
-    backgroundColor: '#ffffff',
+    backgroundColor: palette.white,
     borderRadius: 24,
     borderWidth: 2,
-    borderColor: '#0f172a',
+    borderColor: palette.slate[900],
     padding: 24,
     elevation: 2,
   },
   asdCardLabel: {
     fontSize: 12,
     fontWeight: '900',
-    color: '#94a3b8',
+    color: palette.slate[400],
     letterSpacing: 1,
     marginBottom: 10,
   },
   asdCardInstruction: {
     fontSize: 26,
     fontWeight: '900',
-    color: '#0f172a',
+    color: palette.slate[900],
     lineHeight: 34,
   },
   asdDistanceTag: {
     alignSelf: 'flex-start',
-    backgroundColor: '#f1f5f9',
+    backgroundColor: palette.slate[100],
     borderRadius: 10,
     paddingHorizontal: 12,
     paddingVertical: 6,
@@ -864,14 +865,14 @@ const styles = StyleSheet.create({
   asdDistanceText: {
     fontSize: 14,
     fontWeight: '800',
-    color: '#475569',
+    color: palette.slate[600],
   },
   asdFooter: {
     paddingHorizontal: 20,
     paddingBottom: 32,
   },
   asdBtn: {
-    backgroundColor: '#0f172a',
+    backgroundColor: palette.slate[900],
     borderRadius: 24,
     alignItems: 'center',
     justifyContent: 'center',
@@ -879,7 +880,7 @@ const styles = StyleSheet.create({
     minHeight: 76,
   },
   asdBtnText: {
-    color: '#ffffff',
+    color: palette.white,
     fontSize: 22,
     fontWeight: '900',
   },
@@ -887,7 +888,7 @@ const styles = StyleSheet.create({
   // MCI layout styles
   mciRoot: {
     flex: 1,
-    backgroundColor: '#ffffff',
+    backgroundColor: palette.white,
   },
   mciHeader: {
     paddingHorizontal: 20,
@@ -903,22 +904,22 @@ const styles = StyleSheet.create({
   mciProgressStepText: {
     fontSize: 18,
     fontWeight: '900',
-    color: '#334155',
+    color: palette.slate[700],
   },
   mciProgressPctText: {
     fontSize: 18,
     fontWeight: '900',
-    color: '#2563eb',
+    color: palette.blue[600],
   },
   mciProgressBarBg: {
     height: 8,
-    backgroundColor: '#f1f5f9',
+    backgroundColor: palette.slate[100],
     borderRadius: 99,
     overflow: 'hidden',
   },
   mciProgressBarFill: {
     height: '100%',
-    backgroundColor: '#2563eb',
+    backgroundColor: palette.blue[600],
     borderRadius: 99,
   },
   mciListenContainer: {
@@ -929,22 +930,22 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#2563eb',
+    backgroundColor: palette.blue[600],
     borderRadius: 18,
     paddingVertical: 14,
     minHeight: 64,
     gap: 8,
   },
   mciListenBtnText: {
-    color: '#ffffff',
+    color: palette.white,
     fontSize: 20,
     fontWeight: '900',
   },
   mciConfirmCard: {
     marginHorizontal: 20,
-    backgroundColor: '#d1fae5',
+    backgroundColor: palette.emerald[100],
     borderWidth: 2,
-    borderColor: '#10b981',
+    borderColor: palette.emerald[500],
     borderRadius: 16,
     padding: 14,
     alignItems: 'center',
@@ -952,7 +953,7 @@ const styles = StyleSheet.create({
   mciConfirmCardText: {
     fontSize: 20,
     fontWeight: '900',
-    color: '#065f46',
+    color: palette.emerald[800],
   },
   mciContent: {
     flex: 1,
@@ -961,9 +962,9 @@ const styles = StyleSheet.create({
     gap: 20,
   },
   mciCard: {
-    backgroundColor: '#eff6ff',
+    backgroundColor: palette.blue[50],
     borderWidth: 2,
-    borderColor: '#bfdbfe',
+    borderColor: palette.blue[200],
     borderRadius: 28,
     padding: 24,
     alignItems: 'center',
@@ -971,7 +972,7 @@ const styles = StyleSheet.create({
   mciCardLabel: {
     fontSize: 12,
     fontWeight: '900',
-    color: '#3b82f6',
+    color: palette.blue[500],
     letterSpacing: 1.5,
     marginBottom: 8,
   },
@@ -982,18 +983,18 @@ const styles = StyleSheet.create({
   mciCardTitle: {
     fontSize: 30,
     fontWeight: '900',
-    color: '#1e3a8a',
+    color: palette.blue[900],
   },
   mciCardDistance: {
     fontSize: 16,
     fontWeight: '700',
-    color: '#64748b',
+    color: palette.slate[500],
     marginTop: 4,
   },
   mciInstructionDetail: {
     fontSize: 22,
     fontWeight: '800',
-    color: '#334155',
+    color: palette.slate[700],
     textAlign: 'center',
     lineHeight: 28,
     paddingHorizontal: 8,
@@ -1003,7 +1004,7 @@ const styles = StyleSheet.create({
     paddingBottom: 32,
   },
   mciBtn: {
-    backgroundColor: '#16a34a',
+    backgroundColor: palette.green[600],
     borderRadius: 24,
     alignItems: 'center',
     justifyContent: 'center',
@@ -1011,7 +1012,7 @@ const styles = StyleSheet.create({
     minHeight: 76,
   },
   mciBtnText: {
-    color: '#ffffff',
+    color: palette.white,
     fontSize: 24,
     fontWeight: '900',
   },
@@ -1019,10 +1020,10 @@ const styles = StyleSheet.create({
   // ADHD layout styles
   adhdRoot: {
     flex: 1,
-    backgroundColor: '#ffffff',
+    backgroundColor: palette.white,
   },
   adhdBanner: {
-    backgroundColor: '#0f172a',
+    backgroundColor: palette.slate[900],
     paddingHorizontal: 20,
     paddingTop: 16,
     paddingBottom: 16,
@@ -1036,7 +1037,7 @@ const styles = StyleSheet.create({
   adhdBannerTitle: {
     fontSize: 11,
     fontWeight: '900',
-    color: '#94a3b8',
+    color: palette.slate[400],
     letterSpacing: 1,
   },
   adhdBannerMainRow: {
@@ -1048,22 +1049,22 @@ const styles = StyleSheet.create({
   adhdBannerLabel: {
     fontSize: 26,
     fontWeight: '900',
-    color: '#ffffff',
+    color: palette.white,
   },
   adhdBannerStepText: {
     fontSize: 16,
     fontWeight: '800',
-    color: '#94a3b8',
+    color: palette.slate[400],
   },
   adhdProgressBarBg: {
     height: 6,
-    backgroundColor: '#334155',
+    backgroundColor: palette.slate[700],
     borderRadius: 99,
     overflow: 'hidden',
   },
   adhdProgressBarFill: {
     height: '100%',
-    backgroundColor: '#f97316',
+    backgroundColor: palette.orange[500],
     borderRadius: 99,
   },
   adhdContent: {
@@ -1076,11 +1077,11 @@ const styles = StyleSheet.create({
     width: 200,
     height: 200,
     borderRadius: 100,
-    backgroundColor: '#f97316',
+    backgroundColor: palette.orange[500],
     alignItems: 'center',
     justifyContent: 'center',
     elevation: 8,
-    shadowColor: '#000',
+    shadowColor: palette.black,
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.15,
     shadowRadius: 10,
@@ -1088,21 +1089,21 @@ const styles = StyleSheet.create({
   adhdDirectionLabel: {
     fontSize: 64,
     fontWeight: '900',
-    color: '#0f172a',
+    color: palette.slate[900],
     letterSpacing: 1,
   },
   adhdDistance: {
     fontSize: 28,
     fontWeight: '800',
-    color: '#94a3b8',
+    color: palette.slate[400],
   },
   adhdHintContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#fff7ed',
+    backgroundColor: palette.orange[50],
     borderWidth: 1,
-    borderColor: '#ffedd5',
+    borderColor: palette.orange[100],
     borderRadius: 12,
     marginHorizontal: 20,
     paddingVertical: 8,
@@ -1112,7 +1113,7 @@ const styles = StyleSheet.create({
   adhdHintText: {
     fontSize: 13,
     fontWeight: '700',
-    color: '#c2410c',
+    color: palette.orange[700],
   },
   adhdFooter: {
     flexDirection: 'row',
@@ -1125,9 +1126,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#f1f5f9',
+    backgroundColor: palette.slate[100],
     borderWidth: 2,
-    borderColor: '#cbd5e1',
+    borderColor: palette.slate[300],
     borderRadius: 20,
     minHeight: 68,
     gap: 8,
@@ -1135,18 +1136,18 @@ const styles = StyleSheet.create({
   adhdBtnSecondaryText: {
     fontSize: 18,
     fontWeight: '900',
-    color: '#0f172a',
+    color: palette.slate[900],
   },
   adhdBtnPrimary: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#f97316',
+    backgroundColor: palette.orange[500],
     borderRadius: 20,
     minHeight: 68,
   },
   adhdBtnPrimaryText: {
-    color: '#ffffff',
+    color: palette.white,
     fontSize: 20,
     fontWeight: '900',
   },
@@ -1154,7 +1155,7 @@ const styles = StyleSheet.create({
   // Schizophrenia layout styles
   schRoot: {
     flex: 1,
-    backgroundColor: '#ffffff',
+    backgroundColor: palette.white,
   },
   schHeader: {
     flexDirection: 'row',
@@ -1167,13 +1168,13 @@ const styles = StyleSheet.create({
   schHeaderText: {
     fontSize: 18,
     fontWeight: '800',
-    color: '#94a3b8',
+    color: palette.slate[400],
   },
   schShareBtn: {
     flexDirection: 'row',
     alignItems: 'center',
     borderWidth: 2,
-    borderColor: '#cbd5e1',
+    borderColor: palette.slate[300],
     borderRadius: 99,
     paddingHorizontal: 14,
     paddingVertical: 8,
@@ -1181,8 +1182,8 @@ const styles = StyleSheet.create({
     gap: 6,
   },
   schShareBtnShared: {
-    backgroundColor: '#f0fdfa',
-    borderColor: '#2dd4bf',
+    backgroundColor: palette.teal[50],
+    borderColor: palette.teal[400],
   },
   schShareText: {
     fontSize: 14,
@@ -1204,26 +1205,26 @@ const styles = StyleSheet.create({
   schWalkTo: {
     fontSize: 40,
     fontWeight: '900',
-    color: '#0f172a',
+    color: palette.slate[900],
   },
   schLandmark: {
     fontSize: 40,
     fontWeight: '900',
-    color: '#0d9488',
+    color: palette.teal[600],
     marginTop: 4,
     textAlign: 'center',
   },
   schDistance: {
     fontSize: 20,
     fontWeight: '700',
-    color: '#94a3b8',
+    color: palette.slate[400],
   },
   schFooter: {
     paddingHorizontal: 20,
     paddingBottom: 32,
   },
   schBtn: {
-    backgroundColor: '#0d9488',
+    backgroundColor: palette.teal[600],
     borderRadius: 24,
     alignItems: 'center',
     justifyContent: 'center',
@@ -1231,7 +1232,7 @@ const styles = StyleSheet.create({
     minHeight: 80,
   },
   schBtnText: {
-    color: '#ffffff',
+    color: palette.white,
     fontSize: 24,
     fontWeight: '900',
   },
@@ -1239,7 +1240,7 @@ const styles = StyleSheet.create({
   // Default layout styles
   defRoot: {
     flex: 1,
-    backgroundColor: '#2563eb',
+    backgroundColor: palette.blue[600],
   },
   defHeader: {
     paddingHorizontal: 20,
@@ -1255,7 +1256,7 @@ const styles = StyleSheet.create({
   defHeaderText: {
     fontSize: 18,
     fontWeight: '800',
-    color: '#ffffff',
+    color: palette.white,
   },
   defProgressBarBg: {
     height: 6,
@@ -1265,7 +1266,7 @@ const styles = StyleSheet.create({
   },
   defProgressBarFill: {
     height: '100%',
-    backgroundColor: '#ffffff',
+    backgroundColor: palette.white,
     borderRadius: 99,
   },
   defContent: {
@@ -1293,12 +1294,12 @@ const styles = StyleSheet.create({
   defDirText: {
     fontSize: 40,
     fontWeight: '900',
-    color: '#ffffff',
+    color: palette.white,
     letterSpacing: 1,
   },
   defInstructionText: {
     fontSize: 20,
-    color: '#ffffff',
+    color: palette.white,
     textAlign: 'center',
     marginTop: 8,
     fontWeight: '700',
@@ -1315,7 +1316,7 @@ const styles = StyleSheet.create({
     gap: 12,
   },
   defBtnPrimary: {
-    backgroundColor: '#22c55e',
+    backgroundColor: palette.green[500],
     borderRadius: 20,
     alignItems: 'center',
     justifyContent: 'center',
@@ -1323,7 +1324,7 @@ const styles = StyleSheet.create({
     minHeight: 76,
   },
   defBtnPrimaryText: {
-    color: '#ffffff',
+    color: palette.white,
     fontSize: 24,
     fontWeight: '900',
   },
@@ -1338,7 +1339,7 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   defBtnSecondaryText: {
-    color: '#ffffff',
+    color: palette.white,
     fontSize: 18,
     fontWeight: '800',
   },

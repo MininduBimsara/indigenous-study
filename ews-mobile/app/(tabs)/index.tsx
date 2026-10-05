@@ -8,6 +8,7 @@ import { useUserPreferences } from '../../contexts/UserPreferencesContext';
 import { AdaptiveButton } from '../../components/AdaptiveButton';
 import { getAlertColors } from '../../utils/alertColors';
 import { triggerHaptic } from '../../utils/haptic';
+import { palette } from '../../theme/colors';
 
 export default function HomeDashboard() {
   const {
@@ -44,8 +45,8 @@ export default function HomeDashboard() {
   const colors = getAlertColors(impairmentType, statusLevel);
 
   // G111: Use muted calm tones for safe/warning; only full red for danger
-  const safeGreen = { bg: '#d1fae5', text: '#065f46' }; // calm muted green
-  const warningAmber = { bg: '#fef3c7', text: '#92400e' }; // amber (not red)
+  const safeGreen = { bg: palette.emerald[100], text: palette.emerald[800] }; // calm muted green
+  const warningAmber = { bg: palette.amber[100], text: palette.amber[800] }; // amber (not red)
   const statusColors = statusLevel === 'safe'
     ? safeGreen
     : statusLevel === 'warning'
@@ -243,7 +244,7 @@ export default function HomeDashboard() {
           <View style={[styles.lastAlertContainer, { paddingHorizontal: spacingStyle.paddingHorizontal }]}>
             <View style={styles.lastAlertCard} role="status">
               <View style={styles.lastAlertHeader}>
-                <Ionicons name="information-circle" size={24} color="#0f172a" />
+                <Ionicons name="information-circle" size={24} color={palette.slate[900]} />
                 <Text style={styles.lastAlertHeaderText}>
                   LAST ALERT · {new Date(lastAlert.endedAt).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' })}
                 </Text>
@@ -270,7 +271,7 @@ export default function HomeDashboard() {
               accessibilityLabel="I am safe - tap to notify helpers"
               accessibilityRole="button"
             >
-              <Ionicons name="checkmark-circle" size={32} color="#ffffff" />
+              <Ionicons name="checkmark-circle" size={32} color={palette.white} />
               <Text style={styles.safeButtonText}>I AM SAFE</Text>
             </TouchableOpacity>
           </View>
@@ -286,7 +287,7 @@ export default function HomeDashboard() {
                 variant="primary"
                 fullWidth
               >
-                <Ionicons name="call" size={32} color="#ffffff" />
+                <Ionicons name="call" size={32} color={palette.white} />
                 <View style={styles.buttonTextWrapper}>
                   <Text style={[styles.buttonTitle, { fontSize: getFontSize('body') + 2 }]}>
                     {adaptiveSettings.useSimpleLanguage ? 'CALL HELPER' : 'CONTACT HELPERS'}
@@ -306,7 +307,7 @@ export default function HomeDashboard() {
                   variant="secondary"
                   fullWidth
                 >
-                  <Ionicons name="clipboard" size={30} color="#ffffff" />
+                  <Ionicons name="clipboard" size={30} color={palette.white} />
                   <View style={styles.buttonTextWrapper}>
                     <Text style={[styles.buttonTitle, { fontSize: getFontSize('body') }]}>
                       FAMILY DRILL
@@ -326,7 +327,7 @@ export default function HomeDashboard() {
                 variant="success"
                 fullWidth
               >
-                <Ionicons name="shield-checkmark" size={32} color="#ffffff" />
+                <Ionicons name="shield-checkmark" size={32} color={palette.white} />
                 <View style={styles.buttonTextWrapper}>
                   <Text style={[styles.buttonTitle, { fontSize: getFontSize('body') + 2 }]}>
                     INFORM STATUS
@@ -346,7 +347,7 @@ export default function HomeDashboard() {
                   variant="danger"
                   fullWidth
                 >
-                  <Ionicons name="alert-circle" size={32} color="#ffffff" />
+                  <Ionicons name="alert-circle" size={32} color={palette.white} />
                   <View style={styles.buttonTextWrapper}>
                     <Text style={[styles.buttonTitle, { fontSize: getFontSize('body') + 2 }]}>
                       I NEED HELP
@@ -367,7 +368,7 @@ export default function HomeDashboard() {
                   variant="primary"
                   fullWidth
                 >
-                  <Ionicons name="map" size={30} color="#ffffff" />
+                  <Ionicons name="map" size={30} color={palette.white} />
                   <View style={styles.buttonTextWrapper}>
                     <Text style={[styles.buttonTitle, { fontSize: getFontSize('body') }]}>
                       FIND SHELTER
@@ -439,7 +440,7 @@ export default function HomeDashboard() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f8fafc',
+    backgroundColor: palette.slate[50],
   },
   scrollContent: {
     flexGrow: 1,
@@ -460,7 +461,7 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 32,
     borderBottomRightRadius: 32,
     elevation: 8,
-    shadowColor: '#000',
+    shadowColor: palette.black,
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.12,
     shadowRadius: 12,
@@ -549,21 +550,21 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#16a34a',
+    backgroundColor: palette.green[600],
     borderRadius: 28,
     borderWidth: 4,
-    borderColor: '#15803d',
+    borderColor: palette.green[700],
     paddingVertical: 18,
     minHeight: 76,
     gap: 12,
     elevation: 4,
-    shadowColor: '#000',
+    shadowColor: palette.black,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
   },
   safeButtonText: {
-    color: '#ffffff',
+    color: palette.white,
     fontSize: 24,
     fontWeight: '900',
   },
@@ -577,11 +578,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   buttonTitle: {
-    color: '#ffffff',
+    color: palette.white,
     fontWeight: '900',
   },
   buttonSubtitle: {
-    color: '#ffffff',
+    color: palette.white,
     fontSize: 14,
     opacity: 0.8,
     marginTop: 2,
@@ -590,9 +591,9 @@ const styles = StyleSheet.create({
     paddingTop: 16,
   },
   lastAlertCard: {
-    backgroundColor: '#f8fafc',
+    backgroundColor: palette.slate[50],
     borderWidth: 2,
-    borderColor: '#cbd5e1',
+    borderColor: palette.slate[300],
     borderRadius: 20,
     padding: 16,
     gap: 6,
@@ -605,32 +606,32 @@ const styles = StyleSheet.create({
   lastAlertHeaderText: {
     fontSize: 14,
     fontWeight: '900',
-    color: '#334155',
+    color: palette.slate[700],
   },
   lastAlertReason: {
     fontSize: 18,
     fontWeight: '900',
-    color: '#0f172a',
+    color: palette.slate[900],
     marginTop: 2,
   },
   lastAlertDetail: {
     fontSize: 16,
     fontWeight: '700',
-    color: '#1e293b',
+    color: palette.slate[800],
   },
   lastAlertInstructions: {
     fontSize: 14,
     fontWeight: '500',
-    color: '#475569',
+    color: palette.slate[600],
     lineHeight: 20,
   },
   memoryAidContainer: {
     marginBottom: 20,
   },
   memoryAidCard: {
-    backgroundColor: '#dbeafe',
+    backgroundColor: palette.blue[100],
     borderWidth: 2,
-    borderColor: '#bfdbfe',
+    borderColor: palette.blue[200],
     borderRadius: 20,
     padding: 16,
     alignItems: 'center',
@@ -638,19 +639,19 @@ const styles = StyleSheet.create({
   memoryAidTitle: {
     fontSize: 18,
     fontWeight: '800',
-    color: '#1e3a8a',
+    color: palette.blue[900],
   },
   memoryAidTime: {
     fontSize: 14,
-    color: '#1d4ed8',
+    color: palette.blue[700],
     marginTop: 4,
   },
   simulatorContainer: {
     flexDirection: 'row',
     borderTopWidth: 1,
-    borderColor: '#e2e8f0',
+    borderColor: palette.slate[200],
     padding: 12,
-    backgroundColor: '#ffffff',
+    backgroundColor: palette.white,
     justifyContent: 'center',
     gap: 8,
   },
@@ -661,20 +662,20 @@ const styles = StyleSheet.create({
     borderWidth: 1,
   },
   simWarning: {
-    backgroundColor: '#fef3c7',
-    borderColor: '#f59e0b',
+    backgroundColor: palette.amber[100],
+    borderColor: palette.amber[500],
   },
   simDanger: {
-    backgroundColor: '#fee2e2',
-    borderColor: '#ef4444',
+    backgroundColor: palette.red[100],
+    borderColor: palette.red[500],
   },
   simReset: {
-    backgroundColor: '#f1f5f9',
-    borderColor: '#cbd5e1',
+    backgroundColor: palette.slate[100],
+    borderColor: palette.slate[300],
   },
   simulatorText: {
     fontSize: 12,
     fontWeight: '700',
-    color: '#334155',
+    color: palette.slate[700],
   },
 });

@@ -6,6 +6,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { router } from 'expo-router';
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 import { useUserPreferences, ImpairmentType } from '../../contexts/UserPreferencesContext';
+import { palette } from '../../theme/colors';
 
 interface ImpairmentOption {
   type: ImpairmentType;
@@ -24,35 +25,35 @@ const OPTIONS: ImpairmentOption[] = [
     label: 'Dementia',
     description: 'Memory support with simple, repeated instructions',
     adaptations: ['Extra-large text', 'Max 2 buttons', 'Memory aids', 'Calm colors'],
-    bg: '#eff6ff', accent: '#3b82f6',
+    bg: palette.blue[50], accent: palette.blue[500],
   },
   {
     type: 'autism', iconName: 'puzzle', iconLib: 'MaterialCommunityIcons',
     label: 'Autism Spectrum',
     description: 'Predictable routines and sensory-friendly design',
     adaptations: ['Routine mode', 'Muted colors', 'Progress steps', 'Confirmations'],
-    bg: '#faf5ff', accent: '#9333ea',
+    bg: palette.purple[50], accent: palette.purple[600],
   },
   {
     type: 'mci', iconName: 'heart-handshake', iconLib: 'MaterialCommunityIcons',
     label: 'Mild Cognitive Impairment',
     description: 'Clear labels and confirmation steps',
     adaptations: ['Memory reminders', 'Simple language', 'Clear hierarchy'],
-    bg: '#f0fdf4', accent: '#16a34a',
+    bg: palette.green[50], accent: palette.green[600],
   },
   {
     type: 'adhd', iconName: 'lightning-bolt', iconLib: 'MaterialCommunityIcons',
     label: 'ADHD',
     description: 'Focus mode with minimal distractions',
     adaptations: ['Focus mode', 'Vibrant colors', 'Short steps', 'Max 2 actions'],
-    bg: '#fff7ed', accent: '#f97316',
+    bg: palette.orange[50], accent: palette.orange[500],
   },
   {
     type: 'schizophrenia', iconName: 'eye', iconLib: 'Ionicons',
     label: 'Schizophrenia',
     description: 'Calm interface with clear, grounded information',
     adaptations: ['Reality anchors', 'Calm design', 'Extra-large text'],
-    bg: '#f0fdfa', accent: '#0d9488',
+    bg: palette.teal[50], accent: palette.teal[600],
   },
 ];
 
@@ -67,7 +68,7 @@ export default function ImpairmentScreen() {
 
   return (
     <SafeAreaView style={styles.root}>
-      <StatusBar barStyle="dark-content" backgroundColor="#f8fafc" />
+      <StatusBar barStyle="dark-content" backgroundColor={palette.slate[50]} />
       <ScrollView contentContainerStyle={styles.scroll} showsVerticalScrollIndicator={false}>
         <Text style={styles.heading}>Personalise Your Experience</Text>
         <Text style={styles.subheading}>
@@ -86,10 +87,10 @@ export default function ImpairmentScreen() {
                 activeOpacity={0.85}
               >
                 <View style={[styles.iconCircle, { backgroundColor: opt.accent }]}>
-                  <IconComp name={opt.iconName as any} size={32} color="#fff" />
+                  <IconComp name={opt.iconName as any} size={32} color={palette.white} />
                 </View>
                 <View style={styles.cardText}>
-                  <Text style={[styles.cardTitle, { color: '#0f172a' }]}>{opt.label}</Text>
+                  <Text style={[styles.cardTitle, { color: palette.slate[900] }]}>{opt.label}</Text>
                   <Text style={[styles.cardDesc]}>{opt.description}</Text>
                 </View>
                 <Ionicons name="chevron-forward" size={22} color={opt.accent} />
@@ -133,10 +134,10 @@ export default function ImpairmentScreen() {
 }
 
 const styles = StyleSheet.create({
-  root: { flex: 1, backgroundColor: '#f8fafc' },
+  root: { flex: 1, backgroundColor: palette.slate[50] },
   scroll: { paddingHorizontal: 20, paddingTop: 24, paddingBottom: 40 },
-  heading: { fontSize: 28, fontWeight: '900', color: '#0f172a', marginBottom: 10 },
-  subheading: { fontSize: 16, color: '#475569', lineHeight: 24, marginBottom: 28 },
+  heading: { fontSize: 28, fontWeight: '900', color: palette.slate[900], marginBottom: 10 },
+  subheading: { fontSize: 16, color: palette.slate[600], lineHeight: 24, marginBottom: 28 },
   cardWrap: { marginBottom: 16 },
   card: {
     flexDirection: 'row', alignItems: 'center', padding: 18, borderRadius: 20,
@@ -145,7 +146,7 @@ const styles = StyleSheet.create({
   iconCircle: { width: 52, height: 52, borderRadius: 26, alignItems: 'center', justifyContent: 'center', flexShrink: 0 },
   cardText: { flex: 1 },
   cardTitle: { fontSize: 18, fontWeight: '800', marginBottom: 3 },
-  cardDesc: { fontSize: 13, color: '#475569', lineHeight: 18 },
+  cardDesc: { fontSize: 13, color: palette.slate[600], lineHeight: 18 },
   infoBtn: {
     flexDirection: 'row', alignItems: 'center', gap: 6,
     paddingVertical: 8, paddingHorizontal: 14,
@@ -154,8 +155,8 @@ const styles = StyleSheet.create({
   infoBtnText: { fontSize: 13, fontWeight: '700' },
   details: { marginTop: 8, padding: 14, borderWidth: 1, borderRadius: 14, gap: 8 },
   adaptRow: { flexDirection: 'row', alignItems: 'center', gap: 8 },
-  adaptText: { fontSize: 14, color: '#334155', flex: 1 },
+  adaptText: { fontSize: 14, color: palette.slate[700], flex: 1 },
   skipBtn: { marginTop: 24, alignItems: 'center', paddingVertical: 14 },
-  skipText: { color: '#64748b', fontSize: 15, textDecorationLine: 'underline' },
-  privacy: { fontSize: 12, color: '#94a3b8', textAlign: 'center', marginTop: 16, lineHeight: 18 },
+  skipText: { color: palette.slate[500], fontSize: 15, textDecorationLine: 'underline' },
+  privacy: { fontSize: 12, color: palette.slate[400], textAlign: 'center', marginTop: 16, lineHeight: 18 },
 });

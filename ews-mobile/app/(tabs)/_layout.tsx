@@ -4,6 +4,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useAlert } from '../../contexts/AlertContext';
 import { useUserPreferences } from '../../contexts/UserPreferencesContext';
+import { palette } from '../../theme/colors';
 
 function TabIcon({ name, color, label, badge }: {
   name: keyof typeof Ionicons.glyphMap; color: any; label: string; badge?: boolean;
@@ -29,8 +30,8 @@ export default function TabLayout() {
       screenOptions={{
         headerShown: false,
         tabBarStyle: styles.tabBar,
-        tabBarActiveTintColor: '#3b82f6',
-        tabBarInactiveTintColor: '#64748b',
+        tabBarActiveTintColor: palette.blue[500],
+        tabBarInactiveTintColor: palette.slate[500],
         tabBarShowLabel: false,
         // G18: Hide tab bar during active danger alert (focus only on alert actions)
         tabBarHideOnKeyboard: true,
@@ -48,7 +49,7 @@ export default function TabLayout() {
         name="alert"
         options={{
           tabBarIcon: ({ color }) => (
-            <TabIcon name="warning" color={hasAlert ? '#ef4444' : color} label="ALERT" badge={hasAlert} />
+            <TabIcon name="warning" color={hasAlert ? palette.red[500] : color} label="ALERT" badge={hasAlert} />
           ),
         }}
       />
@@ -82,14 +83,14 @@ export default function TabLayout() {
 
 const styles = StyleSheet.create({
   tabBar: {
-    backgroundColor: '#ffffff',
+    backgroundColor: palette.white,
     borderTopWidth: 2,
-    borderTopColor: '#e2e8f0',
+    borderTopColor: palette.slate[200],
     height: 72,
     paddingBottom: 8,
     paddingTop: 4,
     elevation: 12,
-    shadowColor: '#000',
+    shadowColor: palette.black,
     shadowOffset: { width: 0, height: -2 },
     shadowOpacity: 0.1,
     shadowRadius: 8,
@@ -99,6 +100,6 @@ const styles = StyleSheet.create({
   badge: {
     position: 'absolute', top: -2, right: -4,
     width: 10, height: 10, borderRadius: 5,
-    backgroundColor: '#ef4444', borderWidth: 2, borderColor: '#fff',
+    backgroundColor: palette.red[500], borderWidth: 2, borderColor: palette.white,
   },
 });

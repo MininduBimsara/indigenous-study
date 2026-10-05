@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 import { triggerHaptic, type HapticPattern } from '../utils/haptic';
 import { useAccessibility } from '../context/AccessibilityContext';
+import { palette } from '../theme/colors';
 
 // G5: Buttons look like buttons with clear labels
 // G66: Touch targets ≥44dp
@@ -32,11 +33,11 @@ interface HapticButtonProps extends Omit<PressableProps, 'style'> {
 }
 
 const VARIANTS: Record<string, { bg: string; text: string; border: string }> = {
-  primary: { bg: '#1e3a8a', text: '#FFFFFF', border: '#1e3a8a' },
-  secondary: { bg: '#F1F5F9', text: '#1e293b', border: '#CBD5E1' },
-  danger: { bg: '#7f1d1d', text: '#fef2f2', border: '#7f1d1d' },
-  safe: { bg: '#14532d', text: '#f0fdf4', border: '#14532d' },
-  ghost: { bg: 'transparent', text: '#1e3a8a', border: '#1e3a8a' },
+  primary: { bg: palette.blue[900], text: palette.white, border: palette.blue[900] },
+  secondary: { bg: palette.slate[100], text: palette.slate[800], border: palette.slate[300] },
+  danger: { bg: palette.red[900], text: palette.red[50], border: palette.red[900] },
+  safe: { bg: palette.green[900], text: palette.green[50], border: palette.green[900] },
+  ghost: { bg: 'transparent', text: palette.blue[900], border: palette.blue[900] },
 };
 
 const SIZES: Record<string, { minHeight: number; paddingH: number; fontSize: number }> = {
@@ -94,8 +95,8 @@ export default function HapticButton({
         style={[
           styles.base,
           {
-            backgroundColor: disabled ? '#9CA3AF' : v.bg,
-            borderColor: disabled ? '#9CA3AF' : v.border,
+            backgroundColor: disabled ? palette.gray[400] : v.bg,
+            borderColor: disabled ? palette.gray[400] : v.border,
             minHeight: s.minHeight,
             paddingHorizontal: s.paddingH,
           },
@@ -114,7 +115,7 @@ export default function HapticButton({
               style={[
                 styles.label,
                 {
-                  color: disabled ? '#E5E7EB' : v.text,
+                  color: disabled ? palette.gray[200] : v.text,
                   fontSize: fontSize(s.fontSize),
                   lineHeight: fontSize(s.fontSize) * 1.3,
                 },
