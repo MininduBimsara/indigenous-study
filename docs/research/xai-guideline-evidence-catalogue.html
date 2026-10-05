@@ -82,7 +82,9 @@ code{font:500 12px var(--f-mono)}
   body{font-size:11px}
   h1{font-size:25px}
   .wrap>header{gap:6px}
-  .box{padding:9px 12px;gap:7px;break-inside:avoid}
+  .box{padding:8px 12px;gap:6px;break-inside:avoid;font-size:10.5px}
+  .wrap{gap:12px}
+  .lead p{font-size:10.5px}
   .box ul{gap:3px}
   .top{gap:12px}
   .sum th,.sum td{padding:4px 8px}
@@ -99,7 +101,7 @@ code{font:500 12px var(--f-mono)}
   <header class="lead">
     <div class="eyebrow">Profile-Based Adaptive XAI · Task 1 companion document</div>
     <h1>XAI-relevant EWS design guidelines: evidence catalogue</h1>
-    <div class="byline">Minindu Abeywardena · 4 October 2026 · Version 1</div>
+    <div class="byline">Minindu Abeywardena · 5 October 2026 · Version 2</div>
     <p>51 of the 128 EWS design guidelines affect how a flood prediction is explained: 31 from the triage in the Research Approach and 20 added from Minindu's manual review of the guideline catalogue. Each one is grouped by how much published evidence links it to understanding explanations, forecasts or warnings.</p>
   </header>
 
@@ -121,6 +123,7 @@ code{font:500 12px var(--f-mono)}
         <li><span class="grade g-none">None found</span> Marked as possibly relevant, but no source links it to understanding. Kept as our inference.</li>
         <li><span class="cls cls-B">B · XAI</span> changes what is explained or how it is understood. <span class="cls cls-C">C · Both</span> a UI guideline that also shapes the explanation.</li>
         <li><span class="org">Research Approach v2</span> from the original triage. <span class="org">New, manual marking</span> added from the colour-coded catalogue. A red note shows where the catalogue marking differs.</li>
+        <li>Where the catalogue marking and the Research Approach v2 triage gave different classes (G11, G41, G49, G67, G84, G107, G117, G121, G124), the v2 class is kept.</li>
         <li>Each source says how it was checked: <span class="src">full text</span> or <span class="src">abstract</span>. Nothing rests on a search snippet. "Counter" marks evidence against the guideline.</li>
       </ul>
       <h3>Limits</h3>
@@ -283,14 +286,14 @@ code{font:500 12px var(--f-mono)}
 </tr>
 <tr>
 <td class="id">G11</td>
-<td class="gname"><div class="nm">Most important stands out</div><div class="meta"><span class="cls cls-C">C · Both</span><div class="flag">Excel marked B</div><span class="org org-old">Research Approach v2</span></div></td>
+<td class="gname"><div class="nm">Most important stands out</div><div class="meta"><span class="cls cls-C">C · Both</span><span class="org org-old">Research Approach v2</span></div></td>
 <td>Lead with conclusion and action; the "why" is secondary</td>
 <td>Bottom line and action button fill the top of the forecast card; "Why?" is a smaller secondary button below</td>
 <td class="ev"><p><a href="https://doi.org/10.1177/10775587070640020301">Peters et al. (2007), Med Care Res Rev</a>. "Less is more": formats that highlight the meaning of important information gave higher comprehension, most for low-numeracy readers. <span class="src">abstract</span></p><p><a href="https://arxiv.org/abs/2403.04035">Bahel et al. (2024)</a>. Showing the explanation more prominently than the conclusion confused users; making the conclusion dominant fixed it (pilot). <span class="src">full text</span></p><p><a href="https://doi.org/10.1145/3772318.3790812">Mathur et al. (2026), CHI</a>. Older adults used AI explanations to calibrate urgency and decide on action. <span class="src">full text</span></p></td>
 </tr>
 <tr>
 <td class="id">G41</td>
-<td class="gname"><div class="nm">Avoid too much content</div><div class="meta"><span class="cls cls-C">C · Both</span><div class="flag">Excel marked B</div><span class="org org-old">Research Approach v2</span></div></td>
+<td class="gname"><div class="nm">Avoid too much content</div><div class="meta"><span class="cls cls-C">C · Both</span><span class="org org-old">Research Approach v2</span></div></td>
 <td>Progressive disclosure; detail level is a profile attribute</td>
 <td>The profile's "detail on first view" setting decides how many explanation parts render; the rest open on tap</td>
 <td class="ev"><p><a href="https://doi.org/10.1177/10775587070640020301">Peters et al. (2007)</a>. Less information, focused on meaning, improved comprehension. <span class="src">abstract</span></p><p><a href="https://arxiv.org/abs/1902.00006">Lage et al. (2019), preprint</a>. Explanation complexity reduced human interpretability; new concepts cost more than repetition. <span class="src">abstract</span></p><p>Waterschoot et al. (2025), UMAP. More detailed explanations did not increase understanding (RCT, n=271). <a href="https://doi.org/10.1016/j.ijmedinf.2024.105484">Monnet et al. (2024)</a>: low cognitive load is a key need in dementia decision tools. <span class="src">abstract</span></p></td>
@@ -325,7 +328,7 @@ code{font:500 12px var(--f-mono)}
 </tr>
 <tr>
 <td class="id">G67</td>
-<td class="gname"><div class="nm">Reading level</div><div class="meta"><span class="cls cls-C">C · Both</span><div class="flag">Excel marked B</div><span class="org org-old">Research Approach v2</span></div></td>
+<td class="gname"><div class="nm">Reading level</div><div class="meta"><span class="cls cls-C">C · Both</span><span class="org org-old">Research Approach v2</span></div></td>
 <td>Explanation meets a target reading level; fuller version as supplement</td>
 <td>Explanation templates are written to the target reading level; a "More detail" link opens the fuller version</td>
 <td class="ev"><p><a href="https://doi.org/10.1111/risa.70109">Walpole et al. (2025), Risk Analysis</a>. "Evacuation warning" was poorly understood in emergency alerts across experience levels. <span class="src">abstract</span></p><p><a href="https://doi.org/10.1016/j.jcjo.2014.08.002">Mikhail et al. (2015), RCT</a>. Grade-5 pamphlets were understood better than grade-10 (57.9% vs 48.3%), whatever the reader's literacy. <span class="src">abstract</span></p></td>
@@ -381,7 +384,7 @@ code{font:500 12px var(--f-mono)}
 </tr>
 <tr>
 <td class="id">G107</td>
-<td class="gname"><div class="nm">Caregiver-mediated configuration</div><div class="meta"><span class="cls cls-C">C · Both</span><div class="flag">Excel marked B</div><span class="org org-old">Research Approach v2</span></div></td>
+<td class="gname"><div class="nm">Caregiver-mediated configuration</div><div class="meta"><span class="cls cls-C">C · Both</span><span class="org org-old">Research Approach v2</span></div></td>
 <td>Carer can set the profile with the user's consent</td>
 <td>A carer-assisted setup path in onboarding, with a consent screen before the carer changes the profile; consent is stored</td>
 <td class="ev"><p><a href="https://doi.org/10.1145/3772318.3790812">Mathur et al. (2026), CHI</a>. Older adults saw AI explanations as shared with family and wanted to configure which explanations are shareable and at what detail. <span class="src">full text</span></p><p><a href="https://doi.org/10.1111/jgs.18596">Largent et al. (2023), J Am Geriatr Soc</a>: supported decision-making through a trusted supporter for people with MCI or mild dementia. <a href="https://doi.org/10.1007/s11673-019-09945-x">Sinclair et al. (2019)</a>: families endorse it as reliance on others grows. <span class="src">abstract</span></p></td>
@@ -402,21 +405,21 @@ code{font:500 12px var(--f-mono)}
 </tr>
 <tr>
 <td class="id">G117</td>
-<td class="gname"><div class="nm">Definition tooltips</div><div class="meta"><span class="cls cls-C">C · Both</span><div class="flag">Excel marked B</div><span class="org org-old">Research Approach v2</span></div></td>
+<td class="gname"><div class="nm">Definition tooltips</div><div class="meta"><span class="cls cls-C">C · Both</span><span class="org org-old">Research Approach v2</span></div></td>
 <td>Tap-to-define any technical term left in the explanation</td>
 <td>Terms such as "danger level" or "upstream" are tappable and show a one-line definition</td>
 <td class="ev"> <span class="mixed">mixed evidence</span><p><a href="https://doi.org/10.1177/0963662519865687">Bullock et al. (2019), Public Underst. Sci.</a>. Jargon "impairs people's ability to process scientific information" (N=650). <span class="src">abstract</span></p><p>Counter: <a href="https://consensus.app/papers/details/c5df378e5b4a5fa78ca150599f04c6de/">Shulman et al. (2020), J Lang Soc Psychol</a>. Jargon disrupted processing "even when definitions for the jargon terms are provided"; removing jargon beats defining it. <span class="src">abstract</span></p><p class="muted">Tap-to-define tooltips themselves are untested.</p></td>
 </tr>
 <tr>
 <td class="id">G121</td>
-<td class="gname"><div class="nm">Local-language Easy Read track</div><div class="meta"><span class="cls cls-C">C · Both</span><div class="flag">Excel marked B</div><span class="org org-old">Research Approach v2</span></div></td>
+<td class="gname"><div class="nm">Local-language Easy Read track</div><div class="meta"><span class="cls cls-C">C · Both</span><span class="org org-old">Research Approach v2</span></div></td>
 <td>Easy Read explanation in Sinhala, Tamil, English</td>
 <td>Every explanation template exists in Sinhala, Tamil and English Easy Read; the language comes from the profile</td>
 <td class="ev"><p><a href="https://consensus.app/papers/details/d355aa9fcaa55fdc9e0c2cadbade08e2/">Trujillo-Falcón et al. (2022), BAMS</a>. Significant language inequities in understanding translated watch/warning terms; translate meaning, not words. <span class="src">abstract</span></p><p><a href="https://consensus.app/papers/details/111e028732a159d08f80432c04438f28/">Krocak et al. (2025), BAMS</a>. Spanish speakers were less likely to receive, understand and respond to tornado warnings (N=14,341). <span class="src">abstract</span></p><p class="muted">Sri Lanka context: Chandrasekara (2026) reports language gaps in early warning during Cyclone Ditwah (observational).</p></td>
 </tr>
 <tr>
 <td class="id">G124</td>
-<td class="gname"><div class="nm">One decision at a time under stress</div><div class="meta"><span class="cls cls-C">C · Both</span><div class="flag">Excel marked B</div><span class="org org-old">Research Approach v2</span></div></td>
+<td class="gname"><div class="nm">One decision at a time under stress</div><div class="meta"><span class="cls cls-C">C · Both</span><span class="org org-old">Research Approach v2</span></div></td>
 <td>Action-only while an alert is live; the "why" is deferred</td>
 <td>When the forecast becomes a live alert (Layer 3), every profile shows hazard, action and a call button only; "Why?" returns when the alert ends</td>
 <td class="ev"> <span class="mixed">mixed evidence</span><p><a href="https://doi.org/10.1145/3772318.3790812">Mathur et al. (2026), CHI</a>. For emergency alerts, older adults wanted "direct, task-focused and concise explanations"; elaboration added cognitive load under imagined stress. <span class="src">full text</span></p><p><a href="https://doi.org/10.1016/j.neubiorev.2012.02.003">Starcke &amp; Brand (2012)</a>: stress affects decision making. <span class="src">abstract</span></p><p>Counter: <a href="https://doi.org/10.1037/a0025185">Joslyn &amp; LeClerc (2012), J Exp Psychol Appl</a>: advice alone did not improve decisions, advice + uncertainty did. <a href="https://consensus.app/papers/details/91a33e3eba3559fd933342573e4ba682/">Wood et al. (2018)</a>: longer warnings cut information-seeking delay. Keep "Why?" one tap away. <span class="src">abstract</span></p></td>
@@ -489,14 +492,14 @@ code{font:500 12px var(--f-mono)}
 </tr>
 <tr>
 <td class="id">G49</td>
-<td class="gname"><div class="nm">Alternative content for complex info</div><div class="meta"><span class="cls cls-C">C · Both</span><div class="flag">Excel marked B</div><span class="org org-old">Research Approach v2</span></div></td>
+<td class="gname"><div class="nm">Alternative content for complex info</div><div class="meta"><span class="cls cls-C">C · Both</span><span class="org org-old">Research Approach v2</span></div></td>
 <td>Easy Read version must carry the same facts (fidelity)</td>
 <td>An Easy Read toggle swaps in the symbol-supported text built from the same forecast object; the invariants check runs on both versions</td>
 <td class="ev"> <span class="mixed">mixed evidence</span><p><a href="https://doi.org/10.1111/jir.12097">Hurtado et al. (2014), J Intellect Disabil Res</a>. An Easy Read leaflet improved knowledge. <span class="src">abstract</span></p><p>Counter: <a href="https://doi.org/10.1111/jar.70195">Wilson et al. (2026)</a>: "empirical evidence of ERHI effectiveness was limited". <a href="https://doi.org/10.1111/jar.12666">Buell et al. (2019)</a>: simplification alone gave no significant gain. <span class="src">abstract</span></p><p class="muted">No source tests whether simplified versions keep the same facts (our fidelity point).</p></td>
 </tr>
 <tr>
 <td class="id">G84</td>
-<td class="gname"><div class="nm">Stigma-free language</div><div class="meta"><span class="cls cls-C">C · Both</span><div class="flag">Excel marked B</div><span class="org org-old">Research Approach v2</span></div></td>
+<td class="gname"><div class="nm">Stigma-free language</div><div class="meta"><span class="cls cls-C">C · Both</span><span class="org org-old">Research Approach v2</span></div></td>
 <td>Name profiles by need, never by condition</td>
 <td>Profile names ("Just tell me what to do" and others) appear in setup, settings and notifications; no condition names anywhere in the app</td>
 <td class="ev"><p><a href="https://doi.org/10.1093/geront/gnae186">Kohl et al. (2025), Gerontologist</a>. Stigma and fear lead people with dementia to conceal their diagnosis. <span class="src">abstract</span></p><p><a href="https://doi.org/10.1186/s12910-024-01010-6">AboJabel et al. (2024), BMC Med Ethics</a>: stigma is a barrier to assistive technology in dementia care. <a href="https://doi.org/10.1177/1362361315588200">Kenny et al. (2016), Autism</a>: no single autism term is accepted by all. <span class="src">abstract</span></p><p class="muted">No source on condition labels inside XAI tools.</p></td>
@@ -549,7 +552,6 @@ code{font:500 12px var(--f-mono)}
       <li>Sources linked to consensus.app were checked through that abstract record; their DOIs were not confirmed. Look up each DOI before adding it to the reference list.</li>
       <li>The catalogue cites Joddrell &amp; Astell for G77 and G81, but their abstracts do not report an icon-recognition finding. Boedeker et al. (2023) and Wu et al. (2022) are the checked alternatives.</li>
       <li>Liao et al. (2020)'s third author is Sarah Miller, not Tim Miller.</li>
-      <li>Nine guidelines are C in the Research Approach but were marked B in the catalogue: G11, G41, G49, G67, G84, G107, G117, G121, G124. The class needs a team decision.</li>
       <li>G66's catalogue marking is unclear (a very light yellow fill). It is listed as unconfirmed.</li>
     </ul>
   </section>
