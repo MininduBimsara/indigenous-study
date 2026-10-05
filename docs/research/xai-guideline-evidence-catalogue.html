@@ -102,7 +102,7 @@ code{font:500 12px var(--f-mono)}
     <div class="eyebrow">Profile-Based Adaptive XAI · Task 1 companion document</div>
     <h1>XAI-relevant EWS design guidelines: evidence catalogue</h1>
     <div class="byline">Minindu Abeywardena · 5 October 2026 · Version 2</div>
-    <p>51 of the 128 EWS design guidelines affect how a flood prediction is explained: 31 from the triage in the Research Approach and 20 added from Minindu's manual review of the guideline catalogue. Each one is grouped by how much published evidence links it to understanding explanations, forecasts or warnings.</p>
+    <p>50 of the 128 EWS design guidelines affect how a flood prediction is explained: 31 from the triage in the Research Approach and 19 added from Minindu's manual review of the guideline catalogue. Each one is grouped by how much published evidence links it to understanding explanations, forecasts or warnings.</p>
   </header>
 
   <div class="top">
@@ -110,10 +110,10 @@ code{font:500 12px var(--f-mono)}
       <h3>Evidence at a glance</h3>
       <table class="sum">
         <thead><tr><th>Evidence</th><th class="num">From triage</th><th class="num">New</th><th class="num">Total</th></tr></thead>
-        <tbody><tr><td><span class="grade g-direct">Direct</span></td><td class="num">26</td><td class="num">12</td><td class="num"><b>38</b></td></tr><tr><td><span class="grade g-indirect">Indirect</span></td><td class="num">4</td><td class="num">5</td><td class="num"><b>9</b></td></tr><tr><td><span class="grade g-none">None found</span></td><td class="num">1</td><td class="num">3</td><td class="num"><b>4</b></td></tr></tbody>
+        <tbody><tr><td><span class="grade g-direct">Direct</span></td><td class="num">26</td><td class="num">12</td><td class="num"><b>38</b></td></tr><tr><td><span class="grade g-indirect">Indirect</span></td><td class="num">4</td><td class="num">5</td><td class="num"><b>9</b></td></tr><tr><td><span class="grade g-none">None found</span></td><td class="num">1</td><td class="num">2</td><td class="num"><b>3</b></td></tr></tbody>
       </table>
       <h3>Guidelines in each group</h3>
-      <div class="idxrow"><span class="grade g-direct">Direct</span><span class="ids">G4, G11, G14, G16, G18, G19, G21, G22, G25, G26, G41, G47, G48, G50, G54, G57, G58, G59, G67, G73, G76, G77, G79, G80, G81, G88, G89, G107, G111, G114, G117, G118, G119, G120, G121, G124, G125, G128</span></div><div class="idxrow"><span class="grade g-indirect">Indirect</span><span class="ids">G15, G17, G23, G24, G27, G38, G49, G84, G109</span></div><div class="idxrow"><span class="grade g-none">None found</span><span class="ids">G20, G42, G65, G66</span></div>
+      <div class="idxrow"><span class="grade g-direct">Direct</span><span class="ids">G4, G11, G14, G16, G18, G19, G21, G22, G25, G26, G41, G47, G48, G50, G54, G57, G58, G59, G67, G73, G76, G77, G79, G80, G81, G88, G89, G107, G111, G114, G117, G118, G119, G120, G121, G124, G125, G128</span></div><div class="idxrow"><span class="grade g-indirect">Indirect</span><span class="ids">G15, G17, G23, G24, G27, G38, G49, G84, G109</span></div><div class="idxrow"><span class="grade g-none">None found</span><span class="ids">G20, G42, G65</span></div>
     </div>
     <div class="box">
       <h3>How to read this document</h3>
@@ -511,7 +511,7 @@ code{font:500 12px var(--f-mono)}
 <td>While a Forecast or Warning is active, the home screen and repeat notifications read the latest forecast, never a cached one</td>
 <td class="ev"> <span class="mixed">mixed evidence</span><p><a href="https://doi.org/10.1017/S1041610213001233">Creighton et al. (2013), Int Psychogeriatr</a>. Review of 34 studies: spaced repetition can teach people with dementia new and known associations. <span class="src">abstract</span></p><p><a href="https://doi.org/10.1186/s13195-017-0264-8">Han et al. (2017), Alzheimers Res Ther</a>. A tablet spaced-retrieval program modestly improved recall in MCI. <span class="src">abstract</span></p><p>Counter: <a href="https://consensus.app/papers/details/88b200b0c72c5e4997210d220034ffc3/">Ha et al. (2026), CHI</a>. Frequent repeated alerts led users to ignore or block them; restate on change, not on a timer. <span class="src">abstract</span></p></td>
 </tr></tbody></table></div></section><section class="grp">
-<h2><span class="grade g-none">None found</span> 4 guidelines</h2>
+<h2><span class="grade g-none">None found</span> 3 guidelines</h2>
 <p class="desc">Marked as possibly relevant to XAI, but no source found links it to understanding an explanation, forecast or warning. Kept as our inference, to discuss.</p>
 <div class="tbl"><table><colgroup><col class="c1"><col class="c2"><col class="c3"><col class="c4"><col class="c5"></colgroup>
 <thead><tr><th>ID</th><th>Guideline</th><th>Implication for the explanation</th><th>How to adapt it in the EWS</th><th>Evidence</th></tr></thead>
@@ -535,24 +535,16 @@ code{font:500 12px var(--f-mono)}
 <td>"Why?" and "How sure?" are never hidden under a banner.</td>
 <td>Layout test: explanation buttons stay visible when an alert banner appears.</td>
 <td class="ev"><p class="muted">No source links it to understanding. Suggest A.</p></td>
-</tr>
-<tr>
-<td class="id">G66</td>
-<td class="gname"><div class="nm">Target Size Minimum (SC 2.5.8)</div><div class="meta"><span class="cls cls-u">Unconfirmed</span><span class="org org-new">New, manual marking</span></div></td>
-<td>"Why?" and "How sure?" buttons are large enough to tap.</td>
-<td>Buttons at least 48 dp.</td>
-<td class="ev"><p class="muted">Jin et al. (2007) tested button size for older adults' tapping, not comprehension. Suggest A.</p></td>
 </tr></tbody></table></div></section>
 
   <section class="box grp">
     <h2>Check before citing</h2>
     <ul>
-      <li><b>NeuroAdaptX (Bunde, 2026)</b>, which the Research Approach cites as the closest competitor, could not be found in any database searched. Confirm the reference before the paper relies on it.</li>
-      <li>Not opened: the OASIS CAP 1.2 specification (the "Possible" mapping), WCAG 1.3.1, 2.4.11 and 2.5.8 texts, Mileti &amp; Sorensen (1990), Sutton &amp; Kuligowski (2019), and the 2016 journal version of Ruginski et al.</li>
+      <li><b>NeuroAdaptX (Bunde, 2026)</b> is listed in the DESRIST 2026 proceedings, Part I (Springer, DOI 10.1007/978-3-032-28316-0_12), according to search results; the Springer and dblp pages themselves could not be opened from here. Its full text has not been read yet: check its claims (adaptive structure, modality and density; N=216 experiment) against the PDF before citing.</li>
+      <li>Not opened: the OASIS CAP 1.2 specification itself (blocked here). Search results quoting its certainty values agree with the Research Approach: Likely = p &gt; ~50%, Possible = possible but not likely, p &le; ~50%, Unlikely = p ~ 0. Read the spec once before citing. Also not opened: WCAG 1.3.1, 2.4.11 and 2.5.8 texts, Mileti &amp; Sorensen (1990), Sutton &amp; Kuligowski (2019), and the 2016 journal version of Ruginski et al.</li>
       <li>Sources linked to consensus.app were checked through that abstract record; their DOIs were not confirmed. Look up each DOI before adding it to the reference list.</li>
       <li>The catalogue cites Joddrell &amp; Astell for G77 and G81, but their abstracts do not report an icon-recognition finding. Boedeker et al. (2023) and Wu et al. (2022) are the checked alternatives.</li>
       <li>Liao et al. (2020)'s third author is Sarah Miller, not Tim Miller.</li>
-      <li>G66's catalogue marking is unclear (a very light yellow fill). It is listed as unconfirmed.</li>
     </ul>
   </section>
 </div>

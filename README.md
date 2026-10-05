@@ -5,7 +5,7 @@ Prototype for the UISE 2027 paper on adapting the explanation of a flood ML pred
 1. **Set up and select an explanation profile**
 2. **View a prediction and its explanation** ("Why?" and "How sure?" on request)
 
-The research plan is in [docs/research/research-approach-v3.pdf](docs/research/research-approach-v3.pdf). The 51 guidelines the screens must meet, with evidence, are in [docs/research/xai-guideline-evidence-catalogue.pdf](docs/research/xai-guideline-evidence-catalogue.pdf).
+The research plan is in [docs/research/research-approach-v3.pdf](docs/research/research-approach-v3.pdf). The 50 guidelines the screens must meet, with evidence, are in [docs/research/xai-guideline-evidence-catalogue.pdf](docs/research/xai-guideline-evidence-catalogue.pdf).
 
 ## Run the app
 

@@ -10,7 +10,7 @@ We will write an **8-page full paper** for UISE 2027: a requirements-driven way 
 
 - Task 1 triage is now Minindu's manual evaluation of all 128 guidelines, not a first-pass proposal.
 - The guideline tables moved to a separate evidence catalogue, with how each guideline is adapted in our flood EWS app and the published evidence for it.
-- 20 guidelines from the manual review of the catalogue were added to the 31 from the first triage (51 in total); none was removed.
+- 19 guidelines from the manual review of the catalogue were added to the 31 from the first triage (50 in total); none was removed.
 
 **What changed from version 1**
 
@@ -85,9 +85,9 @@ The Figma file itself could not be opened by automated tools. Prototype observat
 
 ## Task 1: Which requirements matter for XAI
 
-Minindu manually evaluated all 128 guidelines and found 51 that affect how a prediction is explained: 31 from the first triage (10 XAI-related, 21 both) and 20 more from a second manual review of the colour-coded catalogue. The rest are general UI.
+Minindu manually evaluated all 128 guidelines and found 50 that affect how a prediction is explained: 31 from the first triage (10 XAI-related, 21 both) and 19 more from a second manual review of the colour-coded catalogue. The rest are general UI.
 
-The full list is in a separate document, the [XAI guideline evidence catalogue](https://claude.ai/artifact/VFKhDQcpoD77yesowohsHx) (also exported as a PDF). For each guideline it gives the implication for the explanation, how to adapt it in our EWS app, and published evidence: 38 have direct evidence, 9 indirect, and 4 have none found and stay as our inference.
+The full list is in a separate document, the [XAI guideline evidence catalogue](https://claude.ai/artifact/VFKhDQcpoD77yesowohsHx) (also exported as a PDF). For each guideline it gives the implication for the explanation, how to adapt it in our EWS app, and published evidence: 38 have direct evidence, 9 indirect, and 3 have none found and stay as our inference.
 
 Classes follow Brief 1: **A** = general UI, **B** = XAI-related (changes what is explained or how it is understood), **C** = both. None of the 49 source papers discusses AI explanations, so every B and C implication is *inferred by us*. The paper must say this.
 
