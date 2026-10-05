@@ -42,6 +42,7 @@ The app uses Expo SDK 56. Read the versioned docs at https://docs.expo.dev/versi
 | `docs/walkthrough/` | Cognitive walkthrough protocol and evaluator sheets |
 | `docs/research/` | Research Approach, evidence catalogue, triage comparison |
 | `docs/ai-prompting-template.md` | The template for building a screen with AI |
+| `docs/prototype/build-plan.md` | Prototype build plan: what to start now, build order to the 29 Oct freeze, screens, shared components |
 
 ## Rules
 
