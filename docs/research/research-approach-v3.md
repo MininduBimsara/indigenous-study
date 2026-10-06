@@ -56,7 +56,7 @@ XAI for people with cognitive disabilities already exists, so our novelty has to
 
 | Work | What it does | What it leaves open for us |
 | --- | --- | --- |
-| [NeuroAdaptX (Bunde, DESRIST 2026)](https://link.springer.com/chapter/10.1007/978-3-032-28316-0_12) | Adapts explanation structure, modality and density to self-reported profiles (ADHD, autism, dyslexia); RCT, N=216; keeps explanation content the same | Closest competitor. No safety-critical or disaster setting, no RE process, adapts presentation only. Must be cited and contrasted. |
+| [NeuroAdaptX (Bunde, DESRIST 2026)](https://link.springer.com/chapter/10.1007/978-3-032-28316-0_12) | Adapts explanation structure, modality and density to self-reported condition profiles (ADHD, autism, dyslexia); derives 10 design requirements from cognitive theory; randomised online vignette experiment, N=216, in a digital-wellbeing task; checks informational equivalence with a pre-deployment checklist | Closest competitor. Low-stakes domain, profiles by condition label, requirements from theory not an accessibility catalogue, no requirement-to-capability mapping, presentation only, equivalence checked manually on fixed templates (no uncertainty). Must be cited and contrasted. |
 | [Tielman et al., "Explainable AI for all" (Technology in Society, 2024)](https://www.sciencedirect.com/science/article/pii/S0160791X24002331) | Roadmap for inclusive XAI for people with cognitive disabilities; recommends personalised, adaptive explanations | No disaster domain, no requirements specification or profile structure |
 | [ProfileXAI (Corrales et al., 2025)](https://arxiv.org/html/2510.22998) | SHAP/LIME/Anchor + LLM explanations for three user types (ML engineer, domain expert, lay user) | Profiles by expertise, not accessibility; healthcare |
 | [Accessible XAI survey (arXiv 2407.17484)](https://arxiv.org/abs/2407.17484) | Surveys accessibility of XAI, mostly visual impairment | Cognitive accessibility under-covered |
@@ -65,7 +65,7 @@ XAI for people with cognitive disabilities already exists, so our novelty has to
 
 **Gap statement for the paper:** no work turns cognitive accessibility requirements into explanation requirements for safety-critical ML predictions, specifies them as user-chosen profiles, and checks that adapted explanations stay faithful to the prediction.
 
-**Differentiation from NeuroAdaptX in one line:** they show presentation adaptation helps comprehension; we specify *what* must be explained, what software capability each explanation need depends on, and what can never be dropped in a safety-critical warning.
+**Differentiation from NeuroAdaptX in one line:** they show that presentation-level adaptation, checked for informational equivalence before deployment, improves comprehension in a low-stakes wellbeing task; we move this to safety-critical warnings, with profiles built from explanation needs rather than condition labels, requirements traced to software capabilities, and fidelity invariants (including uncertainty) checked at runtime. Details: [task1-leftover-checks.md](task1-leftover-checks.md).
 
 ## What our earlier work already shows
 
@@ -261,7 +261,7 @@ Same synthetic prediction everywhere: moderate risk, 30% likelihood of flooding 
 
 All three keep the hazard, the place, the time, the likelihood and the action. Only order, form and depth change.
 
-**Why "Possible":** as we recall, CAP 1.2 defines *Possible* as possible but not likely (p ≤ \~50%) and *Likely* as p > \~50%. That would make 30% → "Possible" a standard mapping. **To verify against the OASIS CAP 1.2 specification before citing.**
+**Why "Possible":** CAP 1.2 (OASIS, 2010, §3.2.2) defines *Possible* as "Possible but not likely (p <= \~50%)" and *Likely* as "Likely (p > \~50%)", so 30% → "Possible" is a standard mapping. Verified against the specification on 6 Oct 2026. Because *Unlikely* means p \~ 0, every value up to 50% is "Possible", which is why the picture or number stays available.
 
 ## Task 4: Prototype (React Native) from wireframes
 
@@ -418,7 +418,7 @@ Other dates: notification 11 Dec 2026, camera-ready 29 Jan 2027.
 
 - **Reviewer knows NeuroAdaptX:** without a clear contrast the paper reads as incremental. Mitigation: the positioning table and the one-line differentiation.
 - **5-page limit:** four tables plus two figures will not fit. Keep one summary table from Task 1 and move the full catalog triage to an online appendix.
-- **CAP definition unverified:** check the OASIS CAP 1.2 spec before relying on the "Possible" mapping.
+- **CAP definition:** verified against OASIS CAP 1.2 §3.2.2 on 6 Oct 2026 (see task1-leftover-checks.md).
 
 ### Open questions for the team
 
@@ -433,11 +433,11 @@ Other dates: notification 11 Dec 2026, camera-ready 29 Jan 2027.
 **External**
 
 - [UISE 2027 call for papers](https://conf.researchr.org/home/icse-2027/uise-2027)
-- [Bunde (2026), NeuroAdaptX: neuro-adaptive explanations for cognitive accessibility in XAI interfaces, DESRIST](https://link.springer.com/chapter/10.1007/978-3-032-28316-0_12)
+- [Bunde (2026), NeuroAdaptX: Designing Neuro-Adaptive Explanations for Cognitive Accessibility in Explainable AI Interfaces, DESRIST 2026, LNCS 16605, pp. 205–225](https://doi.org/10.1007/978-3-032-28316-0_12)
 - [Tielman et al. (2024), Explainable AI for all: a roadmap for inclusive XAI for people with cognitive disabilities, Technology in Society 79](https://www.sciencedirect.com/science/article/pii/S0160791X24002331)
 - [Corrales et al. (2025), ProfileXAI: user-adaptive explainable AI](https://arxiv.org/html/2510.22998)
 - [A survey of accessible explainable AI research](https://arxiv.org/abs/2407.17484)
-- OASIS Common Alerting Protocol v1.2, certainty values (to be checked directly)
+- [OASIS (2010), Common Alerting Protocol Version 1.2, §3.2.2](https://docs.oasis-open.org/emergency/cap/v1.2/CAP-v1.2-os.html)
 
 **Our materials**
 

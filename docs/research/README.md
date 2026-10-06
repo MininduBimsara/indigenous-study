@@ -11,5 +11,6 @@ Documents for the UISE 2027 paper that this prototype supports (Task 1: which EW
 | [xai-guideline-evidence-catalogue.html](xai-guideline-evidence-catalogue.html) | Same catalogue as a web page, with clickable source links. |
 | [why-a-second-evidence-check.md](why-a-second-evidence-check.md) | The answer to "the guidelines are already sourced, why check the evidence again?" |
 | [guideline-triage-differences.html](guideline-triage-differences.html) | Comparison of the manual colour marking of the 128-guideline spreadsheet against the Research Approach v2 triage. |
+| [task1-leftover-checks.md](task1-leftover-checks.md) | CAP 1.2 certainty wording and NeuroAdaptX claims, checked against the sources on 6 Oct 2026, with the corrections they caused. |
 
-Notes before citing anything from the catalogue are on its last page ("Check before citing").
+Notes before citing anything from the catalogue are on its last page ("Check before citing"); CAP 1.2 and NeuroAdaptX are now checked (see task1-leftover-checks.md).
