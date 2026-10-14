@@ -35,7 +35,8 @@
     "ios": "expo run:ios",
     "web": "expo start --web",
     "typecheck": "tsc --noEmit",
-    "colors:audit": "node scripts/audit-colors.js"
+    "colors:audit": "node scripts/audit-colors.js",
+    "check:invariants": "npx tsx model/__tests__/invariants.check.ts"
   },
   "private": true
 }

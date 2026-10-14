@@ -15,7 +15,7 @@
  *     changes the forecast (see forecast.ts).
  *
  * This sits beside the existing condition picker (UserPreferencesContext);
- * whether to drop that picker is an open question for the 15 Oct meeting.
+ * whether to drop that picker is an open question for the 16 Oct meeting.
  */
 
 export type PresetId = 'justTellMe' | 'showMeWhy' | 'howSure' | 'custom';
