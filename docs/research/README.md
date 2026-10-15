@@ -16,5 +16,8 @@ Documents for the UISE 2027 paper that this prototype supports (Task 1: which EW
 | [research-approach-v3.2.pdf](research-approach-v3.2.pdf) | Research Approach, version 3.2 (12 Oct 2026): Task 5 replaced by Framework v2, gap statement and NeuroAdaptX contrast. **Current version.** |
 | [research-approach-v3.2-changes.pdf](research-approach-v3.2-changes.pdf) | The eight changes from v3.1 to v3.2, each with before, after and why. |
 | [framework-v2.pdf](framework-v2.pdf) | Framework v2 (11 Oct 2026): run-time fidelity invariants, four layers, requirement → capability table, worked trace. |
+| [xai-framework-v2-guideline-coverage.xlsx](xai-framework-v2-guideline-coverage.xlsx) | The 50 guidelines checked against Framework v2. Final (14 Oct): 13 covered, 20 partly, 9 UI only, 8 not covered. The Gaps sheet lists what we fix and what we report as limitations. |
+| [how-to-check-the-50-guidelines.pdf](how-to-check-the-50-guidelines.pdf) | The method and first pass behind the coverage workbook. |
+| [rating-reaudit-llm-13oct.xlsx](rating-reaudit-llm-13oct.xlsx) | An LLM re-audit of the ratings (13 Oct). AI-assisted; **not an independent human rater**. |
 
 Notes before citing anything from the catalogue are on its last page ("Check before citing"); CAP 1.2 and NeuroAdaptX are now checked (see task1-leftover-checks.md).
