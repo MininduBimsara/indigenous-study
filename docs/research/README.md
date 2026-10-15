@@ -12,5 +12,8 @@ Documents for the UISE 2027 paper that this prototype supports (Task 1: which EW
 | [why-a-second-evidence-check.md](why-a-second-evidence-check.md) | The answer to "the guidelines are already sourced, why check the evidence again?" |
 | [guideline-triage-differences.html](guideline-triage-differences.html) | Comparison of the manual colour marking of the 128-guideline spreadsheet against the Research Approach v2 triage. |
 | [task1-leftover-checks.md](task1-leftover-checks.md) | CAP 1.2 certainty wording and NeuroAdaptX claims, checked against the sources on 6 Oct 2026, with the corrections they caused. |
+| [research-approach-v3.1.pdf](research-approach-v3.1.pdf) | Research Approach, version 3.1 (7 Oct 2026). |
+| [research-approach-v3.2.pdf](research-approach-v3.2.pdf) | Research Approach, version 3.2 (12 Oct 2026): Task 5 replaced by Framework v2, gap statement and NeuroAdaptX contrast. **Current version.** |
+| [research-approach-v3.2-changes.pdf](research-approach-v3.2-changes.pdf) | The eight changes from v3.1 to v3.2, each with before, after and why. |
 
 Notes before citing anything from the catalogue are on its last page ("Check before citing"); CAP 1.2 and NeuroAdaptX are now checked (see task1-leftover-checks.md).
