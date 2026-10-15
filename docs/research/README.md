@@ -15,5 +15,6 @@ Documents for the UISE 2027 paper that this prototype supports (Task 1: which EW
 | [research-approach-v3.1.pdf](research-approach-v3.1.pdf) | Research Approach, version 3.1 (7 Oct 2026). |
 | [research-approach-v3.2.pdf](research-approach-v3.2.pdf) | Research Approach, version 3.2 (12 Oct 2026): Task 5 replaced by Framework v2, gap statement and NeuroAdaptX contrast. **Current version.** |
 | [research-approach-v3.2-changes.pdf](research-approach-v3.2-changes.pdf) | The eight changes from v3.1 to v3.2, each with before, after and why. |
+| [framework-v2.pdf](framework-v2.pdf) | Framework v2 (11 Oct 2026): run-time fidelity invariants, four layers, requirement → capability table, worked trace. |
 
 Notes before citing anything from the catalogue are on its last page ("Check before citing"); CAP 1.2 and NeuroAdaptX are now checked (see task1-leftover-checks.md).
