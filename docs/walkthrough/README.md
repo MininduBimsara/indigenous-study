@@ -7,7 +7,7 @@ Persona-based cognitive walkthrough of the prototype (Research Approach v3, Task
 | File | What it is | Owner |
 | --- | --- | --- |
 | `protocol.md` | Personas, the five questions per step, bias control | Imansha |
-| `tasks.md` | T1–T5 broken into atomic steps with the optimal step count | Minindu |
+| [`tasks.md`](tasks.md) ([PDF](tasks.pdf)) | T1–T5 broken into atomic steps with the optimal step count (draft 15 Oct; counts confirmed against wireframes 22 Oct) | Minindu |
 | [`evaluator-sheet-template.csv`](evaluator-sheet-template.csv) | One row per task step; each evaluator fills their own copy | — |
 | `sheets/<evaluator>.csv` | Filled sheets, one per evaluator | each evaluator |
 | `defect-log.csv` | Merged defects with guideline IDs (added after all passes) | Minindu |
