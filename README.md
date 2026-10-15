@@ -5,7 +5,7 @@ Prototype for the UISE 2027 paper on adapting the explanation of a flood ML pred
 1. **Set up and select an explanation profile**
 2. **View a prediction and its explanation** ("Why?" and "How sure?" on request)
 
-The research plan is in [docs/research/research-approach-v3.pdf](docs/research/research-approach-v3.pdf). The 50 guidelines the screens must meet, with evidence, are in [docs/research/xai-guideline-evidence-catalogue.pdf](docs/research/xai-guideline-evidence-catalogue.pdf).
+The research plan is in [docs/research/approach/research-approach-v3.2.pdf](docs/research/approach/research-approach-v3.2.pdf). The 50 guidelines the screens must meet, with evidence, are in [docs/research/guidelines/xai-guideline-evidence-catalogue.pdf](docs/research/guidelines/xai-guideline-evidence-catalogue.pdf).
 
 ## Run the app
 
@@ -40,7 +40,7 @@ The app uses Expo SDK 56. Read the versioned docs at https://docs.expo.dev/versi
 | `docs/wireframes/` | One wireframe image per screen |
 | `docs/screen-specs/` | One short spec per screen, written from its wireframe |
 | `docs/walkthrough/` | Cognitive walkthrough protocol and evaluator sheets |
-| `docs/research/` | Research Approach, evidence catalogue, triage comparison |
+| `docs/research/` | Research Approach, framework, guideline evidence and coverage, related work (see its README) |
 | `docs/ai-prompting-template.md` | The template for building a screen with AI |
 | `docs/prototype/build-plan.md` | Prototype build plan: what to start now, build order to the 29 Oct freeze, screens, shared components |
 

@@ -65,7 +65,7 @@ XAI for people with cognitive disabilities already exists, so our novelty has to
 
 **Gap statement for the paper:** no work turns cognitive accessibility requirements into explanation requirements for safety-critical ML predictions, specifies them as user-chosen profiles, and checks that adapted explanations stay faithful to the prediction.
 
-**Differentiation from NeuroAdaptX in one line:** they show that presentation-level adaptation, checked for informational equivalence before deployment, improves comprehension in a low-stakes wellbeing task; we move this to safety-critical warnings, with profiles built from explanation needs rather than condition labels, requirements traced to software capabilities, and fidelity invariants (including uncertainty) checked at runtime. Details: [task1-leftover-checks.md](task1-leftover-checks.md).
+**Differentiation from NeuroAdaptX in one line:** they show that presentation-level adaptation, checked for informational equivalence before deployment, improves comprehension in a low-stakes wellbeing task; we move this to safety-critical warnings, with profiles built from explanation needs rather than condition labels, requirements traced to software capabilities, and fidelity invariants (including uncertainty) checked at runtime. Details: [task1-leftover-checks.md](../../related-work/task1-leftover-checks.md).
 
 ## What our earlier work already shows
 

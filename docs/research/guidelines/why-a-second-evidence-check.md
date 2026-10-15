@@ -16,6 +16,6 @@ So the second check doesn't re-justify the guidelines. It tests whether the assu
 
 ## Where this is used
 
-- Research Approach v3, Task 1: "Why check the evidence again" ([research-approach-v3.md](research-approach-v3.md))
+- Research Approach v3, Task 1: "Why check the evidence again" ([research-approach-v3.md](../approach/earlier-versions/research-approach-v3.md))
 - The evidence catalogue: 50 guidelines, 38 Direct, 9 Indirect, 3 none found ([xai-guideline-evidence-catalogue.pdf](xai-guideline-evidence-catalogue.pdf))
 - The three guidelines with no backing (G20, G42, G65) are listed in the Research Approach, Task 3, "Guidelines without published backing (3)"

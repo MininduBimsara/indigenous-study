@@ -8,11 +8,11 @@ What we bring to the meeting. The other meeting files are kept in their usual fo
 | --- | --- | --- |
 | 0 | [00-read-me-first.pdf](00-read-me-first.pdf) | What each output is and what to say about it (written 13 Oct) |
 | 0b | [00b-whats-new-15oct.pdf](00b-whats-new-15oct.pdf) | What was added or corrected since 14 Oct, including three issues found while writing the walkthrough tasks |
-| 1 | [Research Approach v3.2: changes](../../research/research-approach-v3.2-changes.pdf) | The eight changes since 7 Oct |
-| 2 | [Framework v2](../../research/framework-v2.pdf) | The framework and its figure |
-| 3 | [Guideline coverage](../../research/xai-framework-v2-guideline-coverage.xlsx) | 13 covered, 20 partly, 9 UI only, 8 not covered (Summary sheet) |
+| 1 | [Research Approach v3.2: changes](../../research/approach/research-approach-v3.2-changes.pdf) | The eight changes since 7 Oct |
+| 2 | [Framework v2](../../research/framework/framework-v2.pdf) | The framework and its figure |
+| 3 | [Guideline coverage](../../research/guidelines/xai-framework-v2-guideline-coverage.xlsx) | 13 covered, 20 partly, 9 UI only, 8 not covered (Summary sheet) |
 | 4 | [supervisor-questions.pdf](supervisor-questions.pdf) | Q1–Q3 with flood examples, options and a recommendation (the file title says 15 Oct; the meeting moved to 16 Oct) |
-| 5 | [Research Approach v3.2](../../research/research-approach-v3.2.pdf) | Full plan, only if asked for detail |
+| 5 | [Research Approach v3.2](../../research/approach/research-approach-v3.2.pdf) | Full plan, only if asked for detail |
 
 ## Decisions we need
 
