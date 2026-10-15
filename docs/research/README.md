@@ -19,5 +19,6 @@ Documents for the UISE 2027 paper that this prototype supports (Task 1: which EW
 | [xai-framework-v2-guideline-coverage.xlsx](xai-framework-v2-guideline-coverage.xlsx) | The 50 guidelines checked against Framework v2. Final (14 Oct): 13 covered, 20 partly, 9 UI only, 8 not covered. The Gaps sheet lists what we fix and what we report as limitations. |
 | [how-to-check-the-50-guidelines.pdf](how-to-check-the-50-guidelines.pdf) | The method and first pass behind the coverage workbook. |
 | [rating-reaudit-llm-13oct.xlsx](rating-reaudit-llm-13oct.xlsx) | An LLM re-audit of the ratings (13 Oct). AI-assisted; **not an independent human rater**. |
+| [related-work-notes.md](related-work-notes.md) | Checked facts with page numbers on NeuroAdaptX, Tielman et al. 2024 and Madugalla et al. 2025 (checked on the page, 11 Oct), plus three draft related-work paragraphs. |
 
 Notes before citing anything from the catalogue are on its last page ("Check before citing"); CAP 1.2 and NeuroAdaptX are now checked (see task1-leftover-checks.md).
